@@ -39,7 +39,7 @@ const toolCategories = [
 
 const Tools = () => {
   return (
-    <section className="relative py-24 bg-black overflow-hidden">
+    <section className="relative pt-20 pb-0 bg-black overflow-hidden">
       {/* Background Decor */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/5 rounded-full blur-[150px] -z-10"></div>
 

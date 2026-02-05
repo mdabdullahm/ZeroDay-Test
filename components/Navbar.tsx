@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 px-4 mt-4">
-      <div className="max-w-7xl mx-auto relative p-[1.5px] overflow-hidden rounded-2xl">
+      <div className="max-w-[1440px] mx-auto relative p-[1.5px] overflow-hidden rounded-2xl">
         
         {/* --- Rotating Border Animation (ভিডিওর ৩ নম্বর ইফেক্ট) --- */}
         <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] opacity-100">

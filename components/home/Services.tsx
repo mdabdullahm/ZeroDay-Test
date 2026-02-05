@@ -7,37 +7,37 @@ import { ShieldAlert, Globe, Database, Smartphone, Search, Binary, ArrowRight } 
 const services = [
   {
     title: "Web Infiltration",
-    description: "অ্যাডভান্সড ওয়েব অ্যাপ্লিকেশন পেনিট্রেশন টেস্টিং এবং SQLi, XSS বা SSRF এর মতো জটিল বাগ খুঁজে বের করা।",
+    description: "Advanced web application penetration testing and finding complex bugs like SQLi, XSS or SSRF.",
     icon: <Globe size={24} />,
     tag: "OWASP Top 10"
   },
   {
     title: "Network Breaching",
-    description: "আপনার লোকাল বা ক্লাউড নেটওয়ার্কের লুপহোল খুঁজে বের করে তা সুরক্ষিত করার প্রোটোকল।",
+    description: "A protocol for finding loopholes in your local or cloud network and securing it.",
     icon: <Binary size={24} />,
     tag: "Protocol Testing"
   },
   {
     title: "Android/iOS Security",
-    description: "মোবাইল অ্যাপ্লিকেশনের সোর্স কোড এনালাইসিস এবং রিভার্স ইঞ্জিনিয়ারিং এর মাধ্যমে নিরাপত্তা নিশ্চিত করা।",
+    description: "Ensuring security through source code analysis and reverse engineering of mobile applications.",
     icon: <Smartphone size={24} />,
     tag: "Mobile Lab"
   },
   {
     title: "Database Hardening",
-    description: "ডেটাবেস সার্ভারকে হ্যাকারদের হাত থেকে বাঁচাতে সিকিউরিটি লেয়ার এবং ইনজেকশন প্রোটেকশন।",
+    description: "Security layers and injection protection to protect the database server from hackers.",
     icon: <Database size={24} />,
     tag: "Data Armor"
   },
   {
     title: "Vulnerability Scan",
-    description: "অটোমেটেড এবং ম্যানুয়াল স্ক্যানিং এর মাধ্যমে জিরো-ডে (Zero-Day) থ্রেটগুলো শনাক্ত করা।",
+    description: "Identify zero-day threats through automated and manual scanning.",
     icon: <Search size={24} />,
     tag: "24/7 Monitoring"
   },
   {
     title: "Red Teaming",
-    description: "একটি আসল সাইবার অ্যাটাক সিমুলেট করে আপনার কোম্পানির সার্বিক নিরাপত্তা ব্যবস্থা পরীক্ষা করা।",
+    description: "Testing your company's overall security system by simulating a real cyber attack.",
     icon: <ShieldAlert size={24} />,
     tag: "Full Offensive"
   }

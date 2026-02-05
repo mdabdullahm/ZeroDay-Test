@@ -89,7 +89,7 @@ const About = () => {
             </h2>
 
             <p className="text-gray-400 text-lg leading-relaxed mb-8">
-              আমরা শুধু একটি ওয়েবসাইট নই, আমরা একটি উন্নত সাইবার সিকিউরিটি রিসার্চ ল্যাব। আমাদের লক্ষ্য হলো আধুনিক হুমকিগুলো বিশ্লেষণ করা এবং বিশ্বমানের নিরাপত্তা সমাধান প্রদান করা। আমরা বিশ্বাস করি, সেরা ডিফেন্স হলো অফেন্স বোঝা।
+              We are not just a website, we are an advanced cybersecurity research lab. Our mission is to analyze modern threats and provide world-class security solutions. We believe that the best defense is to understand the offense.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6 mb-10">
@@ -99,7 +99,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1">Our Mission</h4>
-                  <p className="text-sm text-gray-500">নিরাপদ ডিজিটাল জগত নিশ্চিত করা।</p>
+                  <p className="text-sm text-gray-500">Ensuring a safe digital world.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -108,7 +108,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-bold mb-1">Technology</h4>
-                  <p className="text-sm text-gray-500">লেটেস্ট এক্সপ্লোয়েট এবং AI টুলস ব্যবহার।</p>
+                  <p className="text-sm text-gray-500">Using the latest exploits and AI tools.</p>
                 </div>
               </div>
             </div>

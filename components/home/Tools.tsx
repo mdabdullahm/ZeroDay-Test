@@ -70,7 +70,7 @@ const Tools = () => {
             whileInView={{ opacity: 1 }}
             className="text-gray-500 font-mono text-sm max-w-xs border-l border-green-500/30 pl-4"
           >
-            সিস্টেম পেনিট্রেশন থেকে শুরু করে হাই-এন্ড ডেভেলপমেন্ট—আমরা সবখানে লেটেস্ট টুলস ব্যবহার করি।
+            From system penetration to high-end development—we use the latest tools everywhere.
           </motion.p>
         </div>
 

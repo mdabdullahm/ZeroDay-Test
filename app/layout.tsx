@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} ${jetbrainsMono.variable}`}>
       <body className=" font-poppins antialiased">
         <Navbar />
-        <main className="mt-26">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );

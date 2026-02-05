@@ -2,13 +2,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion'; // এনিমেশনের জন্য
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion'; 
 import { Terminal, Lock, ShieldCheck, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
+    { name: 'HOME', href: '/' },
     { name: 'Policy', href: '/policy' },
     { name: 'HoyZeroTest', href: '/hoyzerotest' },
     { name: 'Academy', href: '/academy' },
@@ -16,102 +19,119 @@ const Navbar = () => {
     { name: 'Contact Us', href: '/contact' },
   ];
 
+  const getButtonStyles = (path: string) => {
+    const isActive = pathname === path;
+    return isActive 
+      ? "bg-[#00c853] text-black shadow-[0_0_20px_rgba(0,200,83,0.6)] scale-105" 
+      : "bg-transparent text-green-500 border border-green-500/50 hover:bg-green-500/10";
+  };
+
   return (
-    <nav className="fixed top-0 w-full z-50 px-4 mt-4 perspective-1000">
-      <motion.div 
-        initial={{ opacity: 0, y: -20, rotateX: 15 }}
-        animate={{ opacity: 1, y: 0, rotateX: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-7xl mx-auto border border-green-500/40 bg-white/50 backdrop-blur-md rounded-2xl shadow-[0_10px_30px_rgba(34,197,94,0.2)] overflow-hidden"
-      >
-        <div className="px-6 h-20 flex items-center justify-between">
-          
-          {/* Logo Section - Hover করলে হালকা পালস করবে */}
-          <motion.div 
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 group cursor-pointer"
-          >
-            <div className="p-2 bg-green-500/10 rounded-lg border border-green-500/50 group-hover:shadow-[0_0_15px_#22c55e] transition-all">
-              <Terminal size={24} className="text-green-500" /> 
-            </div>
-            <Link href="/" className="text-xl font-bold tracking-tighter font-mono">
-              <span className="text-green-500">ZER0DAY</span>
-              <span className="text-black ml-1 underline decoration-green-500">TEST</span>
-            </Link>
-          </motion.div>
-
-          {/* Nav Links (Desktop) */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="text-black hover:text-green-400 text-sm font-mono font-medium transition-all relative group"
-              >
-                {link.name}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500"
-                  whileHover={{ width: '100%' }}
-                />
-              </Link>
-            ))}
-          </div>
-
-          {/* Login Buttons - Glowing Effect */}
-          <div className="hidden lg:flex items-center gap-4">
-            <motion.button 
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34,197,94,0.5)" }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-5 py-2 bg-green-600 text-black text-xs font-bold rounded-lg transition-all"
-            >
-              <Lock size={14} />
-              HACKER LOGIN
-            </motion.button>
-            
-            <motion.button 
-              whileHover={{ backgroundColor: "rgba(34,197,94,0.1)", scale: 1.05 }}
-              className="flex items-center gap-2 px-5 py-2 border border-green-500 text-green-500 text-xs font-bold rounded-lg transition-all"
-            >
-              <ShieldCheck size={14} />
-              CUSTOMER
-            </motion.button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-green-500 p-2">
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+    <nav className="fixed top-0 w-full z-50 px-4 mt-4">
+      <div className="max-w-7xl mx-auto relative p-[1.5px] overflow-hidden rounded-2xl">
+        
+        {/* --- Rotating Border Animation (ভিডিওর ৩ নম্বর ইফেক্ট) --- */}
+        <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] opacity-100">
+           <div className="w-full h-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_150deg,#00c853_180deg,transparent_210deg,transparent_360deg)]" />
         </div>
 
-        {/* Mobile Menu Dropdown with Animation */}
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden border-t border-green-900/50 bg-black/95 px-6 py-6 space-y-4"
-            >
+        {/* মেইন নেভবার বডি */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative w-full border border-white/5 bg-[#0b0f1a]/95 backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden"
+        >
+          <div className="px-6 h-16 flex items-center justify-between">
+            
+            {/* Logo Section */}
+            <Link href="/" className="flex items-center gap-2 group shrink-0">
+              <div className="p-2 bg-green-500/10 rounded-lg border border-green-500/20 group-hover:bg-green-500/20 transition-all">
+                <Terminal size={22} className="text-green-600" /> 
+              </div>
+              <span className="text-xl font-bold font-mono tracking-tighter">
+                <span className="text-green-600">ZER0DAY</span>
+                <span className="text-white ml-1 underline decoration-green-500 underline-offset-4">TEST</span>
+              </span>
+            </Link>
+
+            {/* Desktop Links - সাইজ বাড়িয়ে text-sm (14px) করা হয়েছে */}
+            <div className="hidden lg:flex items-center space-x-6">
               {navLinks.map((link) => (
                 <Link 
                   key={link.name} 
-                  href={link.href} 
-                  className="block text-green-500 text-lg font-mono hover:translate-x-2 transition-transform"
-                  onClick={() => setIsOpen(false)}
+                  href={link.href}
+                  className={`text-[14px] font-mono font-bold tracking-wider transition-all ${pathname === link.href ? 'text-green-500' : 'text-white hover:text-green-500'}`}
                 >
-                  {`> `}{link.name}
+                  {link.name}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 pt-4">
-                <button className="w-full py-3 bg-green-600 text-black font-bold rounded-xl shadow-lg shadow-green-900/20">HACKER LOGIN</button>
-                <button className="w-full py-3 border border-green-500 text-green-500 font-bold rounded-xl">CUSTOMER LOGIN</button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+            </div>
+
+            {/* Desktop Login Buttons - সাইজ বাড়িয়ে text-xs (12px) করা হয়েছে */}
+            <div className="hidden lg:flex items-center gap-3 shrink-0">
+              <Link href="/hacker-login">
+                <motion.button 
+                  whileHover={{ y: -2 }}
+                  className={`flex items-center gap-2 px-5 py-2.5 text-[12px] font-black tracking-widest rounded-xl transition-all duration-300 ${getButtonStyles('/hacker-login')}`}
+                >
+                  <Lock size={14} /> HACKER LOGIN
+                </motion.button>
+              </Link>
+              <Link href="/customer-login">
+                <motion.button 
+                  whileHover={{ y: -2 }}
+                  className={`flex items-center gap-2 px-5 py-2.5 text-[12px] font-black tracking-widest rounded-xl transition-all duration-300 ${getButtonStyles('/customer-login')}`}
+                >
+                  <ShieldCheck size={14} /> CUSTOMER LOGIN
+                </motion.button>
+              </Link>
+            </div>
+
+            {/* Mobile Toggle */}
+            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-green-600 p-2">
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                className="lg:hidden bg-[#0b0f1a] border-t border-white/5 overflow-hidden"
+              >
+                <div className="p-6 space-y-4">
+                  {navLinks.map((link) => (
+                    <Link 
+                      key={link.name} 
+                      href={link.href} 
+                      onClick={() => setIsOpen(false)}
+                      className={`block text-base font-mono font-bold tracking-widest ${pathname === link.href ? 'text-green-600' : 'text-gray-300'}`}
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                  
+                  <div className="flex flex-col gap-3 pt-4 border-t border-white/5">
+                    <Link href="/hacker-login" onClick={() => setIsOpen(false)}>
+                      <button className={`w-full py-4 flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-300 ${getButtonStyles('/hacker-login')}`}>
+                        <Lock size={18} /> HACKER LOGIN
+                      </button>
+                    </Link>
+                    <Link href="/customer-login" onClick={() => setIsOpen(false)}>
+                      <button className={`w-full py-4 flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-300 ${getButtonStyles('/customer-login')}`}>
+                        <ShieldCheck size={18} /> CUSTOMER LOGIN
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </nav>
   );
 };

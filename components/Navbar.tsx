@@ -17,14 +17,12 @@ const Navbar = () => {
   ];
 
   return (
-    // উপরে Gap এবং Rounded দেওয়ার জন্য mt-4 এবং rounded-2xl ব্যবহার করা হয়েছে
-    // 'perspective' এবং 'rotateX' দিয়ে কাত করা স্টাইল আনা হয়েছে
     <nav className="fixed top-0 w-full z-50 px-4 mt-4 perspective-1000">
       <motion.div 
         initial={{ opacity: 0, y: -20, rotateX: 15 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-7xl mx-auto border border-green-500/40 bg-black/80 backdrop-blur-md rounded-2xl shadow-[0_10px_30px_rgba(34,197,94,0.2)] overflow-hidden"
+        className="max-w-7xl mx-auto border border-green-500/40 bg-white/50 backdrop-blur-md rounded-2xl shadow-[0_10px_30px_rgba(34,197,94,0.2)] overflow-hidden"
       >
         <div className="px-6 h-20 flex items-center justify-between">
           
@@ -38,7 +36,7 @@ const Navbar = () => {
             </div>
             <Link href="/" className="text-xl font-bold tracking-tighter font-mono">
               <span className="text-green-500">ZER0DAY</span>
-              <span className="text-white ml-1 underline decoration-green-500">TEST</span>
+              <span className="text-black ml-1 underline decoration-green-500">TEST</span>
             </Link>
           </motion.div>
 
@@ -48,7 +46,7 @@ const Navbar = () => {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-gray-400 hover:text-green-400 text-sm font-mono font-medium transition-all relative group"
+                className="text-black hover:text-green-400 text-sm font-mono font-medium transition-all relative group"
               >
                 {link.name}
                 <motion.span 

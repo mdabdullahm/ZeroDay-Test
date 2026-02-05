@@ -1,4 +1,5 @@
 import About from "@/components/home/About";
+import CaseStudies from "@/components/home/CaseStudies";
 import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import Tools from "@/components/home/Tools";
@@ -15,6 +16,8 @@ export default function Home() {
       <Services/> 
       {/* Skills & Tools section 4 */}
       <Tools/>
+      {/* Case Studies section 5 */}
+      <CaseStudies/>
     </main>
   );
 }

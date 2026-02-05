@@ -36,7 +36,7 @@ const cases = [
 
 const CaseStudies = () => {
   return (
-    <section className="relative bg-black pt-0 pb-16 overflow-hidden -mt-5 md:-mt-20 lg:-mt-24 z-20">
+    <section className="relative bg-black pt-0 pb-16 overflow-hidden -mt-52 md:-mt-20 lg:-mt-24 z-20">
       {/* Background Decor */}
       <div className="absolute top-0 left-1/4 w-[2px] h-full bg-gradient-to-b from-transparent via-green-500/10 to-transparent"></div>
 

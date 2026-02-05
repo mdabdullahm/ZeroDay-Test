@@ -36,7 +36,7 @@ const Navbar = () => {
             </div>
             <Link href="/" className="text-xl font-bold tracking-tighter font-mono">
               <span className="text-green-500">ZER0DAY</span>
-              <span className="text-black ml-1 underline decoration-green-500"></span>
+              <span className="text-black ml-1 underline decoration-green-500">TEST</span>
             </Link>
           </motion.div>
 

@@ -14,23 +14,26 @@ const Hero = () => {
                     backgroundSize: '40px 40px' }}>
       </div>
       
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
+      {/* --- ২ কোনায় ফিক্সড গ্লো (Ambient Glow) --- */}
+      <div className="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute bottom-[0%] right-[-5%] w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] -z-10"></div>
 
-      <div className="max-w-full mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      {/* কন্টেইনার আপডেট: max-w-full এর বদলে max-w-[1440px] এবং বড় স্ক্রিনে প্যাডিং বাড়ানো হয়েছে */}
+      <div className="max-w-[1440px] w-full mx-auto px-6 lg:px-12 xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-20 xl:gap-32 items-center relative z-10">
         
         {/* Left Content */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="w-full"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/5 mb-6">
             <ShieldAlert size={14} className="text-green-500" />
             <span className="text-[10px] font-mono font-bold text-green-500 uppercase tracking-widest">System Status: Secure</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-semibold leading-tight mb-6">
+          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-semibold leading-tight mb-6">
             Master the Art<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
               Cyber Warfare
@@ -53,15 +56,15 @@ const Hero = () => {
           {/* Stats */}
           <div className="mt-12 grid grid-cols-3 gap-8 border-t border-green-500/10 pt-8">
             <div>
-              <p className="text-2xl font-bold text-white">500+</p>
+              <p className="text-2xl lg:text-3xl font-bold text-white">500+</p>
               <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Exploits</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-white">99%</p>
+              <p className="text-2xl lg:text-3xl font-bold text-white">99%</p>
               <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Success Rate</p>
             </div>
             <div>
-              <p className="text-2xl font-bold text-white">24/7</p>
+              <p className="text-2xl lg:text-3xl font-bold text-white">24/7</p>
               <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Monitoring</p>
             </div>
           </div>
@@ -72,7 +75,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative w-full"
         >
           <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
             {/* Terminal Header */}
@@ -88,7 +91,7 @@ const Hero = () => {
             </div>
             
             {/* Terminal Body */}
-            <div className="p-6 font-mono text-sm leading-relaxed">
+            <div className="p-6 lg:p-10 font-mono text-sm leading-relaxed">
               <p className="text-green-500 mb-2">root@zeroday:~# <span className="text-white">initializing bypass_protocol...</span></p>
               <p className="text-blue-400 mb-2">[INFO] <span className="text-gray-400">Target identified: 192.168.1.105</span></p>
               <p className="text-yellow-500 mb-2">[WARN] <span className="text-gray-400">Firewall detected. Attempting injection...</span></p>

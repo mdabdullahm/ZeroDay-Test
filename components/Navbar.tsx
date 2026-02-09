@@ -30,12 +30,12 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 px-4 mt-4">
       <div className="max-w-full mx-auto relative p-[1.5px] overflow-hidden rounded-2xl">
         
-        {/* --- Rotating Border Animation (ভিডিওর ৩ নম্বর ইফেক্ট) --- */}
+        {/* --- Rotating Border Animation  --- */}
         <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] opacity-100">
            <div className="w-full h-full bg-[conic-gradient(from_0deg,transparent_0deg,transparent_150deg,#00c853_180deg,transparent_210deg,transparent_360deg)]" />
         </div>
 
-        {/* মেইন নেভবার বডি */}
+        {/* main navber body */}
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,8 +45,8 @@ const Navbar = () => {
             
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-2 group shrink-0">
-              <div className="p-2 bg-green-500/10 rounded-lg border border-green-500/20 group-hover:bg-green-500/20 transition-all">
-                <Terminal size={22} className="text-green-600" /> 
+              <div>
+                <img src="/ZeroDay Test Logo.png" alt=""  className='w-10 h-10'/>
               </div>
               <span className="text-xl font-bold font-mono tracking-tighter">
                 <span className="text-green-600">ZER0DAY</span>

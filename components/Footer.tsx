@@ -42,8 +42,8 @@ const Footer = () => {
           {/* Column 1: Brand & Identity */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="p-2 bg-green-500/10 rounded-lg border border-green-500/30 group-hover:bg-green-500 transition-all">
-                <Terminal size={20} className="text-green-500 group-hover:text-black" /> 
+              <div>
+                <img src="/ZeroDay Test Logo.png" alt=""  className='w-10 h-10'/>
               </div>
               <span className="text-xl font-bold font-mono tracking-tighter">
                 <span className="text-green-500">ZER0DAY</span>

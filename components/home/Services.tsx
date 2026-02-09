@@ -1,6 +1,4 @@
 "use client";
-
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldAlert, Globe, Database, Smartphone, Search, Binary, ArrowRight } from 'lucide-react';
 

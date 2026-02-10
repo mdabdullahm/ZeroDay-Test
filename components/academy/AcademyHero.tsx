@@ -5,17 +5,12 @@ import { GraduationCap, BookOpen, Terminal, Zap, ShieldCheck, PlayCircle, Trophy
 const AcademyHero = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-32 pb-20 overflow-hidden bg-black text-white">
-      
-      {/* Background Decor - Matrix Grid */}
-      <div className="absolute inset-0 z-0 opacity-20 pointer-events-none" 
-           style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
-      </div>
 
       {/* Blue & Green Ambient Glows */}
       <div className="absolute top-0 left-[-5%] w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
       <div className="absolute bottom-0 right-[-5%] w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] -z-10"></div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10 w-full">
+      <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Side: Content */}

@@ -7,14 +7,7 @@ import { User, Target, Cpu, ShieldCheck, Fingerprint, ChevronRight } from 'lucid
 const About = () => {
     return (
         <section className="relative py-24 bg-black overflow-hidden">
-            {/* Background Decor - Matrix Grid Effect */}
-            <div className="absolute inset-0 z-0 opacity-20"
-                style={{
-                    backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
-                    backgroundSize: '40px 40px'
-                }}>
-            </div>
-            {/* Background Decor - হালকা গ্লো শুধু এই সেকশনের জন্য */}
+            {/* Background Decor  */}
             <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[100px] -z-10"></div>
 
             <div className="max-w-full mx-auto px-6 lg:px-20">

@@ -44,13 +44,6 @@ const services = [
 const Services = () => {
     return (
         <section className="relative py-24 bg-black overflow-hidden">
-            {/* Background Decor - Matrix Grid Effect */}
-            <div className="absolute inset-0 z-0 opacity-20"
-                style={{
-                    backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
-                    backgroundSize: '40px 40px'
-                }}>
-            </div>
 
             {/* Background Decor - Corner Glows */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-green-500/5 rounded-full blur-[120px] -z-10"></div>

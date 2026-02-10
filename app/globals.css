@@ -10,3 +10,20 @@
   background: white;
   color: black;
 }
+
+@layer base {
+  html, body {
+    cursor: none !important;
+  }
+
+  @media (max-width: 1024px) {
+    html, body {
+      cursor: auto !important;
+    }
+    .fixed { display: block; } 
+  }
+  
+  a, button, [role="button"] {
+    cursor: none !important;
+  }
+}

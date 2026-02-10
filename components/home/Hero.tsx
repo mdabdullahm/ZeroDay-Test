@@ -6,12 +6,6 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden bg-black text-white">
       
-      {/* Background Decor - Matrix Grid Effect */}
-      <div className="absolute inset-0 z-0 opacity-20" 
-           style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', 
-                    backgroundSize: '40px 40px' }}>
-      </div>
-      
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
 

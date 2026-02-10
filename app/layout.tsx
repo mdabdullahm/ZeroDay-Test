@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/layout/CustomCursor";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <CustomCursor />
         <Navbar />
         <main>{children}</main>
+        <ScrollToTop />
         <Footer/>
       </body>
     </html>

@@ -29,15 +29,16 @@
 } */
 
 @layer base {
-  /* সব ডিভাইসে ডিফল্ট কার্সর হাইড করো */
-  html, body, a, button {
-    cursor: none !important;
+  /* শুধুমাত্র যেসব ডিভাইসে মাউস আছে (Desktop/Laptop), সেখানে ডিফল্ট কার্সর হাইড হবে */
+  @media (pointer: fine) {
+    html, body, a, button, [role="button"] {
+      cursor: none !important;
+    }
   }
 
-  /* টাচ ডিভাইসেও যাতে কাস্টম কার্সর সুন্দরভাবে দেখা যায় */
-  * {
-    touch-action: none; /* এটি দিলে স্ক্রল করতে সমস্যা হতে পারে, তাই সাবধানে ব্যবহার করো */
-    /* বিকল্প সমাধান: */
+  /* মোবাইলে ডিফল্ট স্ক্রলিং এবং কার্সর ঠিক রাখার জন্য */
+  html, body {
+    touch-action: manipulation; /* এটি স্ক্রলিং অ্যালাউ করে কিন্তু ডাবল ট্যাপ জুম বন্ধ করে */
     -webkit-tap-highlight-color: transparent;
   }
 }

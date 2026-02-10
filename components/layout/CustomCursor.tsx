@@ -5,68 +5,63 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false); // মোবাইলে টাচ না করলে হাইড থাকবে
+  const [isVisible, setIsVisible] = useState(false);
   
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(-100);
+  const mouseY = useMotionValue(-100);
 
-  const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
+  const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
-    // মাউস মুভমেন্ট (ডেস্কটপ)
+    // মাউস মুভমেন্ট
     const moveMouse = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      setIsVisible(true);
+      if (!isVisible) setIsVisible(true);
     };
 
-    // টাচ মুভমেন্ট (মোবাইল)
+    // মোবাইল টাচ মুভমেন্ট
     const moveTouch = (e: TouchEvent) => {
       if (e.touches.length > 0) {
         mouseX.set(e.touches[0].clientX);
         mouseY.set(e.touches[0].clientY);
-        setIsVisible(true);
+        if (!isVisible) setIsVisible(true);
       }
     };
 
     const handleHoverStart = () => setIsHovered(true);
     const handleHoverEnd = () => setIsHovered(false);
-    const handleMouseLeave = () => setIsVisible(false);
 
-    // ইভেন্ট লিসেনার যোগ করা
     window.addEventListener("mousemove", moveMouse);
-    window.addEventListener("touchmove", moveTouch);
-    window.addEventListener("touchstart", moveTouch);
-    window.addEventListener("mouseleave", handleMouseLeave);
-    
-    const targets = document.querySelectorAll("button, a, .cursor-pointer");
-    targets.forEach((target) => {
-      target.addEventListener("mouseenter", handleHoverStart);
-      target.addEventListener("mouseleave", handleHoverEnd);
-      // মোবাইলে টাচ করলে বড় হওয়ার জন্য
-      target.addEventListener("touchstart", handleHoverStart);
-      target.addEventListener("touchend", handleHoverEnd);
-    });
+    window.addEventListener("touchstart", moveTouch, { passive: true }); // passive: true স্ক্রলিং ঠিক রাখে
+    window.addEventListener("touchmove", moveTouch, { passive: true });
+
+    // ইন্টারঅ্যাক্টিভ এলিমেন্টগুলো সিলেক্ট করা
+    const updateTargets = () => {
+      const targets = document.querySelectorAll("button, a, .cursor-pointer");
+      targets.forEach((target) => {
+        target.addEventListener("mouseenter", handleHoverStart);
+        target.addEventListener("mouseleave", handleHoverEnd);
+        target.addEventListener("touchstart", handleHoverStart, { passive: true });
+        target.addEventListener("touchend", handleHoverEnd);
+      });
+    };
+
+    updateTargets();
 
     return () => {
       window.removeEventListener("mousemove", moveMouse);
-      window.removeEventListener("touchmove", moveTouch);
       window.removeEventListener("touchstart", moveTouch);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      targets.forEach((target) => {
-        target.removeEventListener("mouseenter", handleHoverStart);
-        target.removeEventListener("mouseleave", handleHoverEnd);
-        target.removeEventListener("touchstart", handleHoverStart);
-        target.removeEventListener("touchend", handleHoverEnd);
-      });
+      window.removeEventListener("touchmove", moveTouch);
     };
-  }, [mouseX, mouseY]);
+  }, [mouseX, mouseY, isVisible]);
 
   return (
+    // মোবাইলে আঙুলের নিচেই যেন সার্কেল থাকে তাই z-index ঠিক রাখা হয়েছে
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center"
+      className="fixed top-0 left-0 pointer-events-none z-[9999]"
       style={{
         x: cursorX,
         y: cursorY,
@@ -75,21 +70,20 @@ const CustomCursor = () => {
         opacity: isVisible ? 1 : 0,
       }}
     >
-      {/* ১. মাঝখানের ডট */}
-      <div className="w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_10px_#22c55e]"></div>
+      {/* মেইন নিওন ডট */}
+      <div className="w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_12px_#22c55e]"></div>
 
-      {/* ২. বাইরের গ্লোয়িং সার্কেল */}
+      {/* গ্লোয়িং রিং */}
       <motion.div
-        className="absolute border border-green-500/50 rounded-full"
+        className="absolute inset-0 flex items-center justify-center"
         animate={{
           width: isHovered ? 60 : 30,
           height: isHovered ? 60 : 30,
-          backgroundColor: isHovered ? "rgba(34, 197, 94, 0.15)" : "rgba(34, 197, 94, 0)",
-          borderWidth: isHovered ? "2px" : "1px",
         }}
-        transition={{ type: "spring", stiffness: 250, damping: 25 }}
       >
-        {/* সার্কেলের ভেতর সেই স্ক্যান লাইন */}
+        <div className="w-full h-full border border-green-500/40 rounded-full bg-green-500/5 backdrop-blur-[1px]"></div>
+        
+        {/* সার্কেলের ভেতরে ছোট স্ক্যান লাইন */}
         <div className="absolute inset-0 rounded-full overflow-hidden opacity-20">
            <motion.div 
              animate={{ top: ['-100%', '100%'] }}
@@ -99,11 +93,11 @@ const CustomCursor = () => {
         </div>
       </motion.div>
 
-      {/* ৩. চারপাশের ছোট টেকনিক্যাল ফ্রেম (হ্যাকার লুকের জন্য) */}
+      {/* বাইরের রোটেটিং ফ্রেম */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className={`absolute border-2 border-t-green-500/30 border-r-transparent border-b-green-500/30 border-l-transparent rounded-full ${isHovered ? 'w-20 h-20' : 'w-12 h-12'}`}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        className={`absolute border border-t-green-500/20 border-r-transparent border-b-green-500/20 border-l-transparent rounded-full ${isHovered ? 'w-20 h-20' : 'w-10 h-10'}`}
       />
     </motion.div>
   );

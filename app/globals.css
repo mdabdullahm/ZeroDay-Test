@@ -29,16 +29,16 @@
 } */
 
 @layer base {
-  /* শুধুমাত্র যেসব ডিভাইসে মাউস আছে (Desktop/Laptop), সেখানে ডিফল্ট কার্সর হাইড হবে */
+  /* শুধুমাত্র পিসি বা ল্যাপটপের জন্য কার্সর হাইড হবে */
   @media (pointer: fine) {
-    html, body, a, button, [role="button"] {
+    html, body, a, button, .cursor-pointer {
       cursor: none !important;
     }
   }
 
-  /* মোবাইলে ডিফল্ট স্ক্রলিং এবং কার্সর ঠিক রাখার জন্য */
+  /* মোবাইলে স্ক্রলিং ঠিক রাখার জন্য */
   html, body {
-    touch-action: manipulation; /* এটি স্ক্রলিং অ্যালাউ করে কিন্তু ডাবল ট্যাপ জুম বন্ধ করে */
     -webkit-tap-highlight-color: transparent;
+    /* touch-action: none; এই লাইনটি ভুলে দেওয়া যাবে না */
   }
 }

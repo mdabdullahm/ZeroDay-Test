@@ -11,7 +11,7 @@
   color: black;
 }
 
-@layer base {
+/* @layer base {
   html, body {
     cursor: none !important;
   }
@@ -26,7 +26,8 @@
   a, button, [role="button"] {
     cursor: none !important;
   }
-}
+} */
+
 @layer base {
   /* সব ডিভাইসে ডিফল্ট কার্সর হাইড করো */
   html, body, a, button {

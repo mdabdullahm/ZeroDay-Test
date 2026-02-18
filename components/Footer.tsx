@@ -3,13 +3,48 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Terminal, Github, Twitter, Linkedin, Youtube, ShieldCheck, Cpu, Globe, Zap, ChevronRight, Mail } from 'lucide-react';
+import { Terminal, Github, Twitter, Linkedin, Youtube, ShieldCheck, Cpu, Globe, Zap, ChevronRight } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const footerData = {
+    products: {
+      title: "Products",
+      main: [
+        { 
+          name: "Penetration Testing", 
+          subItems: [
+            "Pen Test as a Service",
+            "Continuous Attack Surface Pen Testing",
+            "Web Application Pen Test",
+            "Mobile App Pen Test",
+            "Network Pen Test",
+            "API Pen Test",
+            "IoT Pen Test",
+            "Cloud Pen Test",
+            "Social Engineering Pen Test"
+          ]
+        },
+        { name: "Red Team as a Service", href: "#" },
+        { name: "Bug Bounty", href: "#" },
+        { name: "Vulnerability Disclosure", href: "#" },
+        { name: "Attack Surface Management", href: "#" }
+      ]
+    },
+    industries: [
+      "Financial Services", "Healthcare", "Retail", "Automotive", "Technology", "Government", "Security"
+    ],
+    forHackers: [
+      "Programs", "CrowdStream", "Bug Bounty List", "Start Hacking", "FAQs", "Hacker Docs", "Bugcrowd University", "Leaderboard"
+    ],
+    company: [
+      "About", "Trust & Security", "Career", "Press", "Events", "Contact"
+    ]
+  };
+
   return (
-    <footer className="relative bg-black border-t border-green-500 pt-20 pb-10 overflow-hidden font-sans">
+    <footer className="relative bg-black border-t border-green-500/10 pt-20 pb-10 overflow-hidden font-sans">
       
       {/* Background Matrix Grid */}
       <div className="absolute inset-0 z-0 opacity-5 pointer-events-none" 
@@ -20,99 +55,82 @@ const Footer = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
           
-          {/* ১. আমাদের সার্ভিস (Products Section) */}
+          {/* Column 1: Products (Wide) */}
           <div className="lg:col-span-1">
             <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm border-b border-green-500/20 pb-2">
-               Services
+               Products
             </h4>
             <ul className="space-y-4">
-              <li className="group">
-                <Link href="/services" className="text-gray-400 font-bold text-xs uppercase block mb-3 hover:text-green-500 transition-colors">
-                  Penetration Testing
-                </Link>
-                <ul className="pl-4 space-y-2 border-l border-green-500/10 ml-1">
-                  <li><Link href="/services" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">Web Application Test</Link></li>
-                  <li><Link href="/services" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">Mobile App Pen Test</Link></li>
-                  <li><Link href="/services" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">Network & API Audit</Link></li>
-                  <li><Link href="/services" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">Cloud Infrastructure</Link></li>
-                </ul>
-              </li>
-              <li><Link href="/services" className="text-gray-400 font-bold text-xs uppercase hover:text-green-500 transition-colors">Red Team Ops</Link></li>
-              <li><Link href="/services" className="text-gray-400 font-bold text-xs uppercase hover:text-green-500 transition-colors">Bug Bounty Programs</Link></li>
-            </ul>
-          </div>
-
-          {/* ২. আমাদের একাডেমি (For Hackers Section) */}
-          <div>
-            <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm border-b border-orange-500/20 pb-2">
-               Academy
-            </h4>
-            <ul className="space-y-3">
-              {[
-                { name: "Learning Tracks", href: "/academy" },
-                { name: "Course Modules", href: "/academy" },
-                { name: "Live Labs", href: "/academy" },
-                { name: "Certifications", href: "/academy" },
-                { name: "Hacker Dashboard", href: "/hacker-login" },
-                { name: "FAQs", href: "/academy" }
-              ].map((link, i) => (
-                <li key={i}>
-                  <Link href={link.href} className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
-                    <ChevronRight size={10} className="text-gray-800 group-hover:text-green-500" />
-                    {link.name}
-                  </Link>
+              {footerData.products.main.map((item, i) => (
+                <li key={i} className="group">
+                  <span className="text-gray-400 font-bold text-xs uppercase block mb-3">{item.name}</span>
+                  {item.subItems && (
+                    <ul className="pl-4 space-y-2 border-l border-green-500/10 ml-1">
+                      {item.subItems.map((sub, j) => (
+                        <li key={j}>
+                          <Link href="#" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">
+                            {sub}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ৩. কেন আমরা? (HoyZeroTest Section) */}
+          {/* Column 2: Industries */}
           <div>
             <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm border-b border-green-500/20 pb-2">
-               Why ZeroDay?
+               Industries
             </h4>
             <ul className="space-y-3">
-              {[
-                { name: "Mission Briefing", href: "/hoyzerotest" },
-                { name: "Our Methodology", href: "/hoyzerotest" },
-                { name: "Testing Scope", href: "/hoyzerotest" },
-                { name: "Tech Stack", href: "/hoyzerotest" },
-                { name: "Sample Findings", href: "/hoyzerotest" },
-                { name: "Zero-Day Ethics", href: "/hoyzerotest" }
-              ].map((link, i) => (
+              {footerData.industries.map((item, i) => (
                 <li key={i}>
-                  <Link href={link.href} className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
+                  <Link href="#" className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
                     <div className="w-1 h-1 bg-green-900 rounded-full group-hover:bg-green-500 transition-all"></div>
-                    {link.name}
+                    {item}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ৪. কোম্পানি ও পলিসি (Company Section) */}
+          {/* Column 3: For Hackers */}
           <div>
+            <h4 className="text-[#f97316] font-black mb-6 uppercase tracking-widest text-sm border-b border-orange-500/20 pb-2">
+               For Hackers
+            </h4>
+            <ul className="space-y-3">
+              {footerData.forHackers.map((item, i) => (
+                <li key={i}>
+                  <Link href="#" className="text-gray-500 text-xs hover:text-orange-500 transition-colors flex items-center gap-2 group">
+                    <ChevronRight size={10} className="text-gray-800 group-hover:text-orange-500" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Company */}
+          <div className="lg:col-span-1">
             <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm border-b border-green-500/20 pb-2">
                Company
             </h4>
             <ul className="space-y-4">
-              {[
-                { name: "Who Am I", href: "/about" },
-                { name: "Policy Overview", href: "/policy" },
-                { name: "Privacy Protocol", href: "/policy" },
-                { name: "Secure Disclosure", href: "/policy" },
-                { name: "Contact Nodes", href: "/contact" }
-              ].map((link, i) => (
+              {footerData.company.map((item, i) => (
                 <li key={i}>
-                  <Link href={link.href} className="text-gray-300 text-sm font-medium hover:text-green-500 transition-colors block">
-                    {link.name}
+                  <Link href="#" className="text-gray-300 text-sm font-medium hover:text-green-500 transition-colors block">
+                    {item}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ৫. সোশ্যাল ও লোগো (Socials Section) */}
+          {/* Column 5: Branding & Socials */}
           <div className="space-y-8">
             <div className="flex flex-col gap-4">
                <h4 className="text-white font-black uppercase tracking-widest text-sm">Follow Us</h4>
@@ -133,10 +151,10 @@ const Footer = () => {
                   <span className="text-white ml-1">TEST</span>
                 </span>
               </Link>
-              <div className="text-[10px] text-gray-600 leading-relaxed font-mono uppercase">
-                <p className="flex items-center gap-2"><Zap size={10} className="text-green-900" /> All Nodes Online</p>
-                <p className="flex items-center gap-2"><ShieldCheck size={10} className="text-green-900" /> Security: Maximum</p>
-              </div>
+              <p className="text-[10px] text-gray-600 leading-relaxed font-mono uppercase">
+                &gt; Status: All Nodes Secure <br />
+                &gt; Security Level: Maximum
+              </p>
             </div>
           </div>
 
@@ -145,9 +163,9 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex gap-6 text-[10px] font-mono text-gray-700 uppercase tracking-widest">
-             <Link href="/policy" className='hover:text-green-500 transition-colors'>Policy</Link>
-             <Link href="/contact" className='hover:text-green-500 transition-colors'>Uplink</Link>
-             <Link href="mailto:secure@zerodaytest.com" className='hover:text-green-500 transition-colors'>Mail</Link>
+             <Link href="/policy" className='hover:text-green-500 transition-colors'>Privacy Policy</Link>
+             <Link href="/policy" className='hover:text-green-500 transition-colors'>Terms</Link>
+             <Link href="/contact" className='hover:text-green-500 transition-colors'>Security</Link>
           </div>
           
           <div className="text-[10px] font-mono text-gray-800 uppercase tracking-widest">

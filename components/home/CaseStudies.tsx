@@ -11,7 +11,7 @@ const cases = [
     category: "Network Pentest",
     status: "Success",
     date: "JAN 2024",
-    description: "একটি মাল্টিন্যাশনাল কোম্পানির ইন্টারনাল নেটওয়ার্কের সিকিউরিটি হোল খুঁজে বের করে তা প্যাচ করা হয়েছে।",
+    description: "A security hole in the internal network of a multinational company has been discovered and patched.",
     tools: ["Nmap", "Metasploit", "Wireshark"]
   },
   {
@@ -20,7 +20,7 @@ const cases = [
     category: "Web Security",
     status: "Classified",
     date: "MAR 2024",
-    description: "একটি ই-কমার্স প্ল্যাটফর্মের পেমেন্ট গেটওয়েতে থাকা ক্রিটিক্যাল ভলনারেবিলিটি শনাক্তকরণ।",
+    description: "Identification of critical vulnerabilities in the payment gateway of an e-commerce platform.",
     tools: ["Burp Suite", "SQLMap", "Python"]
   },
   {
@@ -29,7 +29,7 @@ const cases = [
     category: "Forensics",
     status: "Archived",
     date: "MAY 2024",
-    description: "নতুন একটি র‍্যানসামওয়্যার স্ট্রেইন বিশ্লেষণ করে তার ডিক্রিপশন মেকানিজম বের করা।",
+    description: "Analyzing a new ransomware strain and figuring out its decryption mechanism.",
     tools: ["Ghidra", "OllyDbg", "C++"]
   }
 ];
@@ -58,7 +58,7 @@ const CaseStudies = () => {
           >
             Recent <span className="text-green-500">Operations</span>
           </motion.h2>
-          <p className="text-gray-500 max-w-xl font-light">আমাদের সফল কিছু পেনিট্রেশন টেস্টিং এবং সাইবার সিকিউরিটি ইনভেস্টিগেশন রিপোর্ট। (সিকিউরিটি খাতিরে কিছু তথ্য গোপন রাখা হয়েছে)</p>
+          <p className="text-gray-500 max-w-xl font-light">Some of our successful penetration testing and cybersecurity investigation reports. (Some information has been withheld for security reasons)</p>
         </div>
 
         {/* Case Studies Grid */}

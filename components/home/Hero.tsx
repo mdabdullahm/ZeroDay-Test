@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
 
       {/* এখানে max-w-full এর বদলে max-w-[1536px] (2xl) অথবা আরও বড় উইডথ ব্যবহার করা হয়েছে */}
-      <div className="max-w-[1600px] w-full mx-auto px-6 md:px-12 lg:px-16 xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-24 xl:gap-32 items-center relative z-10">
+      <div className="max-w-[1600px] w-full mx-auto px-6 md:px-12 lg:px-16 xl:px-25 grid lg:grid-cols-2 gap-12 lg:gap-24 xl:gap-32 items-center relative z-10">
         
         {/* Left Content */}
         <motion.div 
@@ -150,7 +150,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative Floating Icon wwwwwwwwwwwwww*/}
+          {/* Decorative Floating Icon */}
           <motion.div 
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 4, repeat: Infinity }}

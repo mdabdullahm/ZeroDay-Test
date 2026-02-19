@@ -7,18 +7,18 @@ import { ShieldCheck, FileText, Scale, Eye, Lock, Zap } from 'lucide-react';
 const PolicyOverview = () => {
   const pillars = [
     {
-      title: "Ethical Conduct",
-      desc: "We strictly follow white-hat policies.",
+      title: "Responsible Disclosure",
+      desc: " All vulnerabilities must be reported ethically, privately, and without causing harm or disruption to systems or users.",
       icon: <Scale size={20} />
     },
     {
-      title: "Data Integrity",
-      desc: "Client data is entrusted to us, which is always encrypted.",
+      title: "Authorized Testing Only",
+      desc: "Security testing is permitted strictly within the defined scope and with explicit permission from the organization.",
       icon: <Lock size={20} />
     },
     {
-      title: "Transparency",
-      desc: "Every testing protocol and result is kept transparent to the client.",
+      title: "Good-Faith Protection",
+      desc: "Researchers acting in good faith and following policy guidelines will not face legal action.",
       icon: <Eye size={20} />
     }
   ];
@@ -58,7 +58,7 @@ const PolicyOverview = () => {
             </h1>
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-xl font-light">
-              ZeroDay Test is a responsible cybersecurity research platform. We believe that a strong ethical and legal framework is essential to building a safe digital world. Our policies ensure the safety of every operation and user.
+              Clear, concise, and legally sound guidelines that enable responsible vulnerability disclosure and safe collaboration between organizations and security researchers. 
             </p>
           </motion.div>
 

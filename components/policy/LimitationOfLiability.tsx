@@ -4,23 +4,23 @@ import { ShieldX, AlertCircle, Zap, Terminal, Activity, FileWarning } from 'luci
 
 const liabilityPoints = [
   {
-    title: "Service 'As-Is'",
-    desc: "All our tools and labs are provided 'As-Is'. We make no guarantees as to their functionality or uninterrupted service.",
+    title: "For the Organization (ZeroDay Test)",
+    desc: "ZeroDay Test acts as a neutral platform facilitating vulnerability reporting and coordination. We are not liable for any direct or indirect damages, data loss, service disruption, or financial impact arising from testing activities, remediation efforts, or the use of information shared through the platform, except where required by applicable law.",
     icon: <Activity size={20} />
   },
   {
-    title: "Indirect Damages",
-    desc: "ZeroDay Test will not be responsible for any business losses, data loss, or system crashes resulting from the use of our platform.",
+    title: "For Clients (Asset Owners)",
+    desc: "Clients remain fully responsible for the security, availability, and integrity of their systems. ZeroDay Test shall not be held liable for any damages resulting from vulnerabilities discovered, exploitation risks, remediation delays, or business impact related to participation in bug bounty or VDP programs.",
     icon: <ShieldX size={20} />
   },
   {
-    title: "Force Majeure",
-    desc: "We are not responsible for service limitations in situations beyond our control, such as natural disasters, internet outages, or major cyber attacks.",
+    title: "For Hunters (Security Researchers)",
+    desc: "Hunters participate at their own risk and are solely responsible for ensuring compliance with program scope, local laws, and platform policies. ZeroDay Test and its clients are not liable for any legal, technical, or financial consequences arising from actions performed outside authorized scope or in violation of policy.",
     icon: <Zap size={20} />
   },
   {
-    title: "User Actions",
-    desc: "Any legal complications arising from any misconfiguration by the user or use of our techniques on a third-party system are the sole responsibility of the user.",
+    title: "General Disclaimer",
+    desc: "In no event shall any party be liable for indirect, incidental, consequential, or punitive damages. Liability, where applicable, is limited to the extent permitted under governing law.",
     icon: <FileWarning size={20} />
   }
 ];
@@ -34,7 +34,7 @@ const LimitationOfLiability = () => {
            style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
+      <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
         
         {/* Header Section */}
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-12 items-center mb-16">

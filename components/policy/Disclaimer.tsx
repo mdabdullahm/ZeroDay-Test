@@ -6,19 +6,34 @@ const Disclaimer = () => {
   const warnings = [
     {
       id: "W-01",
-      title: "Educational Purpose Only",
-      text: "All information, tools, and techniques provided in ZeroDay Test are for cybersecurity education purposes only. We are not responsible for any illegal use."
+      title: "Out-of-Scope Testing Is Strictly Prohibited",
+      text: "Any activity beyond the defined scope may result in immediate disqualification and legal action."
     },
     {
       id: "W-02",
-      title: "Authorization Required",
-      text: "Before conducting penetration testing on any system, written permission must be obtained from the owner of that system."
+      title: "No Data Exploitation or Privacy Violation",
+      text: "Accessing, modifying, or disclosing user data is forbidden under all circumstances"
     },
     {
       id: "W-03",
-      title: "No Liability",
-      text: "You are solely responsible for any damage to your hardware or software resulting from using our methods or code."
-    }
+      title: "Do Not Disrupt Services",
+      text: " Denial-of-Service (DoS/DDoS), spam, or resource-exhaustion attacks are not allowed."
+    },
+    {
+      id: "W-04",
+      title: "No Social Engineering or Physical Attacks",
+      text: " Phishing, vishing, impersonation, or on-site testing is strictly prohibited unless explicitly authorized."
+    },
+    {
+      id: "W-05",
+      title: "Confidentiality Is Mandatory",
+      text: "Vulnerability details must not be shared publicly or with third parties before official disclosure approval."
+    },
+    {
+      id: "W-06",
+      title: "Policy Violations May Lead to Permanent Ban",
+      text: "Any breach of policy can result in account suspension, reward forfeiture, and legal consequences."
+    },
   ];
 
   return (
@@ -35,7 +50,7 @@ const Disclaimer = () => {
       {/* Warning Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-red-600/5 rounded-full blur-[150px] -z-10"></div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
+      <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
         
         {/* Header - Tactical Warning Style */}
         <div className="mb-12">

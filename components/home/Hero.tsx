@@ -150,7 +150,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Decorative Floating Icon */}
+          {/* Decorative Floating Icon wwwwwwwwwwwwww*/}
           <motion.div 
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 4, repeat: Infinity }}

@@ -114,12 +114,12 @@ const Contact = () => {
               </div>
 
               <button className="w-full py-4 bg-green-600 hover:bg-green-500 text-black font-black rounded-xl flex items-center justify-center gap-3 transition-all shadow-[0_0_20px_rgba(34,197,94,0.2)] group">
-                SUBMIT REPORT <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                Book an Appointment <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
             </form>
 
-            <p className="mt-6 text-[9px] text-center font-mono text-gray-700 uppercase">
-              By submitting, you agree to our <span className="text-green-900 underline">responsible disclosure policy</span>.
+            <p className="mt-6 text-[9px] text-center font-mono text-gray-500 uppercase">
+              By submitting, you agree to our <span className="text-green-600 underline">responsible disclosure policy</span>.
             </p>
           </motion.div>
 

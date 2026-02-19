@@ -11,11 +11,26 @@ const faqCategories = [
 ];
 
 const allFaqs = [
-  { cat: 'general', q: "What is ZeroDay Test?", a: "It is an advanced cybersecurity ecosystem that simultaneously provides offensive security services and a high-tech training academy." },
-  { cat: 'academy', q: "Are the courses open to everyone?", a: "Many of our open-source labs and basic modules are free for everyone, but advanced certified modules require a membership." },
-  { cat: 'services', q: "Will support be available after the penetration test?", a: "Of course. We provide fixing and re-audit support for up to 30 days after the report is submitted." },
-  { cat: 'security', q: "Do you support crypto as payment?", a: "Yes, we support Bitcoin (BTC) and USDT payment gateways to protect privacy." },
-  // আরও প্রশ্ন যোগ করা যাবে...
+  { 
+    cat: 'general', 
+    question: "What is ZeroDay Test?", 
+    answer: "It is an advanced cybersecurity ecosystem that simultaneously provides offensive security services and a high-tech training academy." 
+  },
+  { 
+    cat: 'academy', 
+    question: "Are the courses open to everyone?", 
+    answer: "Many of our open-source labs and basic modules are free for everyone, but advanced certified modules require a membership." 
+  },
+  { 
+    cat: 'services', 
+    question: "Will support be available after the penetration test?", 
+    answer: "Of course. We provide fixing and re-audit support for up to 30 days after the report is submitted." 
+  },
+  { 
+    cat: 'security', 
+    question: "Do you support crypto as payment?", 
+    answer: "Yes, we support Bitcoin (BTC) and USDT payment gateways to protect privacy." 
+  },
 ];
 
 const FAQList = () => {
@@ -95,7 +110,7 @@ const FAQList = () => {
                           [ 0x0{idx+1} ]
                         </span>
                         <h3 className={`text-sm md:text-lg font-bold uppercase tracking-tight transition-colors ${openIndex === idx ? 'text-green-400' : 'text-white'}`}>
-                          {item.q}
+                          {item.question}
                         </h3>
                       </div>
                       <ChevronDown size={20} className={`text-gray-600 transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-green-500' : ''}`} />

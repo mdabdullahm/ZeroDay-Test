@@ -75,7 +75,7 @@ const Navbar = () => {
                   whileHover={{ y: -2 }}
                   className={`flex items-center gap-2 px-5 py-2.5 text-[12px] font-black tracking-widest rounded-xl transition-all duration-300 ${getButtonStyles('/hacker-login')}`}
                 >
-                  <Lock size={14} /> HACKER LOGIN
+                  <Lock size={14} /> HUNTER LOGIN
                 </motion.button>
               </Link>
               <Link href="/customer-login">

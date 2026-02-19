@@ -49,7 +49,7 @@ const Services = () => {
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-green-500/5 rounded-full blur-[120px] -z-10"></div>
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-600/5 rounded-full blur-[120px] -z-10"></div>
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
+            <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
 
                 {/* Header Section */}
                 <div className="text-center mb-20">

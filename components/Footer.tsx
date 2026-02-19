@@ -151,9 +151,8 @@ const Footer = () => {
                   <span className="text-white ml-1">TEST</span>
                 </span>
               </Link>
-              <p className="text-[10px] text-gray-600 leading-relaxed font-mono uppercase">
-                &gt; Status: All Nodes Secure <br />
-                &gt; Security Level: Maximum
+              <p className="text-[10px] text-gray-200 leading-relaxed font-mono uppercase">
+                ZeroDay Test is Bangladesh’s first dedicated bug bounty and crowdsourced security platform, bridging organizations and elite ethical hackers to proactively secure digital assets before breaches occur.
               </p>
             </div>
           </div>
@@ -162,13 +161,13 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex gap-6 text-[10px] font-mono text-gray-700 uppercase tracking-widest">
+          <div className="flex gap-6 text-[10px] font-mono text-gray-500 uppercase tracking-widest">
              <Link href="/policy" className='hover:text-green-500 transition-colors'>Privacy Policy</Link>
              <Link href="/policy" className='hover:text-green-500 transition-colors'>Terms</Link>
              <Link href="/contact" className='hover:text-green-500 transition-colors'>Security</Link>
           </div>
           
-          <div className="text-[10px] font-mono text-gray-800 uppercase tracking-widest">
+          <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
              © {currentYear} ZeroDay Test Lab | Global Tactical Ops
           </div>
         </div>

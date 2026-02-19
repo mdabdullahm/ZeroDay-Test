@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Terminal, ShieldAlert, Zap, ChevronRight, Activity, Cpu, Database } from 'lucide-react';
 
 const Hero = () => {
-  // একটি লাইভ ক্লক এনিমেশনের জন্য
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Hero = () => {
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
 
-      <div className="max-w-full mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         
         {/* Left Content */}
         <motion.div 
@@ -34,7 +33,7 @@ const Hero = () => {
             <span className="text-[10px] font-mono font-bold text-green-500 uppercase tracking-widest">System Status: Secure</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-semibold leading-tight mb-6">
+          <h1 className="text-5xl lg:text-7xl font-semibold leading-none mb-4">
             Don't wait<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
               for a Breach

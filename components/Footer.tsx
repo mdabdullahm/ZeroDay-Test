@@ -36,7 +36,7 @@ const Footer = () => {
       "Financial Services", "Healthcare", "Retail", "Automotive", "Technology", "Government", "Security"
     ],
     forHackers: [
-      "Programs", "CrowdStream", "Bug Bounty List", "Start Hacking", "FAQs", "Hacker Docs", "Bugcrowd University", "Leaderboard"
+      "Programs", "CrowdStream", "Bug Bounty List", "Start Hacking", "FAQs", "Hacker Docs", "Academy", "Leaderboard"
     ],
     company: [
       "About", "Trust & Security", "Career", "Press", "Events", "Contact"

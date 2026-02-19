@@ -97,7 +97,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: For Hackers */}
+          {/* Column 3: For Hackers wwwwwwwwww*/}
           <div>
             <h4 className="text-[#f97316] font-black mb-6 uppercase tracking-widest text-sm border-b border-orange-500/20 pb-2">
                For Hackers

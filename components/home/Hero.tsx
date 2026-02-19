@@ -20,27 +20,29 @@ const Hero = () => {
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      {/* এখানে max-w-full এর বদলে max-w-[1536px] (2xl) অথবা আরও বড় উইডথ ব্যবহার করা হয়েছে */}
+      <div className="max-w-[1600px] w-full mx-auto px-6 md:px-12 lg:px-16 xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-24 xl:gap-32 items-center relative z-10">
         
         {/* Left Content */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="w-full"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/5 mb-6">
             <ShieldAlert size={14} className="text-green-500" />
             <span className="text-[10px] font-mono font-bold text-green-500 uppercase tracking-widest">System Status: Secure</span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-semibold leading-none mb-4">
+          <h1 className="text-5xl lg:text-7xl xl:text-8xl font-semibold leading-[1.1] mb-6">
             Don't wait<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
               for a Breach
             </span>
           </h1>
 
-          <p className="text-gray-400 text-lg mb-8 max-w-xl font-light">
+          <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-xl font-light">
             Lets secure your Digital Assets with ZeroDay Test
           </p>
 
@@ -53,18 +55,18 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* --- NEW HUD STATS SECTION (No Labels, Only Technical Visuals) --- */}
-          <div className="mt-12 grid grid-cols-3 gap-8 border-t border-green-500/10 pt-8">
+          {/* --- HUD STATS SECTION --- */}
+          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-green-500/10 pt-8">
             
             {/* Stat 1: Hex Node Visualization */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="text-2xl font-bold text-white tracking-tighter">500+</p>
+                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter">500+</p>
                 <div className="p-1 bg-green-500/10 border border-green-500/20 rounded">
                   <Database size={12} className="text-green-500" />
                 </div>
               </div>
-              <div className="font-mono text-[9px] text-green-900 space-y-0.5">
+              <div className="font-mono text-[9px] lg:text-[10px] text-green-900 space-y-0.5">
                 <p>&gt; ADDR: 0x5F2E</p>
                 <p>&gt; MODE: OMEGA</p>
               </div>
@@ -73,7 +75,7 @@ const Hero = () => {
             {/* Stat 2: Encryption/Sync Progress */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="text-2xl font-bold text-white tracking-tighter">99%</p>
+                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter">99%</p>
                 <div className="p-1 bg-green-500/10 border border-green-500/20 rounded">
                   <Cpu size={12} className="text-green-500" />
                 </div>
@@ -85,13 +87,13 @@ const Hero = () => {
                   className="h-full bg-green-500 shadow-[0_0_8px_#22c55e]"
                 />
               </div>
-              <p className="font-mono text-[9px] text-green-900 uppercase tracking-tighter">[ Encrypted_Sync ]</p>
+              <p className="font-mono text-[9px] lg:text-[10px] text-green-900 uppercase tracking-tighter">[ Encrypted_Sync ]</p>
             </div>
 
             {/* Stat 3: Live Pulse & Time */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="text-2xl font-bold text-white tracking-tighter">24/7</p>
+                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter">24/7</p>
                 <motion.div 
                   animate={{ opacity: [0.2, 1, 0.2] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
@@ -99,7 +101,7 @@ const Hero = () => {
                   <Activity size={14} className="text-green-500" />
                 </motion.div>
               </div>
-              <div className="font-mono text-[9px] text-green-700 bg-green-500/5 border border-green-500/10 px-2 py-1 rounded inline-block">
+              <div className="font-mono text-[9px] lg:text-[10px] text-green-700 bg-green-500/5 border border-green-500/10 px-2 py-1 rounded inline-block">
                 T-UTC: {time || "00:00:00"}
               </div>
             </div>
@@ -107,14 +109,15 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Content - Terminal Visual (সব আগের মতোই আছে) */}
+        {/* Right Content - Terminal Visual */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative w-full"
         >
           <div className="relative z-10 bg-gray-900/80 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+            {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-white/5 border-b border-white/5">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
@@ -126,7 +129,8 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="p-6 font-mono text-sm leading-relaxed">
+            {/* Terminal Body */}
+            <div className="p-6 lg:p-10 font-mono text-sm leading-relaxed">
               <p className="text-green-500 mb-2">root@zeroday:~# <span className="text-white">initializing bypass_protocol...</span></p>
               <p className="text-blue-400 mb-2">[INFO] <span className="text-gray-400">Target identified: 192.168.1.105</span></p>
               <p className="text-yellow-500 mb-2">[WARN] <span className="text-gray-400">Firewall detected. Attempting injection...</span></p>
@@ -146,6 +150,7 @@ const Hero = () => {
             </div>
           </div>
 
+          {/* Decorative Floating Icon */}
           <motion.div 
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 4, repeat: Infinity }}

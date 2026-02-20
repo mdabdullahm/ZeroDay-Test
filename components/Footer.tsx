@@ -160,7 +160,7 @@ const Footer = () => {
           <div className="space-y-8">
             <div className="flex flex-col gap-4">
                <h4 className="text-white font-black uppercase tracking-widest text-sm">Follow Us</h4>
-               <div className="h-[2px] w-full bg-gradient-to-r from-red-600 to-transparent"></div>
+               <div className="h-[2px] w-full bg-gradient-to-r from-green-500 to-transparent"></div>
                <div className="flex gap-4">
                   <Link href="#" className="text-gray-400 hover:text-white transition-all"><Linkedin size={22} /></Link>
                   <Link href="#" className="text-gray-400 hover:text-white transition-all"><Twitter size={22} /></Link>
@@ -177,7 +177,7 @@ const Footer = () => {
                   <span className="text-white ml-1">TEST</span>
                 </span>
               </Link>
-              <p className="text-[7px] text-gray-200 leading-relaxed font-mono uppercase">
+              <p className="text-[10px] text-gray-200 leading-relaxed font-mono">
                 ZeroDay Test is Bangladesh’s first dedicated bug bounty and crowdsourced security platform, bridging organizations and elite ethical hackers to proactively secure digital assets before breaches occur.
               </p>
             </div>

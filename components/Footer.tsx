@@ -171,7 +171,7 @@ const Footer = () => {
 
             <div className="pt-8 border-t border-white/5">
               <Link href="/" className="flex items-center gap-2 mb-4">
-                <img src="/ZeroDay Test Logo.png" alt="Logo" className='w-8 h-8 filter grayscale hover:grayscale-0 transition-all'/>
+                <img src="/ZeroDay Test Logo (2).png" alt="Logo" className='w-8 h-8 filter grayscale hover:grayscale-0 transition-all'/>
                 <span className="font-mono font-bold text-sm tracking-tighter">
                   <span className="text-green-500">ZER0DAY</span>
                   <span className="text-white ml-1">TEST</span>

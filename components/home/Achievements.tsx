@@ -198,10 +198,10 @@ const Achievements = () => {
               className="group relative"
             >
               {/* মেইন সাদা কার্ড (ছবির মতো) */}
-              <div className="bg-white rounded-[2rem] p-10 h-72 flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:-translate-y-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_20px_50px_rgba(34,197,94,0.2)]">
+              <div className="bg-white/10 rounded-[2rem] p-10 h-72 flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 group-hover:-translate-y-3 shadow-[0_10px_30px_rgba(0,0,0,0.5)] group-hover:shadow-[0_20px_50px_rgba(34,197,94,0.2)]">
                 
                 {/* কার্ডের পেছনে হালকা হ্যাকার টেক্সচার */}
-                <div className="absolute inset-0 opacity-[0.03] pointer-events-none font-mono text-[8px] p-4 break-all text-black leading-tight">
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none font-mono text-[8px] p-4 break-all text-white leading-tight">
                   {Array(20).fill("SYSTEM_AUTH_0x99281_VERIFIED_PROTOCOL_").join(" ")}
                 </div>
 
@@ -211,15 +211,16 @@ const Achievements = () => {
                   <img 
                     src={item.logo} 
                     alt={item.name} 
-                    className="max-h-24 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500 scale-90 group-hover:scale-100"
+                    className="max-h-24 w-auto object-contain group-hover:grayscale-0 transition-all duration-500 scale-90 group-hover:scale-100"
                     onError={(e) => (e.currentTarget.style.display = 'none')}
                   />
-                  <Award size={64} className="text-zinc-100 group-hover:text-green-500 transition-colors absolute -z-10 opacity-20" />
+                  {/* img na thakly icon dakaby */}
+                  {/* <Award size={64} className="text-zinc-100 group-hover:text-green-500 transition-colors absolute -z-10 opacity-20" /> */}
                 </div>
 
                 {/* টাইটেল এরিয়া (ছবির মতো বোল্ড কালো টেক্সট) */}
                 <div className="relative z-10 text-center border-t border-zinc-100 pt-6 w-full">
-                  <h3 className="text-zinc-900 font-black text-sm md:text-base leading-tight uppercase tracking-tight group-hover:text-green-600 transition-colors">
+                  <h3 className="text-white font-black text-sm md:text-base leading-tight uppercase tracking-tight group-hover:text-green-600 transition-colors">
                     {item.name}
                   </h3>
                   <p className="text-[9px] font-mono text-zinc-400 mt-2 tracking-widest">{item.id}</p>

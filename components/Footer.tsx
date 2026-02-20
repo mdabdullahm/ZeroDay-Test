@@ -8,6 +8,7 @@ import { Terminal, Github, Twitter, Linkedin, Youtube, ShieldCheck, Cpu, Globe, 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // ওস্তাদ, এখানে আমি লিঙ্কগুলো অবজেক্ট আকারে সাজিয়েছি যাতে ম্যাপ করতে সুবিধা হয়
   const footerData = {
     products: {
       title: "Products",
@@ -15,31 +16,49 @@ const Footer = () => {
         { 
           name: "Penetration Testing", 
           subItems: [
-            "Pen Test as a Service",
-            "Continuous Attack Surface Pen Testing",
-            "Web Application Pen Test",
-            "Mobile App Pen Test",
-            "Network Pen Test",
-            "API Pen Test",
-            "IoT Pen Test",
-            "Cloud Pen Test",
-            "Social Engineering Pen Test"
+            { name: "Pen Test as a Service", href: "/services" },
+            { name: "Continuous Attack Surface Pen Testing", href: "/services" },
+            { name: "Web Application Pen Test", href: "/services" },
+            { name: "Mobile App Pen Test", href: "/services" },
+            { name: "Network Pen Test", href: "/services" },
+            { name: "API Pen Test", href: "/services" },
+            { name: "IoT Pen Test", href: "/services" },
+            { name: "Cloud Pen Test", href: "/services" },
+            { name: "Social Engineering Pen Test", href: "/services" }
           ]
         },
-        { name: "Red Team as a Service", href: "#" },
-        { name: "Bug Bounty", href: "#" },
-        { name: "Vulnerability Disclosure", href: "#" },
-        { name: "Attack Surface Management", href: "#" }
+        { name: "Red Team as a Service", href: "/services" },
+        { name: "Bug Bounty", href: "/services" },
+        { name: "Vulnerability Disclosure", href: "/policy" },
+        { name: "Attack Surface Management", href: "/services" }
       ]
     },
     industries: [
-      "Financial Services", "Healthcare", "Retail", "Automotive", "Technology", "Government", "Security"
+      { name: "Financial Services", href: "#" },
+      { name: "Healthcare", href: "#" },
+      { name: "Retail", href: "#" },
+      { name: "Automotive", href: "#" },
+      { name: "Technology", href: "#" },
+      { name: "Government", href: "#" },
+      { name: "Security", href: "#" }
     ],
     forHackers: [
-      "Programs", "CrowdStream", "Bug Bounty List", "Start Hacking", "FAQs", "Hacker Docs", "Academy", "Leaderboard"
+      { name: "Programs", href: "/hoyzerotest" },
+      { name: "CrowdStream", href: "#" },
+      { name: "Bug Bounty List", href: "/services" },
+      { name: "Start Hacking", href: "/academy" },
+      { name: "FAQs", href: "/faq" }, // এখানে আপনার তৈরি করা FAQ লিঙ্ক
+      { name: "Hacker Docs", href: "#" },
+      { name: "Academy", href: "/academy" }, // এখানে আপনার তৈরি করা Academy লিঙ্ক
+      { name: "Leaderboard", href: "#" }
     ],
     company: [
-      "About", "Trust & Security", "Career", "Press", "Events", "Contact"
+      { name: "About", href: "/about" },
+      { name: "Trust & Security", href: "/policy" },
+      { name: "Career", href: "#" },
+      { name: "Press", href: "#" },
+      { name: "Events", href: "#" },
+      { name: "Contact", href: "/contact" }
     ]
   };
 
@@ -63,17 +82,24 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerData.products.main.map((item, i) => (
                 <li key={i} className="group">
-                  <span className="text-gray-400 font-bold text-xs uppercase block mb-3">{item.name}</span>
-                  {item.subItems && (
-                    <ul className="pl-4 space-y-2 border-l border-green-500/10 ml-1">
-                      {item.subItems.map((sub, j) => (
-                        <li key={j}>
-                          <Link href="#" className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">
-                            {sub}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* যদি সাব আইটেম থাকে তবেই লুপ চলবে */}
+                  {item.subItems ? (
+                    <>
+                      <span className="text-gray-400 font-bold text-xs uppercase block mb-3">{item.name}</span>
+                      <ul className="pl-4 space-y-2 border-l border-green-500/10 ml-1">
+                        {item.subItems.map((sub, j) => (
+                          <li key={j}>
+                            <Link href={sub.href} className="text-gray-500 text-[11px] hover:text-green-500 transition-colors block">
+                              {sub.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link href={item.href} className="text-gray-400 font-bold text-xs uppercase block hover:text-green-500 transition-colors">
+                      {item.name}
+                    </Link>
                   )}
                 </li>
               ))}
@@ -88,26 +114,26 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerData.industries.map((item, i) => (
                 <li key={i}>
-                  <Link href="#" className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
+                  <Link href={item.href} className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
                     <div className="w-1 h-1 bg-green-900 rounded-full group-hover:bg-green-500 transition-all"></div>
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: For Hackers wwwwwwwwww*/}
+          {/* Column 3: For Hackers */}
           <div>
-            <h4 className="text-[#f97316] font-black mb-6 uppercase tracking-widest text-sm border-b border-orange-500/20 pb-2">
+            <h4 className="text-white font-black mb-6 uppercase tracking-widest text-sm border-b border-orange-500/20 pb-2">
                For Hackers
             </h4>
             <ul className="space-y-3">
               {footerData.forHackers.map((item, i) => (
                 <li key={i}>
-                  <Link href="#" className="text-gray-500 text-xs hover:text-orange-500 transition-colors flex items-center gap-2 group">
-                    <ChevronRight size={10} className="text-gray-800 group-hover:text-orange-500" />
-                    {item}
+                  <Link href={item.href} className="text-gray-500 text-xs hover:text-green-500 transition-colors flex items-center gap-2 group">
+                    <ChevronRight size={10} className="text-gray-800 group-hover:text-green-500" />
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -122,8 +148,8 @@ const Footer = () => {
             <ul className="space-y-4">
               {footerData.company.map((item, i) => (
                 <li key={i}>
-                  <Link href="#" className="text-gray-300 text-sm font-medium hover:text-green-500 transition-colors block">
-                    {item}
+                  <Link href={item.href} className="text-gray-300 text-sm font-medium hover:text-green-500 transition-colors block">
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -151,7 +177,7 @@ const Footer = () => {
                   <span className="text-white ml-1">TEST</span>
                 </span>
               </Link>
-              <p className="text-[10px] text-gray-200 leading-relaxed font-mono uppercase">
+              <p className="text-[7px] text-gray-200 leading-relaxed font-mono uppercase">
                 ZeroDay Test is Bangladesh’s first dedicated bug bounty and crowdsourced security platform, bridging organizations and elite ethical hackers to proactively secure digital assets before breaches occur.
               </p>
             </div>
@@ -167,7 +193,7 @@ const Footer = () => {
              <Link href="/contact" className='hover:text-green-500 transition-colors'>Security</Link>
           </div>
           
-          <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+          <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest text-center">
              © {currentYear} ZeroDay Test Lab | Global Tactical Ops
           </div>
         </div>

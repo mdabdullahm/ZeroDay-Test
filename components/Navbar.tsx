@@ -13,8 +13,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Policy', href: '/policy' },
-    { name: 'HoyZeroTest', href: '/hoyzerotest' },
-    { name: 'Academy', href: '/academy' },
+    { name: 'WhyZeroTest', href: '/hoyzerotest' },
+    // { name: 'Academy', href: '/academy' },
     { name: 'Services', href: '/services' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact Us', href: '/contact' },

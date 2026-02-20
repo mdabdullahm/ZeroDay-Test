@@ -6,7 +6,7 @@ import { User, Target, Cpu, ShieldCheck, Fingerprint, ChevronRight } from 'lucid
 
 const About = () => {
     return (
-        <section className="relative py-24 bg-black overflow-hidden">
+        <section id="about" className="relative py-24 bg-black overflow-hidden">
             {/* Background Decor  */}
             <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-green-500/5 rounded-full blur-[100px] -z-10"></div>
 

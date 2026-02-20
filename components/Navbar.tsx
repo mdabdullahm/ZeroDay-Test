@@ -48,7 +48,7 @@ const Navbar = () => {
             {/* Logo Section */}
             <Link href="/" className="flex items-center gap-2 group shrink-0">
               <div>
-                <img src="/ZeroDay Test Logo.png" alt=""  className='w-10 h-10'/>
+                <img src="/ZeroDay Test Logo (2).png" alt=""  className='w-10 h-10'/>
               </div>
               <span className="text-xl font-bold font-mono tracking-tighter">
                 <span className="text-green-600">ZER0DAY</span>

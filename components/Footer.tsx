@@ -47,13 +47,13 @@ const Footer = () => {
       { name: "CrowdStream", href: "#" },
       { name: "Bug Bounty List", href: "/services" },
       { name: "Start Hacking", href: "/academy" },
-      { name: "FAQs", href: "/faq" }, // এখানে আপনার তৈরি করা FAQ লিঙ্ক
+      { name: "FAQs", href: "/faq" }, 
       { name: "Hacker Docs", href: "#" },
-      { name: "Academy", href: "/academy" }, // এখানে আপনার তৈরি করা Academy লিঙ্ক
+      { name: "Academy", href: "/academy" }, 
       { name: "Leaderboard", href: "#" }
     ],
     company: [
-      { name: "About", href: "/about" },
+      { name: "About", href: "/#about" },
       { name: "Trust & Security", href: "/policy" },
       { name: "Career", href: "#" },
       { name: "Press", href: "#" },

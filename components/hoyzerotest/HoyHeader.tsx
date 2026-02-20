@@ -30,7 +30,7 @@ const HoyHeader = () => {
             </div>
 
             <h1 className="text-5xl lg:text-8xl font-black mb-8 leading-[0.9] tracking-tighter">
-              Why Hoy<br />
+              Why<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 drop-shadow-[0_0_30px_rgba(34,197,94,0.3)]">
                 ZeroDayTest?
               </span>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, Target, Cpu, ShieldCheck, Fingerprint, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 const About = () => {
     return (
@@ -85,11 +86,11 @@ const About = () => {
                         </div>
 
                         <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                            Who is <span className="text-green-500">ZeroDay Test?</span>
+                            Revolutionizing <span className="text-green-500">Cybersecurity</span> in Bangladesh
                         </h2>
 
                         <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                            We are not just a website, we are an advanced cybersecurity research lab. Our mission is to analyze modern threats and provide world-class security solutions. We believe that the best defense is to understand the offense.
+                            ZeroDay Test is proud to stand as the first dedicated bug bounty and crowdsourced security platform in Bangladesh. In a rapidly digitizing economy, we serve as the critical bridge between organizations that demand ironclad security and a global elite community of ethical hackers.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-6 mb-10">
@@ -98,8 +99,8 @@ const About = () => {
                                     <Target size={20} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold mb-1">Our Mission</h4>
-                                    <p className="text-sm text-gray-500">Ensuring a safe digital world.</p>
+                                    <h4 className="text-white font-bold mb-1 tracking-tight">Smart Vision</h4>
+                                    <p className="text-xs text-gray-500">Architects of a safer digital frontier for the "Smart Bangladesh" vision.</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-4">
@@ -107,16 +108,23 @@ const About = () => {
                                     <Cpu size={20} />
                                 </div>
                                 <div>
-                                    <h4 className="text-white font-bold mb-1">Technology</h4>
-                                    <p className="text-sm text-gray-500">Using the latest exploits and AI tools.</p>
+                                    <h4 className="text-white font-bold mb-1 tracking-tight">Human Intelligence</h4>
+                                    <p className="text-sm text-gray-500">Identifying vulnerabilities that automated tools and audits miss.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <button className="flex items-center gap-2 group text-white font-bold border-b-2 border-green-500 pb-1 hover:text-green-500 transition-all">
+                        <div className="mb-10 p-4 border-l-2 border-green-500 bg-green-500/5 italic text-gray-400 text-sm">
+                            "Don’t wait for a breach. Invite the fix. Let's Secure your Digital Assets."
+                        </div>
+
+                        <Link
+                            href="/hoyzerotest"
+                            className="inline-flex items-center gap-2 group text-white font-bold border-b-2 border-green-500 pb-1 hover:text-green-500 transition-all text-xs tracking-widest uppercase"
+                        >
                             EXPLORE OUR PROTOCOLS
                             <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </motion.div>
 
                 </div>

@@ -188,7 +188,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex gap-6 text-[10px] font-mono text-gray-500 uppercase tracking-widest">
-             <Link href="/policy" className='hover:text-green-500 transition-colors'>Privacy Policy</Link>
+             <Link href="/privacy-policy" className='hover:text-green-500 transition-colors'>Privacy-Policy</Link>
              <Link href="/policy" className='hover:text-green-500 transition-colors'>Terms</Link>
              <Link href="/contact" className='hover:text-green-500 transition-colors'>Security</Link>
           </div>

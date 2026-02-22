@@ -142,7 +142,7 @@ const PrivacyContent = () => {
             <div className="pt-16 border-t border-white/5">
                <div className="flex flex-col md:flex-row justify-between items-center gap-8">
                   <div>
-                    <h4 className="text-white font-bold uppercase tracking-widest text-lg mb-2">11. Contact Information</h4>
+                    <h4 className="text-white font-bold uppercase tracking-widest text-lg mb-2">Contact Information</h4>
                     <p className="text-xs text-gray-600 font-mono">Byte Capsule IT | Bangladesh</p>
                   </div>
                   <a href="mailto:mail@bytecapsuleit.com" className="px-8 py-4 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center gap-3 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] text-xs uppercase tracking-widest">

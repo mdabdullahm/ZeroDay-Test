@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Zap, Globe, Shield, Terminal, Star, User } from 'lucide-react';
+// Star আইকনটি এখানে যুক্ত করা হয়েছে
+import { Trophy, User, Zap, Globe, Terminal, Shield, Star } from 'lucide-react';
 
 interface Leader {
   rank: number;
@@ -24,8 +25,7 @@ const Leaderboard = () => {
         const data = await response.json();
         
         if (data && Array.isArray(data.leaders)) {
-          // আমরা টপ ৮ জনকে দেখাবো যাতে গ্রিড টা সুন্দর লাগে
-          setLeaders(data.leaders.slice(0, 8));
+          setLeaders(data.leaders);
         }
       } catch (error) {
         console.error("Leaderboard Sync Error:", error);
@@ -45,107 +45,124 @@ const Leaderboard = () => {
 
   if (leaders.length === 0) return null;
 
+  const topThree = leaders.slice(0, 3);
+
   return (
     <section className="relative py-16 lg:py-24 bg-black overflow-hidden border-t border-green-500/5 mt-[-1px]">
       
-      {/* Background Decor - Matrix Grid */}
       <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '45px 45px' }}>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
         
-        {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="flex items-center gap-2 text-green-500 font-mono text-[10px] mb-4 uppercase tracking-[0.4em]"
-          >
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="flex items-center gap-2 text-green-500 font-mono text-[10px] mb-4 uppercase tracking-[0.4em]">
             <Trophy size={14} /> [ GLOBAL_HALL_OF_FAME ]
           </motion.div>
           <h2 className="text-4xl lg:text-7xl font-bold text-white uppercase tracking-tighter">
             Top <span className="text-green-500 font-mono italic">Researchers</span>
           </h2>
-          <p className="text-gray-500 max-w-xl text-sm md:text-base font-light mt-4">
-            We are constantly working to educate the elite researchers on our platform.
-          </p>
         </div>
 
-        {/* Leaders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {leaders.map((leader, index) => (
+        {/* Podium Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {topThree.map((leader, index) => (
             <motion.div
               key={leader.rank}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="group relative p-6 bg-zinc-950/40 border border-white/5 rounded-[2rem] hover:border-green-500/30 transition-all duration-500 overflow-hidden"
+              className={`group relative p-8 rounded-[2.5rem] border flex flex-col items-center text-center transition-all duration-500 ${
+                index === 0 
+                ? 'bg-zinc-900/20 border-green-500/40 shadow-[0_0_40px_rgba(34,197,94,0.05)] md:scale-105' 
+                : 'bg-zinc-950/40 border-white/5'
+              }`}
             >
-              {/* Rank Badge */}
-              <div className={`absolute top-4 right-6 w-10 h-10 flex items-center justify-center rounded-full font-black text-xs border ${
-                index === 0 ? 'bg-yellow-500/20 border-yellow-500 text-yellow-500' : 
-                index === 1 ? 'bg-gray-400/20 border-gray-400 text-gray-400' :
-                index === 2 ? 'bg-orange-800/20 border-orange-800 text-orange-800' :
-                'bg-green-500/5 border-green-500/20 text-green-700'
-              }`}>
-                #{leader.rank}
-              </div>
+              <span className={`text-[10px] font-black uppercase tracking-[0.3em] mb-4 ${index === 0 ? 'text-yellow-500' : 'text-gray-500'}`}>
+                {index === 0 ? '1ST PLACE' : index === 1 ? '2ND PLACE' : '3RD PLACE'}
+              </span>
 
-              {/* Profile Section */}
-              <div className="flex flex-col items-center text-center">
-                 <div className="relative mb-6">
-                    <div className="w-20 h-20 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-green-500/50 transition-all">
+              <div className="relative mb-6">
+                 <div className={`w-24 h-24 rounded-full border-2 p-1 overflow-hidden transition-all duration-500 ${index === 0 ? 'border-yellow-500' : 'border-zinc-800'}`}>
+                    <div className="w-full h-full rounded-full bg-zinc-900 flex items-center justify-center overflow-hidden">
                        {leader.avatar ? (
                          <img src={leader.avatar} alt={leader.name} className="w-full h-full object-cover" />
                        ) : (
-                         <User size={32} className="text-gray-700 group-hover:text-green-500 transition-colors" />
+                         <User size={40} className="text-gray-800" />
                        )}
                     </div>
-                    {/* Pulsing Status Dot */}
-                    <div className="absolute bottom-1 right-1 w-4 h-4 bg-black border-2 border-zinc-900 rounded-full flex items-center justify-center">
-                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_5px_#22c55e]"></div>
-                    </div>
                  </div>
-
-                 <h3 className="text-lg font-bold text-white mb-1 group-hover:text-green-400 transition-colors truncate w-full px-2">
-                   {leader.name}
-                 </h3>
-                 <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest mb-4">
-                   @{leader.username}
-                 </p>
-
-                 {/* Stats Row */}
-                 <div className="w-full grid grid-cols-2 gap-2 pt-4 border-t border-white/5">
-                    <div className="text-center">
-                       <p className="text-[8px] font-mono text-gray-500 uppercase">Country</p>
-                       <p className="text-[10px] font-bold text-white flex items-center justify-center gap-1">
-                          <Globe size={10} className="text-green-900" /> {leader.country || "Global"}
-                       </p>
-                    </div>
-                    <div className="text-center border-l border-white/5">
-                       <p className="text-[8px] font-mono text-gray-500 uppercase">Points</p>
-                       <p className="text-[10px] font-bold text-green-500 flex items-center justify-center gap-1">
-                          <Zap size={10} fill="currentColor" /> {leader.points}
-                       </p>
-                    </div>
-                 </div>
+                 {index === 0 && <div className="absolute -top-2 -right-2 text-yellow-500"><Star size={24} fill="currentColor" className="animate-pulse" /></div>}
               </div>
 
-              {/* Background HUD Ornament */}
-              <div className="absolute -bottom-2 -left-2 opacity-[0.02] group-hover:opacity-10 transition-opacity">
-                 <Shield size={120} className="text-white" />
+              <div className="mb-4">
+                 <div className="flex items-center justify-center gap-2 mb-1">
+                    <span className="text-sm">🇧🇩</span>
+                    <span className="text-gray-500 text-[10px] font-mono uppercase tracking-widest">{leader.country || "Bangladesh"}</span>
+                 </div>
+                 <h3 className="text-xl font-bold text-white uppercase tracking-tight">@{leader.username}</h3>
               </div>
+
+              <p className="text-green-500 font-black text-3xl tracking-tighter">
+                {leader.points} <span className="text-xs font-bold uppercase opacity-60">pts</span>
+              </p>
+
+              {index === 0 && (
+                <div className="mt-6 text-yellow-500 drop-shadow-[0_0_10px_#eab30866]">
+                   <Trophy size={48} strokeWidth={1.5} />
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
 
-        {/* Terminal Style Note */}
-        <div className="mt-16 flex justify-center">
-           <div className="p-4 bg-zinc-900/30 border border-white/5 rounded-2xl flex items-center gap-4 text-[10px] font-mono text-gray-600">
-              <Terminal size={14} className="text-green-900" />
-              <p>ACCESSING: PUBLIC_RECOGNITION_LEDGER... STATUS: <span className="text-green-500 animate-pulse">ACTIVE</span></p>
+        {/* Ranking List Table */}
+        <div className="bg-[#050505] border border-white/5 rounded-3xl overflow-hidden shadow-2xl relative">
+           <div className="p-6 md:px-10 border-b border-white/5 flex justify-between items-end">
+              <div>
+                 <h2 className="text-white text-lg md:text-xl font-black uppercase tracking-wider">Ranking</h2>
+                 <p className="text-gray-600 text-[10px] md:text-xs mt-1">
+                    Hunters ranked by points in Q1 2026 — {leaders.length} total
+                 </p>
+              </div>
+              <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest font-bold">
+                 Points
+              </div>
+           </div>
+
+           <div className="p-4 md:p-6 space-y-3">
+              {leaders.map((leader) => (
+                <div
+                  key={leader.rank}
+                  className="flex items-center justify-between p-4 md:px-8 bg-[#0a0a0a] border border-white/5 rounded-2xl hover:border-green-500/20 transition-all group"
+                >
+                  <div className="flex items-center gap-4 md:gap-8">
+                    <span className="text-gray-700 font-mono text-xs w-6">#{leader.rank}</span>
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-900 border border-white/10 overflow-hidden flex items-center justify-center">
+                       {leader.avatar ? (
+                         <img src={leader.avatar} alt={leader.name} className="w-full h-full object-cover" />
+                       ) : (
+                         <User size={20} className="text-gray-700" />
+                       )}
+                    </div>
+                    <span className="text-gray-300 font-bold text-sm md:text-base group-hover:text-green-500 transition-colors">
+                      @{leader.username}
+                    </span>
+                  </div>
+
+                  <div className="hidden lg:flex items-center gap-3">
+                     <span className="text-lg">🇧🇩</span>
+                     <span className="text-gray-500 text-[10px] font-medium uppercase tracking-widest">{leader.country || "Bangladesh"}</span>
+                  </div>
+
+                  <div className="text-right">
+                    <span className="text-green-500 font-black text-sm md:text-lg tracking-tighter">
+                      {leader.points} pts
+                    </span>
+                  </div>
+                </div>
+              ))}
            </div>
         </div>
 

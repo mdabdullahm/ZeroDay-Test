@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react"; // useEffect যোগ করা হয়েছে
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  X, Lock, Zap, Terminal, ArrowLeft, FileText, Download, ShieldCheck, FileLock
+  X, Lock, Zap, Terminal, ArrowLeft, FileText, Download, ShieldCheck, FileLock, Loader2
 } from "lucide-react";
 
 interface ReportModalProps {
@@ -24,19 +24,29 @@ const reports = [
   { name: "Do Not Sell or Share Info", id: "1r0xQFMDhNNSoI0U3BPQJArKfs1mELGT4", code: "DNS_PRIV_10" },
 ];
 
+// এনিমেশন ভেরিয়েন্ট
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 } // একটির পর একটি কার্ড আসবে
+  }
+};
+
+const cardVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
+};
+
 const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
+  const [pdfLoading, setPdfLoading] = useState(true);
 
-  // --- ওস্তাদ, এই অংশটুকু নতুন যোগ করা হয়েছে (Body Scroll Lock) ---
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden"; // পপআপ খুললে স্ক্রল বন্ধ
-    } else {
-      document.body.style.overflow = "unset"; // পপআপ বন্ধ হলে স্ক্রল চালু
-    }
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
     return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
-  // --------------------------------------------------------
 
   const handleClose = () => {
     setSelectedFileId(null);
@@ -49,58 +59,91 @@ const ReportModal = ({ isOpen, onClose }: ReportModalProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
-        /* z-index বাড়িয়ে [100000] করা হয়েছে যাতে সবকিছুর ওপরে থাকে */
-        <div className="fixed inset-0 z-[100000] flex items-center justify-center p-2 md:p-6 overflow-hidden">
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={handleClose}
-            className="absolute inset-0 bg-black/98 backdrop-blur-2xl" // অপাসিটি বাড়ানো হয়েছে যাতে পেছনের কিছু না দেখা যায়
-          />
+        <div className="fixed inset-0 z-[100000] flex items-center justify-center p-4 md:pt-20 md:pb-10 overflow-hidden">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={handleClose} className="absolute inset-0 bg-black/98 backdrop-blur-2xl" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            className="relative bg-zinc-950 border border-green-500/20 w-full max-w-7xl h-[90vh] rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,1)] flex flex-col z-10"
+            className="relative bg-[#050505] border border-green-500/20 w-full max-w-7xl h-full rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,1)] flex flex-col z-10"
           >
-            {/* ... বাকি সব কোড আগের মতোই থাকবে ... */}
-            <div className="p-6 border-b border-white/5 bg-black flex items-center justify-between sticky top-0 z-50">
+            {/* হেডার */}
+            <div className="p-5 md:p-8 border-b border-white/5 bg-black flex items-center justify-between sticky top-0 z-50">
                 <div className="flex items-center gap-4">
-                    <div className="p-2.5 bg-green-500 text-black rounded-xl">
+                    <div className="p-2.5 bg-green-500 text-black rounded-xl shadow-[0_0_15px_#22c55e]">
                         <FileLock size={22} />
                     </div>
-                    <h3 className="text-white font-black uppercase text-sm md:text-xl">Secure Document Vault</h3>
+                    <h3 className="text-white font-black uppercase tracking-tight text-base md:text-xl">Secure Document Vault</h3>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 md:gap-4">
                     {selectedFileId && (
-                        <button onClick={() => setSelectedFileId(null)} className="text-gray-400 hover:text-green-500 text-xs font-bold uppercase pr-4 border-r border-white/10">
-                            Back_to_Grid
-                        </button>
+                        <button onClick={() => {setSelectedFileId(null); setPdfLoading(true);}} className="text-gray-400 hover:text-green-500 text-[10px] font-black uppercase pr-4 border-r border-white/10 flex items-center gap-1"><ArrowLeft size={14}/> Back_to_Grid</button>
                     )}
-                    <button onClick={handleClose} className="p-2 text-gray-500 hover:text-red-500 bg-white/5 rounded-full"><X size={20}/></button>
+                    <button onClick={handleClose} className="p-2 bg-white/5 hover:bg-red-500/20 text-gray-500 hover:text-red-500 rounded-xl border border-white/5 transition-all flex items-center gap-2"><span className="text-[10px] font-black uppercase hidden md:block">Terminate</span><X size={20}/></button>
                 </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto bg-black">
+            {/* কন্টেন্ট এরিয়া */}
+            <div className="flex-1 overflow-y-auto bg-black scrollbar-thin scrollbar-thumb-green-900">
                 {selectedFileId ? (
-                    <iframe src={getPreviewLink(selectedFileId)} className="w-full h-full border-none opacity-90" allow="autoplay"></iframe>
-                ) : (
-                    <div className="p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {reports.map((report, idx) => (
-                            <div key={idx} className="group bg-zinc-950 border border-white/5 rounded-[2rem] p-6 flex flex-col items-center text-center hover:border-green-500/30 transition-all">
-                                <FileText size={40} className="mb-4 text-gray-700 group-hover:text-green-500" />
-                                <h4 className="text-white text-[11px] font-bold mb-6 h-8 line-clamp-2 uppercase">{report.name}</h4>
-                                <div className="flex gap-2 w-full mt-auto">
-                                    <button onClick={() => setSelectedFileId(report.id)} className="flex-1 py-2 bg-zinc-900 text-gray-400 text-[10px] font-bold rounded-lg hover:text-white">View</button>
-                                    <a href={getDownloadLink(report.id)} className="flex-1 py-2 bg-green-600 text-black text-[10px] font-bold rounded-lg flex items-center justify-center gap-1"><Download size={12}/> Save</a>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="w-full h-full relative bg-zinc-900">
+                      {pdfLoading && (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-green-500 font-mono bg-black z-10">
+                          <Loader2 size={32} className="animate-spin" />
+                          <span className="text-[10px] uppercase tracking-widest">Decoding_Stream...</span>
+                        </div>
+                      )}
+                      <iframe src={getPreviewLink(selectedFileId)} className="w-full h-full border-none opacity-90" onLoad={() => setPdfLoading(false)} allow="autoplay"></iframe>
                     </div>
+                ) : (
+                    <motion.div 
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="visible"
+                      className="p-6 md:p-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                    >
+                        {reports.map((report, idx) => (
+                            <motion.div 
+                              key={idx}
+                              variants={cardVariants}
+                              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                              className="group relative bg-zinc-950 border border-white/5 rounded-[2.2rem] p-8 flex flex-col items-center text-center hover:border-green-500/40 transition-all duration-500 overflow-hidden"
+                            >
+                                {/* ১. মুভিং স্ক্যান লাইন এনিমেশন */}
+                                <motion.div 
+                                  animate={{ top: ["-10%", "110%"] }}
+                                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                  className="absolute left-0 w-full h-[2px] bg-green-500/10 z-0 pointer-events-none"
+                                />
+
+                                <div className="relative z-10 w-20 h-20 bg-zinc-900 rounded-full flex items-center justify-center text-gray-700 group-hover:text-green-500 group-hover:bg-green-500/5 transition-all mb-6 border border-white/5 group-hover:border-green-500/20">
+                                  <FileText size={40} />
+                                  <div className="absolute top-1 right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-zinc-950 animate-pulse shadow-[0_0_10px_#22c55e]"></div>
+                                </div>
+
+                                <div className="relative z-10 text-center border-t border-white/5 pt-6 w-full space-y-5">
+                                  <h4 className="text-white font-bold text-[11px] md:text-xs leading-tight uppercase tracking-widest h-8 line-clamp-2">{report.name}</h4>
+                                  
+                                  <div className="flex flex-col gap-2">
+                                     <button onClick={() => setSelectedFileId(report.id)} className="w-full py-2.5 bg-zinc-900 text-gray-400 font-bold text-[9px] rounded-xl uppercase hover:bg-zinc-800 hover:text-white transition-all border border-white/5">View_Internal</button>
+                                     <a href={getDownloadLink(report.id)} target="_blank" className="w-full py-2.5 bg-green-600 text-black font-black text-[9px] rounded-xl uppercase flex items-center justify-center gap-1 hover:bg-green-400 transition-all shadow-lg shadow-green-500/10">Download <Download size={12}/></a>
+                                  </div>
+                                </div>
+
+                                {/* কার্ডের নিচের নিওন বার */}
+                                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-[3px] bg-green-500 rounded-full blur-[2px] transition-all duration-500 group-hover:w-2/3"></div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
                 )}
+            </div>
+
+            {/* ফুটার */}
+            <div className="p-4 bg-black border-t border-white/5 flex justify-center items-center gap-6 opacity-40">
+               <div className="flex items-center gap-2 text-[9px] font-mono text-gray-500"><Zap size={12} className="text-green-500" /> AES_ENCRYPTED</div>
+               <div className="w-1 h-1 bg-zinc-800 rounded-full"></div>
+               <div className="text-[9px] font-mono text-gray-500 uppercase">Vault_Status: Verified</div>
             </div>
           </motion.div>
         </div>

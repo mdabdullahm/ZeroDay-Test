@@ -1277,10 +1277,12 @@ export default function VDPPolicyPage() {
                                             ].map((item, i) => (
                                                 <div key={i} className="space-y-2">
                                                     <div className="flex items-center gap-3 text-green-500">
-                                                        {React.cloneElement(item.i as React.ReactElement, { size: 16 })}
+                                                        {React.cloneElement(item.i as React.ReactElement<any>, { size: 16 })}
                                                         <h5 className="text-xs font-black uppercase tracking-widest">{item.t}</h5>
                                                     </div>
-                                                    <p className="text-xs text-gray-500 font-light pl-7">{item.desc || item.d}</p>
+                                                    <p className="text-xs text-gray-500 font-light pl-7">
+                                                        {item.d}
+                                                    </p>
                                                 </div>
                                             ))}
                                         </div>

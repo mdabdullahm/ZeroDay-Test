@@ -42,3 +42,16 @@
     /* touch-action: none; এই লাইনটি ভুলে দেওয়া যাবে না */
   }
 }
+/* client-nda */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
+}

@@ -9,19 +9,19 @@ const PrivacyPolicy = () => {
       title: "Zero-Log Policy",
       desc: "We do not keep any personally identifiable logs on our servers. Your IP and browser history are not saved in our system.",
       icon: <EyeOff size={22} />,
-      href: "#" 
+      href: "/trust-security" 
     },
     {
       title: "End-to-End Encryption",
       desc: "Every bug report and message you send is protected with AES-256 bit encryption.",
       icon: <Lock size={22} />,
-      href: "#"
+      href: "/hunter-nda"
     },
     {
       title: "Data Retention",
       desc: "All temporary data is permanently deleted from our secure dustbin within 24 hours of the operation being completed.",
       icon: <Database size={22} />,
-      href: "#"
+      href: "/do-not-sell"
     },
     {
       title: "No Third-party Sharing",

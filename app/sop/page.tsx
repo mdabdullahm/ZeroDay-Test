@@ -48,11 +48,11 @@ export default function SOPPage() {
     const Clock = ({ size, className }: { size: number, className?: string }) => <History size={size} className={className} />;
 
     return (
-        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black">
+        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black overflow-x-hidden">
 
             {/* --- মোবাইল ফ্লোটিং একশন বাটনসমূহ (lg:hidden) --- */}
-            <div className="lg:hidden fixed bottom-8 right-6 z-[100] flex flex-col gap-4">
-                
+            <div className="lg:hidden fixed bottom-44 right-6 z-[100] flex flex-col gap-4">
+
                 {/* ১. ব্যাক বাটন */}
                 <motion.button
                     initial={{ scale: 0 }}
@@ -180,70 +180,78 @@ export default function SOPPage() {
                     </aside>
 
                     {/* --- MAIN DOCUMENT CONTENT --- */}
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-zinc-950/80 border border-white/5 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl shadow-2xl relative">
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-zinc-950/80 border border-white/5 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl shadow-2xl relative max-w-full overflow-hidden">
                         <div className="relative z-10 space-y-24">
 
-                            {/* --- 00 TITLE PAGE MOCKUP --- */}
-                            <div className="text-center space-y-8 py-10 border-b border-white/5 relative overflow-hidden">
-                                {/* Background Glow for Title */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-red-500/5 blur-[100px] -z-10"></div>
+                            {/* --- 00 TITLE PAGE MOCKUP (RESPONSIVE FIX) --- */}
+                            <div className="text-center space-y-6 md:space-y-8 py-8 md:py-16 border-b border-white/5 relative overflow-hidden">
+                                {/* Background Glow - মোবাইলে একটু ছোট করা হয়েছে */}
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 md:w-64 md:h-64 bg-red-500/5 blur-[80px] md:blur-[100px] -z-10"></div>
 
                                 {/* Main Titles */}
-                                <div className="space-y-2">
-                                    <h1 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight">ZeroDay Test</h1>
-                                    <p className="text-gray-400 font-mono text-xs md:text-sm tracking-[0.4em] uppercase">Bug Hunting & Vulnerability Disclosure Platform</p>
+                                <div className="space-y-2 px-2">
+                                    <h1 className="text-3xl sm:text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight">
+                                        ZeroDay Test
+                                    </h1>
+                                    <p className="text-[10px] sm:text-xs md:text-sm font-mono text-gray-400 tracking-[0.2em] md:tracking-[0.4em] uppercase leading-relaxed">
+                                        Bug Hunting & Vulnerability Disclosure Platform
+                                    </p>
                                 </div>
 
-                                {/* SOP Highlight Box */}
-                                <div className="py-4 px-8 bg-zinc-900 border-y border-red-500/50 inline-block">
-                                    <h2 className="text-red-500 font-black text-xl md:text-2xl uppercase tracking-widest animate-pulse">STANDARD OPERATING PROCEDURE (SOP)</h2>
+                                {/* SOP Highlight Box -  */}
+                                <div className="py-3 px-4 md:py-4 md:px-8 bg-zinc-900 border-y border-red-500/50 inline-block max-w-[95%]">
+                                    <h2 className="text-red-500 font-black text-xs sm:text-lg md:text-2xl uppercase tracking-widest animate-pulse">
+                                        STANDARD OPERATING PROCEDURE (SOP)
+                                    </h2>
                                 </div>
 
-                                <p className="text-white font-bold tracking-widest uppercase text-xs">Securing the Cyber Space of Bangladesh</p>
+                                <p className="text-white font-bold tracking-widest uppercase text-[9px] sm:text-[11px] px-4">
+                                    Securing the Cyber Space of Bangladesh
+                                </p>
 
-                                {/* --- FULL DOCUMENT DATA GRID (৮টি পয়েন্টই এখানে দেওয়া হয়েছে) --- */}
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-[10px] font-mono text-gray-500 uppercase text-left border border-white/10 p-8 rounded-[2.5rem] bg-zinc-950/50 backdrop-blur-sm">
+                                {/* --- FULL DOCUMENT DATA GRID  --- */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-3 gap-y-6 md:gap-6 mt-8 md:mt-12 text-[9px] md:text-[10px] font-mono text-gray-500 uppercase text-left border border-white/10 p-4 sm:p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-zinc-950/50 backdrop-blur-sm mx-2 md:mx-0 break-words">
 
-                                    {/* Row 1 */}
-                                    <div className="space-y-1 border-l border-white/5 pl-4">
+                                    {/* Row 1 & 2 items with word-break fix */}
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Document Ref:</p>
-                                        <p className="text-white">BC-ZDT-SOP-2026-001</p>
+                                        <p className="text-white break-all">BC-ZDT-SOP-2026-001</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Version:</p>
                                         <p className="text-white">1.0</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Issued By:</p>
-                                        <p className="text-white uppercase">Byte Capsule</p>
+                                        <p className="text-white">Byte Capsule</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Effective Date:</p>
                                         <p className="text-white">23/02/2026</p>
                                     </div>
 
-                                    {/* Row 2 */}
-                                    <div className="space-y-1 border-l border-white/5 pl-4 md:mt-4">
+                                    {/* Row 2 items */}
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Campaign:</p>
                                         <p className="text-blue-500">Cyber Care</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4 md:mt-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Classification:</p>
-                                        <p className="text-red-500">Internal – Confidential</p>
+                                        <p className="text-red-500 leading-tight">Internal – Confidential</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4 md:mt-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Department:</p>
-                                        <p className="text-white">Off Sec (Offensive Security)</p>
+                                        <p className="text-white">Off Sec</p>
                                     </div>
-                                    <div className="space-y-1 border-l border-white/5 pl-4 md:mt-4">
+                                    <div className="space-y-1 border-l border-green-500/20 pl-2 md:pl-4">
                                         <p className="text-green-900 font-black">Contract:</p>
-                                        <p className="text-white lowercase">pentest@bytecapsuleit.com</p>
+                                        <p className="text-white lowercase break-all">pentest@bytecapsuleit.com</p>
                                     </div>
 
                                 </div>
 
                                 {/* Subtle Bottom Metadata */}
-                                <div className="pt-6 flex justify-center gap-10 opacity-20 text-[8px] font-mono uppercase tracking-[0.5em]">
+                                <div className="pt-4 md:pt-6 flex justify-center gap-4 sm:gap-10 opacity-20 text-[7px] sm:text-[8px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.5em]">
                                     <span>Authenticity: Verified</span>
                                     <span>Integrity: Secured</span>
                                 </div>
@@ -829,7 +837,7 @@ export default function SOPPage() {
                                                 ].map((row, i) => (
                                                     <div key={i} className="flex items-center gap-4 p-4 bg-black/40 rounded-2xl border border-white/5 group hover:border-blue-500/20 transition-all">
                                                         <div className={`p-2 rounded-lg ${row.alert ? 'bg-red-950 text-red-500' : 'bg-blue-950 text-blue-500'} transition-all`}>
-                                                            {React.cloneElement(row.i as React.ReactElement<any>, {size: 14 })}
+                                                            {React.cloneElement(row.i as React.ReactElement<any>, { size: 14 })}
                                                         </div>
                                                         <div>
                                                             <p className="text-xs font-bold text-gray-200 uppercase">{row.t}</p>
@@ -1404,32 +1412,6 @@ export default function SOPPage() {
                                         <div className="p-4 bg-zinc-900 border border-white/5 rounded-xl hover:border-green-500/20 transition-all">
                                             <p className="text-green-900 mb-1 font-bold">Version History</p>
                                             <p className="text-white">v1.0 — Initial Release (2026)</p>
-                                        </div>
-                                    </div>
-
-                                    {/* ২. অফিসিয়াল সিগনেচার এবং অ্যাপ্রুভাল এরিয়া */}
-                                    <div className="pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-end gap-12 relative">
-                                        <div className="space-y-8">
-                                            <div className="pt-4 flex justify-center">
-                                                <div className="relative h-52 w-auto rounded-md">
-
-                                                    {/* Rotating Border */}
-                                                    <div className="absolute inset-0 rounded-md p-[3px] 
-                bg-[conic-gradient(#ff0000,#00ff88,#0066ff,#ff0000)] 
-                    animate-spin-slow">
-
-                                                    </div>
-
-                                                    {/* Image */}
-                                                    <div className="relative bg-white rounded-md p-[3px]">
-                                                        <img
-                                                            src="/client-nda.jpg"
-                                                            alt="Signature"
-                                                            className="h-52 rounded-md"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     {/* ৪. এন্ড অফ ডকুমেন্ট নোট */}

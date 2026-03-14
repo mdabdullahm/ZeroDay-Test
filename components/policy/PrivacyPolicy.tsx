@@ -90,11 +90,11 @@ const PrivacyPolicy = () => {
           </div>
         </div>
 
-        <div className="mt-20 py-6 border-y border-white/5 flex flex-wrap justify-center md:justify-between items-center gap-6 opacity-30">
-           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Encryption: AES-256-GCM</div>
-           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Protocol: TLS 1.3</div>
-           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Log_Status: Disabled</div>
-           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">Node: Decentralized</div>
+        <div className="mt-20 py-6 border-y border-white/5 flex flex-wrap justify-center md:justify-between items-center gap-6 opacity-50">
+           <div className="text-[10px] font-mono text-gray-100 uppercase tracking-widest">Encryption: AES-256-GCM</div>
+           <div className="text-[10px] font-mono text-gray-100 uppercase tracking-widest">Protocol: TLS 1.3</div>
+           <div className="text-[10px] font-mono text-gray-100 uppercase tracking-widest">Log_Status: Disabled</div>
+           <div className="text-[10px] font-mono text-gray-100 uppercase tracking-widest">Node: Decentralized</div>
         </div>
       </div>
     </section>

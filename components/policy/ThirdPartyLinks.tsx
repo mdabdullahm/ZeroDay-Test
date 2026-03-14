@@ -43,7 +43,7 @@ const ThirdPartyLinks = () => {
               <LinkIcon size={14} /> [ NETWORK_EGRESS_PROTOCOL ]
             </motion.div>
             <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-              External <span className="text-green-500">Nodes</span>
+              Other Policies <span className="text-green-500">and Manuals</span>
             </h2>
             <p className="text-gray-500 text-sm md:text-base leading-relaxed">
               When you access an external platform using a link on our site, you move outside our secure perimeter.

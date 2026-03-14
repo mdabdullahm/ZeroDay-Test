@@ -1,7 +1,8 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation'; // ব্যাক বাটনের জন্য
 import {
     ShieldCheck, Terminal, FileSignature, Target,
     Layers, Zap, Users, BarChart3, Gavel,
@@ -18,7 +19,11 @@ import {
     Info,
     Building,
     Handshake,
-    Cpu
+    Cpu,
+    Menu, // মেনু আইকন
+    X,    // ক্লোজ আইকন
+    ArrowLeft, // ব্যাক আইকন
+    ChevronRight
 } from 'lucide-react';
 
 const sopSections = [
@@ -36,9 +41,99 @@ const sopSections = [
 
 export default function SOPPage() {
     const handlePrint = () => window.print();
+    const router = useRouter();
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // মোবাইল মেনু কন্ট্রোল
+
+    const Trophy = ({ size, className }: { size: number, className?: string }) => <Zap size={size} className={className} />;
+    const Clock = ({ size, className }: { size: number, className?: string }) => <History size={size} className={className} />;
 
     return (
         <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black">
+
+            {/* --- মোবাইল ফ্লোটিং একশন বাটনসমূহ (lg:hidden) --- */}
+            <div className="lg:hidden fixed bottom-8 right-6 z-[100] flex flex-col gap-4">
+                
+                {/* ১. ব্যাক বাটন */}
+                <motion.button
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => router.back()}
+                    className="w-12 h-12 bg-zinc-900 border border-white/10 text-white rounded-full flex items-center justify-center shadow-2xl backdrop-blur-md"
+                >
+                    <ArrowLeft size={20} />
+                </motion.button>
+
+                {/* ২. মেনু টগল বাটন */}
+                <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="w-14 h-14 bg-green-600 text-black rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+                >
+                    <AnimatePresence mode="wait">
+                        {isMenuOpen ? (
+                            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                                <X size={24} />
+                            </motion.div>
+                        ) : (
+                            <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+                                <Menu size={24} />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.button>
+            </div>
+
+            {/* --- মোবাইল মেনু ড্রয়ার (AnimatePresence) --- */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <>
+                        {/* ব্লার ওভারলে */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[90]"
+                        />
+
+                        {/* মেনু কার্ড */}
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[300px] bg-zinc-950 border-l border-green-500/20 z-[95] p-6 shadow-2xl flex flex-col"
+                        >
+                            <div className="mb-8 mt-10">
+                                <p className="text-[10px] font-mono text-green-900 uppercase tracking-[0.4em] mb-2">Tactical_Nav</p>
+                                <h4 className="text-white font-black uppercase text-lg border-b border-white/5 pb-2">SOP Index</h4>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto space-y-2 scrollbar-none">
+                                {sopSections.map((item) => (
+                                    <a
+                                        key={item.id}
+                                        href={`#${item.id}`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 text-gray-400 active:bg-green-500/10 active:text-green-500 transition-all group"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-green-900 group-active:text-green-500">{item.icon}</span>
+                                            <span className="text-xs font-bold uppercase tracking-tight">{item.title}</span>
+                                        </div>
+                                        <ChevronRight size={14} className="opacity-20" />
+                                    </a>
+                                ))}
+                            </div>
+
+                            <div className="mt-6 pt-6 border-t border-white/5 text-[9px] font-mono text-gray-700 text-center uppercase tracking-widest">
+                                Zeroday_Manual_v1.0
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
 
             {/* Background Decor */}
             <div className="fixed inset-0 z-0 opacity-10 pointer-events-none"
@@ -56,7 +151,7 @@ export default function SOPPage() {
                         </div>
                         <div className="text-[10px] font-mono text-gray-500 space-y-1">
                             <p className="font-bold text-gray-400 uppercase tracking-tighter italic">STAY SAFE, STAY SECURE</p>
-                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Dhaka-1215</p>
+                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Farmgate, Dhaka-1215</p>
                             <p className="flex items-center gap-2"><Mail size={10} /> mail@bytecapsuleit.com | <Phone size={10} /> +8801796934898</p>
                             <p className="flex items-center gap-2"><Globe size={10} /> bytecapsuleit.com</p>
                         </div>
@@ -73,7 +168,7 @@ export default function SOPPage() {
 
                 <div className="grid lg:grid-cols-[320px_1fr] gap-16 items-start">
 
-                    {/* --- SIDEBAR NAVIGATION --- */}
+                    {/* --- SIDEBAR NAVIGATION (Desktop) --- */}
                     <aside className="hidden lg:block sticky top-32 space-y-2 max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-green-900">
                         <p className="text-[10px] font-mono text-green-900 uppercase mb-4 tracking-[0.3em]">Operational_Manual</p>
                         {sopSections.map((item) => (

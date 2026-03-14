@@ -93,7 +93,8 @@ const ResponsibleDisclosure = () => {
           </Link>
 
           {/* Card 4: Reward System */}
-          <div className="group p-8 bg-zinc-900/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all">
+          <Link href="/sop">
+            <div className="group p-8 bg-zinc-900/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all">
             <div className="flex items-start gap-4">
               <div className="p-3 bg-green-500/10 text-green-500 rounded-xl">
                 <Gift size={24} />
@@ -103,9 +104,13 @@ const ResponsibleDisclosure = () => {
                 <p className="text-gray-500 text-sm leading-relaxed">
                   We offer a 'Hall of Fame' and exclusive swag for valid critical reports.
                 </p>
+                <div className="flex items-center gap-2 text-[10px] font-mono text-green-900 group-hover:text-green-500 transition-colors uppercase tracking-widest">
+                    <span>&gt; VIEW</span>
+                  </div>
               </div>
             </div>
-          </div>
+            </div>
+          </Link>
 
         </div>
       </div>

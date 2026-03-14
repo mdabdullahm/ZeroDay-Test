@@ -206,7 +206,6 @@ export default function DoNotSellPage() {
                                 <div className="mt-20 pt-12 border-t border-white/10">
                                     <div className="flex flex-col md:flex-row justify-between items-end gap-12">
                                         <div className="space-y-6">
-
                                             <div className="pt-4 flex justify-center">
                                                 <div className="relative h-52 w-auto rounded-md">
 

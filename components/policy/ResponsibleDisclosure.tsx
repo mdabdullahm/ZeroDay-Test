@@ -24,20 +24,27 @@ const ResponsibleDisclosure = () => {
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          {/* Card 1: Safe Harbor */}
-          <div className="group p-8 bg-zinc-900/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-green-500/10 text-green-500 rounded-xl">
-                <ShieldCheck size={24} />
+          {/* ১. Safe Harbor কার্ড (নতুন disclosure-policy এর সাথে লিঙ্ক করা হলো) */}
+          <Link href="/disclosure-policy" className="block group">
+            <div className="p-8 bg-zinc-900/40 border border-white/5 rounded-3xl group-hover:border-green-500/30 transition-all h-full relative overflow-hidden">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-green-500/10 text-green-500 rounded-xl group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Safe Harbor</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                    If you comply with this policy, we will not take any legal action against you.
+                  </p>
+                  {/* নতুন লিঙ্ক ইন্ডিকেটর */}
+                  <div className="flex items-center gap-2 text-[10px] font-mono text-green-900 group-hover:text-green-500 transition-colors uppercase tracking-widest">
+                    <span>&gt; READ_LEGAL_PROTECTION</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2">Safe Harbor</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  If you comply with this policy, we will not take any legal action against you.
-                </p>
-              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 bg-green-500/5 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-          </div>
+          </Link>
 
           {/* Card 2: Scope of Testing (এটার সাথে আমরা লিঙ্ক করলাম) */}
           <Link href="/vdp-policy" className="block group">
@@ -63,19 +70,27 @@ const ResponsibleDisclosure = () => {
           </Link>
 
           {/* Card 3: No Disruption */}
-          <div className="group p-8 bg-zinc-900/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all">
-            <div className="flex items-start gap-4">
-              <div className="p-3 bg-green-500/10 text-green-500 rounded-xl">
-                <AlertCircle size={24} />
+          {/* ৩. No Disruption (নতুন noc পেজ এর সাথে লিঙ্ক করা হলো) */}
+          <Link href="/noc" className="block group">
+            <div className="p-8 bg-zinc-900/40 border border-white/5 rounded-3xl group-hover:border-green-500/30 transition-all h-full relative overflow-hidden">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-green-500/10 text-green-500 rounded-xl group-hover:bg-green-500 group-hover:text-black transition-all">
+                  <AlertCircle size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">No Disruption</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                    Damaging systems through DDoS or social engineering attacks is strictly prohibited.
+                  </p>
+                  {/* NOC লিঙ্ক ইন্ডিকেটর */}
+                  <div className="flex items-center gap-2 text-[10px] font-mono text-green-900 group-hover:text-green-500 transition-colors uppercase tracking-widest">
+                    <span>&gt; READ_AUTHORIZATION_NOC</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-white mb-2">No Disruption</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  Damaging systems through DDoS or social engineering attacks is strictly prohibited.
-                </p>
-              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 bg-green-500/5 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-          </div>
+          </Link>
 
           {/* Card 4: Reward System */}
           <div className="group p-8 bg-zinc-900/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all">

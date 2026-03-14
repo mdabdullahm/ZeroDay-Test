@@ -597,7 +597,7 @@ export default function SOPPage() {
                                                     </div>
 
                                                     <div className="w-12 h-12 bg-zinc-900 border border-white/10 rounded-2xl flex items-center justify-center text-green-500 mb-6 group-hover:scale-110 group-hover:bg-green-500 group-hover:text-black transition-all duration-500">
-                                                        {React.cloneElement(step.i as React.ReactElement, { size: 20 })}
+                                                        {React.cloneElement(step.i as React.ReactElement<any>, { size: 20 })}
                                                     </div>
 
                                                     <h5 className="text-white font-bold text-sm uppercase mb-3 tracking-tight group-hover:text-green-400 transition-colors">
@@ -652,7 +652,7 @@ export default function SOPPage() {
                                             ].map((item, i) => (
                                                 <div key={i} className="p-6 bg-zinc-900/30 border border-white/5 rounded-2xl flex items-center gap-4 group hover:border-green-500/20 transition-all">
                                                     <div className="w-10 h-10 bg-green-500/10 text-green-500 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-green-500 group-hover:text-black transition-all">
-                                                        {React.cloneElement(item.i as React.ReactElement, { size: 18 })}
+                                                        {React.cloneElement(item.i as React.ReactElement<any>, { size: 18 })}
                                                     </div>
                                                     <div>
                                                         <h5 className="text-white font-bold text-xs uppercase tracking-tight">{item.t}</h5>
@@ -734,7 +734,7 @@ export default function SOPPage() {
                                                 ].map((row, i) => (
                                                     <div key={i} className="flex items-center gap-4 p-4 bg-black/40 rounded-2xl border border-white/5 group hover:border-blue-500/20 transition-all">
                                                         <div className={`p-2 rounded-lg ${row.alert ? 'bg-red-950 text-red-500' : 'bg-blue-950 text-blue-500'} transition-all`}>
-                                                            {React.cloneElement(row.i as React.ReactElement, { size: 14 })}
+                                                            {React.cloneElement(row.i as React.ReactElement<any>, {size: 14 })}
                                                         </div>
                                                         <div>
                                                             <p className="text-xs font-bold text-gray-200 uppercase">{row.t}</p>

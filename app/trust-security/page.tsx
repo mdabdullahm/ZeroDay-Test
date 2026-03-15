@@ -1,13 +1,15 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react'; // ১. useState যুক্ত করা হয়েছে
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation'; // ২. useRouter যুক্ত করা হয়েছে
 import {
     ShieldCheck, Gavel, Cpu, Lock,
     Server, Zap, FileSearch, Terminal,
     CheckCircle, Printer, QrCode, Mail,
     Phone, MapPin, Globe, ShieldAlert, Database,
-    Search, HardDrive, History, FileWarning
+    Search, HardDrive, History, FileWarning,
+    Menu, X, ArrowLeft, ChevronRight // ৩. নতুন আইকন যুক্ত করা হয়েছে
 } from 'lucide-react';
 
 const sections = [
@@ -23,17 +25,97 @@ const sections = [
 
 export default function TrustSecurityPage() {
     const handlePrint = () => window.print();
+    const router = useRouter(); // ৪. ব্যাক নেভিগেশনের জন্য
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // ৫. মোবাইল মেনু স্টেট
 
     return (
-        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black">
+        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black scroll-smooth">
+            
+            {/* --- মোবাইল ফ্লোটিং একশন বাটনসমূহ (lg:hidden) --- */}
+            <div className="lg:hidden fixed bottom-24 right-6 z-[100] flex flex-col gap-4">
+                {/* ব্যাক বাটন */}
+                <motion.button
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => router.back()}
+                    className="w-12 h-12 bg-zinc-900 border border-white/10 text-white rounded-full flex items-center justify-center shadow-2xl backdrop-blur-md"
+                >
+                    <ArrowLeft size={20} />
+                </motion.button>
+
+                {/* মেনু টগল বাটন */}
+                <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="w-14 h-14 bg-green-600 text-black rounded-full flex items-center justify-center shadow-[0_0_20px_#22c55e66]"
+                >
+                    <AnimatePresence mode="wait">
+                        {isMenuOpen ? (
+                            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+                                <X size={24} />
+                            </motion.div>
+                        ) : (
+                            <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+                                <Menu size={24} />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.button>
+            </div>
+
+            {/* --- মোবাইল ড্রয়ার মেনু --- */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[90]"
+                        />
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-[320px] bg-zinc-950 border-l border-green-500/20 z-[95] p-6 shadow-2xl flex flex-col"
+                        >
+                            <div className="mb-8 mt-10">
+                                <p className="text-[10px] font-mono text-green-900 uppercase tracking-[0.4em] mb-2">Tactical_Nav</p>
+                                <h4 className="text-white font-black uppercase text-lg border-b border-white/5 pb-2">Security Index</h4>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto space-y-2">
+                                {sections.map((item) => (
+                                    <a
+                                        key={item.id}
+                                        href={`#${item.id}`}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 text-gray-400 active:bg-green-500/10 active:text-green-500 transition-all group"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-green-900 group-active:text-green-500">{item.icon}</span>
+                                            <span className="text-xs font-bold uppercase tracking-tight">{item.title}</span>
+                                        </div>
+                                        <ChevronRight size={14} className="opacity-20" />
+                                    </a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
             {/* Background Decor */}
             <div className="fixed inset-0 z-0 opacity-10 pointer-events-none"
                 style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
             </div>
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10 pt-32 pb-20">
+            <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10 pt-32 pb-20">
 
-                {/* --- অফিশিয়াল লেটারহেড (Page 1 Top) --- */}
+                {/* --- ১. অফিশিয়াল লেটারহেড --- */}
                 <div className="mb-12 bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
                         <div className="flex items-center gap-3 mb-2">
@@ -41,8 +123,8 @@ export default function TrustSecurityPage() {
                             <h2 className="text-white font-black text-2xl tracking-widest uppercase">Byte Capsule</h2>
                         </div>
                         <div className="text-[10px] font-mono text-gray-500 space-y-1">
-                            <p className="flex items-center gap-2 justify-center md:justify-start font-bold text-gray-400 uppercase tracking-tighter italic">STAY SAFE, STAY SECURE</p>
-                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Farmgate, Dhaka-1215</p>
+                            <p className="font-bold text-gray-400 uppercase tracking-tighter italic">STAY SAFE, STAY SECURE</p>
+                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Dhaka-1215</p>
                             <p className="flex items-center gap-2"><Mail size={10} /> mail@bytecapsuleit.com | <Phone size={10} /> +8801796934898</p>
                             <p className="flex items-center gap-2"><Globe size={10} /> bytecapsuleit.com</p>
                         </div>
@@ -54,7 +136,7 @@ export default function TrustSecurityPage() {
 
                 <div className="grid lg:grid-cols-[300px_1fr] gap-16 items-start">
 
-                    {/* Sidebar Navigation */}
+                    {/* Sidebar Navigation (Desktop) */}
                     <aside className="hidden lg:block sticky top-32 space-y-2">
                         <p className="text-[10px] font-mono text-green-900 uppercase mb-4 tracking-[0.3em]">Security_Nodes</p>
                         {sections.map((item) => (
@@ -64,7 +146,7 @@ export default function TrustSecurityPage() {
                             </a>
                         ))}
                         <button onClick={handlePrint} className="w-full mt-6 flex items-center justify-center gap-2 p-3 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black hover:bg-green-600 hover:text-black transition-all uppercase">
-                            <Printer size={14} /> PRINT_SECURITY_LOG
+                            <Printer size={14} /> Print_Security_Log
                         </button>
                     </aside>
 
@@ -72,8 +154,7 @@ export default function TrustSecurityPage() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-zinc-950/80 border border-white/5 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl shadow-2xl relative overflow-hidden"
-                    >
+                        className="bg-zinc-950/80 border border-white/5 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl shadow-2xl relative overflow-hidden">
                         {/* Watermark Logo */}
                         <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
                             <ShieldCheck size={500} className="text-green-500" />

@@ -6,16 +6,16 @@ import { Link as LinkIcon, ExternalLink, ShieldAlert, Globe, Activity, Zap } fro
 
 const linkPolicies = [
   {
-    title: "Payment Service Provider Terms", // এটার সাথে আমরা লিঙ্ক করছি
+    title: "Payment Service Provider Terms", 
     desc: "Our site may contain links to other research resources or third-party tools. We have no control over the content of those sites.",
     icon: <Globe size={20} />,
     href: "/psp-terms"
   },
   {
-    title: "User Vigilance",
-    desc: "Before accessing another site from our platform, be sure to check the privacy policy and terms of that site at your own risk.",
+    title: "ZeroDay Test Terms & Conditions",
+    desc: "These Terms & Conditions govern your use of Byte Capsule IT’s Bug Bounty Platform, “ZeroDay Test” (the “Website”)",
     icon: <Activity size={20} />,
-    href: null // এটার জন্য পরে আলাদা পেজ করবেন
+    href: "/terms" 
   },
   {
     title: "No Liability",

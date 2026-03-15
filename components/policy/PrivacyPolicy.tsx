@@ -6,34 +6,34 @@ import Link from 'next/link';
 const PrivacyPolicy = () => {
   const policies = [
     {
-      title: "Zero-Log Policy",
-      desc: "We do not keep any personally identifiable logs on our servers. Your IP and browser history are not saved in our system.",
+      title: "Trust & Security",
+      desc: "The Cyber Security Act / Cyber Security Ordinance 2025 was introduced to establish a modern legal structure for digital security, cybercrime prevention, prosecution, and national cybersecurity governance in Bangladesh",
       icon: <EyeOff size={22} />,
       href: "/trust-security" 
     },
     {
-      title: "End-to-End Encryption",
-      desc: "Every bug report and message you send is protected with AES-256 bit encryption.",
+      title: "HUNTER NON-DISCLOSURE & CONFIDENTIALITY AGREEMENT",
+      desc: "This Agreement governs confidentiality and authorized security testing conducted through Zeroday Test. It establishes the rules for protecting sensitive data during research activities.",
       icon: <Lock size={22} />,
       href: "/hunter-nda"
     },
     {
-      title: "Data Retention",
-      desc: "All temporary data is permanently deleted from our secure dustbin within 24 hours of the operation being completed.",
+      title: "ZeroDay Test – Do Not Sell or share my information policy",
+      desc: "Byte Capsule IT does not sell, rent, or commercially share personal information of users of the ZeroDay Test platform.",
       icon: <Database size={22} />,
       href: "/do-not-sell"
     },
     {
-      title: "No Third-party Sharing",
-      desc: "None of your information is shared with third-parties or any other agencies. Your identity is top-secret to us.",
+      title: "Client Non-Disclosure & Confidentiality Agreement",
+      desc: "By registering as a Client, submitting a program, or clicking “I Agree,” you agree to be legally bound by this Agreement.",
       icon: <Server size={22} />,
       href: "/client-nda" 
     },
     {
-      title: "Data Privacy Policy", 
-      desc: "Complete transparency on how we handle your data under Bangladesh's digital laws, ensuring your absolute anonymity.",
+      title: "zeroday test Privacy Policy", 
+      desc: "This Privacy Policy explains how Byte Capsule IT (Byte Capsule, we, our, or us) collects, uses, processes, stores, and discloses personal information in connection with.",
       icon: <ShieldCheck size={22} />,
-      href: "/privacy-policyy" 
+      href: "/privacy-policy" 
     }
   ];
 

@@ -28,22 +28,22 @@
   }
 } */
 
-@layer base {
+/* @layer base { */
   /* শুধুমাত্র পিসি বা ল্যাপটপের জন্য কার্সর হাইড হবে */
-  @media (pointer: fine) {
-    html, body, a, button, .cursor-pointer {
-      cursor: none !important;
-    }
-  }
+  /* @media (pointer: fine) { */
+    /* html, body, a, button, .cursor-pointer { */
+      /* cursor: none !important; */
+    /* } */
+  /* } */
 
   /* মোবাইলে স্ক্রলিং ঠিক রাখার জন্য */
-  html, body {
-    -webkit-tap-highlight-color: transparent;
-    overflow-x: hidden;
-    max-width: 100vw;
+  /* html, body { */
+    /* -webkit-tap-highlight-color: transparent; */
+    /* overflow-x: hidden; */
+    /* max-width: 100vw; */
     /* touch-action: none; এই লাইনটি ভুলে দেওয়া যাবে না */
-  }
-}
+  /* } */
+/* } */
 /* client-nda */
 @keyframes spin-slow {
   from {

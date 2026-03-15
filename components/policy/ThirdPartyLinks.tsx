@@ -1,22 +1,27 @@
 "use client";
+import React from 'react';
+import Link from 'next/link'; // লিঙ্ক ইমপোর্ট
 import { motion } from 'framer-motion';
 import { Link as LinkIcon, ExternalLink, ShieldAlert, Globe, Activity, Zap } from 'lucide-react';
 
 const linkPolicies = [
   {
-    title: "External Navigation",
+    title: "Payment Service Provider Terms", // এটার সাথে আমরা লিঙ্ক করছি
     desc: "Our site may contain links to other research resources or third-party tools. We have no control over the content of those sites.",
-    icon: <Globe size={20} />
+    icon: <Globe size={20} />,
+    href: "/psp-terms"
   },
   {
     title: "User Vigilance",
     desc: "Before accessing another site from our platform, be sure to check the privacy policy and terms of that site at your own risk.",
-    icon: <Activity size={20} />
+    icon: <Activity size={20} />,
+    href: null // এটার জন্য পরে আলাদা পেজ করবেন
   },
   {
     title: "No Liability",
     desc: "'ZeroDay Test' will not be responsible in any way for any data loss or malware attack resulting from the use of third-party links.",
-    icon: <ShieldAlert size={20} />
+    icon: <ShieldAlert size={20} />,
+    href: null // এটার জন্য পরে আলাদা পেজ করবেন
   }
 ];
 
@@ -63,29 +68,39 @@ const ThirdPartyLinks = () => {
 
         {/* Grid Area */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {linkPolicies.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group p-8 bg-zinc-950/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all duration-300"
-            >
-              <div className="w-12 h-12 flex items-center justify-center bg-green-500/5 text-green-500 rounded-xl mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-6">
-                {item.desc}
-              </p>
-              <div className="flex items-center gap-2 text-[9px] font-mono text-gray-700 uppercase">
-                 <ExternalLink size={12} /> Outbound_Traffic_Detected
-              </div>
-            </motion.div>
-          ))}
+          {linkPolicies.map((item, idx) => {
+            const cardContent = (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className={`p-8 bg-zinc-950/40 border border-white/5 rounded-3xl hover:border-green-500/20 transition-all duration-300 h-full ${item.href ? 'cursor-pointer' : ''}`}
+              >
+                <div className="w-12 h-12 flex items-center justify-center bg-green-500/5 text-green-500 rounded-xl mb-6 group-hover:bg-green-500 group-hover:text-black transition-all">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-gray-500 text-xs md:text-sm leading-relaxed mb-6">
+                  {item.desc}
+                </p>
+                <div className="flex items-center gap-2 text-[9px] font-mono text-green-400 uppercase">
+                   <ExternalLink size={12} /> Outbound_Traffic_Detected
+                </div>
+              </motion.div>
+            );
+
+            // যদি লিঙ্ক থাকে তবেই লিঙ্ক কম্পোনেন্ট ব্যবহার হবে
+            return item.href ? (
+              <Link href={item.href} key={idx}>
+                {cardContent}
+              </Link>
+            ) : (
+              <div key={idx}>{cardContent}</div>
+            );
+          })}
         </div>
 
         {/* Warning Banner */}

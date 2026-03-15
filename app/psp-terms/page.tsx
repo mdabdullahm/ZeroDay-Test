@@ -1,29 +1,20 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation'; 
 import {
     Wallet, Landmark, Ban, ShieldCheck,
     History, Gavel, Terminal, FileText,
     CheckCircle2, AlertTriangle, Printer,
     QrCode, MapPin, Mail, Phone, Globe,
     Zap, CreditCard, DollarSign,
-    Lock,
-    Scale,
-    FileSignature,
-    X,
-    ArrowUpCircle,
-    AlertCircle,
-    ArrowDownCircle,
-    Settings,
-    CheckCircle,
-    ShieldAlert,
-    Fingerprint,
-    UserCheck,
-    Handshake,
-    XCircle,
-    FileWarning,
-    FileEdit,
+    Lock, Scale, FileSignature, X,
+    ArrowUpCircle, AlertCircle, ArrowDownCircle,
+    Settings, CheckCircle, ShieldAlert,
+    Fingerprint, UserCheck, Handshake,
+    XCircle, FileWarning, FileEdit,
+    RefreshCcw, Info, Menu, ArrowLeft, ChevronRight, Cpu,
     RefreshCw
 } from 'lucide-react';
 
@@ -41,9 +32,60 @@ const sections = [
 
 export default function PSPTermsPage() {
     const handlePrint = () => window.print();
+    const router = useRouter();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black">
+        <div className="min-h-screen bg-black text-gray-300 font-sans selection:bg-green-500 selection:text-black scroll-smooth">
+            
+            <div className="lg:hidden fixed bottom-28 right-6 z-[100] flex flex-col gap-4">
+                <motion.button
+                    initial={{ scale: 0 }} animate={{ scale: 1 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => router.back()}
+                    className="w-12 h-12 bg-zinc-900 border border-white/10 text-white rounded-full flex items-center justify-center shadow-2xl backdrop-blur-md"
+                >
+                    <ArrowLeft size={20} />
+                </motion.button>
+
+                {/* মেনু টগল বাটন */}
+                <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="w-14 h-14 bg-green-600 text-black rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.4)]"
+                >
+                    <AnimatePresence mode="wait">
+                        {isMenuOpen ? <X size={24} key="x" /> : <Menu size={24} key="m" />}
+                    </AnimatePresence>
+                </motion.button>
+            </div>
+
+            {/* --- মোবাইল মেনু ড্রয়ার --- */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <>
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[90]" />
+                        <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ type: "spring", damping: 25 }} className="lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-full bg-zinc-950 border-l border-green-500/20 z-[95] p-6 shadow-2xl flex flex-col">
+                            <div className="mb-8 mt-10">
+                                <p className="text-[10px] font-mono text-green-900 uppercase tracking-[0.4em] mb-2">Tactical_Nav</p>
+                                <h4 className="text-white font-black uppercase text-lg border-b border-white/5 pb-2">PSP Menu</h4>
+                            </div>
+                            <div className="flex-1 overflow-y-auto space-y-2">
+                                {sections.map((item) => (
+                                    <a key={item.id} href={`#${item.id}`} onClick={() => setIsMenuOpen(false)} className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/5 text-gray-400 active:bg-green-500/10 active:text-green-500 transition-all">
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-green-900">{item.icon}</span>
+                                            <span className="text-xs font-bold uppercase tracking-tight">{item.title}</span>
+                                        </div>
+                                        <ChevronRight size={14} className="opacity-20" />
+                                    </a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
+
             <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10 pt-32 pb-20">
 
                 {/* অফিশিয়াল লেটারহেড */}
@@ -55,7 +97,7 @@ export default function PSPTermsPage() {
                         </div>
                         <div className="text-[10px] font-mono text-gray-500 space-y-1">
                             <p className="font-bold text-gray-400 uppercase italic">STAY SAFE, STAY SECURE</p>
-                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Dhaka-1215</p>
+                            <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Farmgate, Dhaka-1215</p>
                             <p className="flex items-center gap-2"><Mail size={10} /> mail@bytecapsuleit.com | <Phone size={10} /> +8801796934898</p>
                         </div>
                     </div>
@@ -71,18 +113,20 @@ export default function PSPTermsPage() {
 
                 <div className="grid lg:grid-cols-[320px_1fr] gap-16 items-start">
 
-                    {/* Sidebar Navigation */}
-                    <aside className="hidden lg:block sticky top-32 space-y-2 max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-green-900">
+                    <aside className="hidden lg:block sticky top-32 space-y-2 max-h-[calc(100vh-160px)] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-green-900/30">
                         <p className="text-[10px] font-mono text-green-900 uppercase mb-4 tracking-[0.3em]">Financial_Modules</p>
                         {sections.map((item) => (
-                            <a key={item.id} href={`#${item.id}`} className="flex items-center gap-3 p-2.5 rounded-xl border border-white/5 text-gray-500 hover:text-green-500 hover:bg-green-500/5 transition-all group">
+                            <a 
+                                key={item.id} 
+                                href={`#${item.id}`} 
+                                className="flex items-center gap-3 p-3 rounded-xl border border-white/5 text-gray-500 hover:text-green-500 hover:bg-green-500/5 transition-all group"
+                            >
                                 <span className="text-green-900 group-hover:text-green-500 transition-colors">{item.icon}</span>
-                                <span className="text-[10px] font-bold uppercase tracking-tight">{item.title}</span>
+                                <span className="text-[11px] font-bold uppercase tracking-tight">{item.title}</span>
                             </a>
                         ))}
                     </aside>
 
-                    {/* Main Content Area */}
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-zinc-950/80 border border-white/5 rounded-[3rem] p-8 md:p-16 backdrop-blur-xl shadow-2xl relative overflow-hidden">
                         <div className="relative z-10 space-y-20">
 
@@ -1134,12 +1178,12 @@ export default function PSPTermsPage() {
 }
 
 // Helper Components
-function Info({ className, size }: { className?: string, size?: number }) {
-    return <FileText className={className} size={size} />;
-}
-function Trophy({ className, size }: { className?: string, size?: number }) {
-    return <Zap className={className} size={size} />;
-}
-function Clock({ className, size }: { className?: string, size?: number }) {
-    return <History className={className} size={size} />;
-}
+// function Info({ className, size }: { className?: string, size?: number }) {
+//     return <FileText className={className} size={size} />;
+// }
+// function Trophy({ className, size }: { className?: string, size?: number }) {
+//     return <Zap className={className} size={size} />;
+// }
+// function Clock({ className, size }: { className?: string, size?: number }) {
+//     return <History className={className} size={size} />;
+// }

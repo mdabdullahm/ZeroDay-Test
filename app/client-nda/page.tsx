@@ -114,12 +114,15 @@ export default function ClientNDAPage() {
             </div>
 
             <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10 pt-32 pb-20">
+                
 
                 {/* Document Header (Letterhead Style) */}
                 <div className="mb-12 bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                        <img src="/ZeroDay Test Logo (2).png" alt="Byte Capsule" className="h-12 mb-4" />
-                        <h2 className="text-white font-black text-xl tracking-widest uppercase">Byte Capsule</h2>
+                        <div className='flex items-center gap-3 mb-2'>
+                            <img src="/Artboard.png" alt="Byte Capsule" className="h-10 mb-4" />
+                            <h2 className="text-green-500 font-black text-2xl tracking-widest uppercase pb-5">Byte Capsule</h2>
+                        </div>
                         <div className="text-[10px] font-mono text-gray-500 space-y-1 mt-2">
                             <p className="flex items-center gap-2"><MapPin size={10} /> Level-4, Byte Capsule, 15 Indira Road, Farmgate, Dhaka-1215</p>
                             <p className="flex items-center gap-2"><Mail size={10} /> mail@bytecapsuleit.com | <Phone size={10} /> +8801796934898</p>

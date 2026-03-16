@@ -42,7 +42,7 @@ const sopSections = [
 export default function SOPPage() {
     const handlePrint = () => window.print();
     const router = useRouter();
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // মোবাইল মেনু কন্ট্রোল
+    const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
     const Trophy = ({ size, className }: { size: number, className?: string }) => <Zap size={size} className={className} />;
     const Clock = ({ size, className }: { size: number, className?: string }) => <History size={size} className={className} />;
@@ -83,8 +83,6 @@ export default function SOPPage() {
                     </AnimatePresence>
                 </motion.button>
             </div>
-
-            {/* --- মোবাইল মেনু ড্রয়ার (AnimatePresence) --- */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <>
@@ -146,8 +144,9 @@ export default function SOPPage() {
                 <div className="mb-12 bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
                         <div className="flex items-center gap-3 mb-2">
-                            <ShieldCheck className="text-green-500" size={32} />
-                            <h2 className="text-white font-black text-2xl tracking-widest uppercase">Byte Capsule</h2>
+                            {/* <ShieldCheck className="text-green-500" size={32} /> */}
+                            <img src="/Artboard.png" alt="artboard" className='w-10 h-10' />
+                            <h2 className="text-green-500 font-black text-2xl tracking-widest uppercase">Byte Capsule</h2>
                         </div>
                         <div className="text-[10px] font-mono text-gray-500 space-y-1">
                             <p className="font-bold text-gray-400 uppercase tracking-tighter italic">STAY SAFE, STAY SECURE</p>

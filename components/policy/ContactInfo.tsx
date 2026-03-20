@@ -5,13 +5,13 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Terminal, ShieldCheck } from
 const contactNodes = [
   {
     title: "Secure Email",
-    value: "secure@zerodaytest.com",
+    value: "pentest@bytecapsuleit.com",
     sub: "PGP Key: 0x882A...F12",
     icon: <Mail size={24} />
   },
   {
     title: "Encrypted Line",
-    value: "+1 (555) 000-ZERO",
+    value: "+(880) 1576910835",
     sub: "Signal / Session / Telegram",
     icon: <Phone size={24} />
   },

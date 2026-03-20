@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Bell, History, RefreshCcw, FileClock, Rss, Terminal } from 'lucide-react';
 
 const updateLogs = [
-  { version: "v2.4.0", date: "FEB 2024", change: "Responsible Disclosure Bounty updated." },
-  { version: "v2.3.1", date: "DEC 2023", change: "Privacy encryption upgraded to RSA-4096." },
-  { version: "v2.2.0", date: "OCT 2023", change: "Cookies and Tracking Beacon policy refined." }
+  { version: "v1.0.0", date: "FEB 2024", change: "Responsible Disclosure Bounty updated." },
+  { version: "v1.0.0", date: "DEC 2023", change: "Privacy encryption upgraded to RSA-4096." },
+  { version: "v1.0.0", date: "OCT 2023", change: "Cookies and Tracking Beacon policy refined." }
 ];
 
 const PolicyUpdates = () => {

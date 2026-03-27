@@ -234,12 +234,12 @@ const Achievements = () => {
         </div>
 
         {/* ৫. সিকিউরিটি স্ট্যাটাস বার */}
-        <div className="mt-20 py-6 border-y border-white/5 flex justify-center items-center gap-8 opacity-20 group">
-           <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+        <div className="mt-20 py-6 border-y border-white/5 flex justify-center items-center gap-8 group">
+           <div className="flex items-center gap-2 text-[10px] font-mono text-gray-100 uppercase tracking-widest">
               <Zap size={12} className="text-green-500" /> Secure_Link_Established
            </div>
            <div className="w-1.5 h-1.5 rounded-full bg-green-900"></div>
-           <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+           <div className="flex items-center gap-2 text-[10px] font-mono text-gray-100 uppercase tracking-widest">
               <ShieldCheck size={12} className="text-green-500" /> Authentication: Level_4
            </div>
         </div>

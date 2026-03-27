@@ -19,8 +19,6 @@ const Hero = () => {
       
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/10 rounded-full blur-[120px] -z-10"></div>
-
-      {/* এখানে max-w-full এর বদলে max-w-[1536px] (2xl) অথবা আরও বড় উইডথ ব্যবহার করা হয়েছে */}
       <div className="max-w-full w-full mx-auto px-6 md:px-12 lg:px-16 xl:px-20 grid lg:grid-cols-2 gap-12 lg:gap-24 xl:gap-32 items-center relative z-10">
         
         {/* Left Content */}
@@ -75,7 +73,7 @@ const Hero = () => {
             {/* Stat 2: Encryption/Sync Progress */}
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
-                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter">99%</p>
+                <p className="text-2xl lg:text-3xl font-bold text-white tracking-tighter">96%</p>
                 <div className="p-1 bg-green-500/10 border border-green-500/20 rounded">
                   <Cpu size={12} className="text-green-500" />
                 </div>

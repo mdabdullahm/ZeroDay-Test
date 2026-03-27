@@ -84,11 +84,9 @@ const About = () => {
                             <span className="w-8 h-[1px] bg-green-500"></span>
                             IDENTITY_INITIATED
                         </div>
-
-                        <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                            Revolutionizing <span className="text-green-500">Cybersecurity</span> in Bangladesh
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-green-500 leading-tight">
+                           Revolutionizing Cybersecurity <br /> in Bangladesh
                         </h2>
-
                         <p className="text-gray-400 text-lg leading-relaxed mb-8">
                             ZeroDay Test is proud to stand as the first dedicated bug bounty and crowdsourced security platform in Bangladesh. In a rapidly digitizing economy, we serve as the critical bridge between organizations that demand ironclad security and a global elite community of ethical hackers.
                         </p>

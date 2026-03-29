@@ -240,8 +240,8 @@ const SecureForm = () => {
              </AnimatePresence>
 
              <div className="mt-8 flex items-center gap-3 p-4 bg-white/5 border border-white/5 rounded-2xl">
-                <ShieldCheck size={18} className="text-green-900" />
-                <p className="text-[8px] font-mono text-gray-600 uppercase leading-relaxed tracking-tighter">
+                <ShieldCheck size={18} className="text-green-700" />
+                <p className="text-[8px] font-mono text-gray-400 uppercase leading-relaxed tracking-tighter">
                    Your IP and system signature are being hashed for anti-spam protocol. Data is processed via Byte Capsule Secure Gateway.
                 </p>
              </div>

@@ -117,12 +117,12 @@ const Navbar = () => {
                   ))}
                   
                   <div className="flex flex-col gap-3 pt-4 border-t border-white/5">
-                    <Link href="/hacker-login" onClick={() => setIsOpen(false)}>
+                    <Link href="/https://zt.zerodaytest.com/auth/register" onClick={() => setIsOpen(false)}>
                       <button className={`w-full py-4 flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-300 ${getButtonStyles('/hacker-login')}`}>
                         <Lock size={18} /> HUNTER LOGIN
                       </button>
                     </Link>
-                    <Link href="/customer-login" onClick={() => setIsOpen(false)}>
+                    <Link href="/https://zt.zerodaytest.com/auth/register" onClick={() => setIsOpen(false)}>
                       <button className={`w-full py-4 flex items-center justify-center gap-2 font-bold rounded-xl transition-all duration-300 ${getButtonStyles('/customer-login')}`}>
                         <ShieldCheck size={18} /> CUSTOMER LOGIN
                       </button>

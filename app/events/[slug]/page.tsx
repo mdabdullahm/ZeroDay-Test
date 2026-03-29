@@ -2,12 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { 
-  ArrowLeft, MapPin, Calendar, Clock, 
-  Users, Zap, Globe, Link as LinkIcon,
-  Loader2, Radio
-} from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, Users, Zap, Loader2, Radio, Clock } from 'lucide-react';
 
 const BASE_URL = "https://zero-day-test-nine.vercel.app";
 
@@ -18,112 +13,76 @@ export default function EventDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchEvent = async () => {
+    const fetchEventDetail = async () => {
       try {
+        setLoading(true);
         const res = await fetch(`${BASE_URL}/api/public/events/${slug}`);
+        if (!res.ok) throw new Error("Event node offline.");
+        
         const data = await res.json();
-        setEvent(data.post);
+        // ডেভেলপার ডক অনুযায়ী ডেটা 'post' অবজেক্টে থাকে
+        setEvent(data.post || data);
       } catch (err) {
-        console.error("Error fetching event details:", err);
+        console.error("Detail Fetch Error:", err);
       } finally {
         setLoading(false);
       }
     };
-    if (slug) fetchEvent();
+    if (slug) fetchEventDetail();
   }, [slug]);
 
   if (loading) return (
     <div className="min-h-screen bg-black flex items-center justify-center">
-      <Loader2 className="text-green-500 animate-spin" size={40} />
+        <Loader2 className="text-green-500 animate-spin" size={40} />
     </div>
   );
 
-  if (!event) return <div className="min-h-screen bg-black text-white flex items-center justify-center font-mono">EVENT_DATA_CORRUPTED (404)</div>;
+  if (!event) return <div className="min-h-screen bg-black text-white flex items-center justify-center font-mono">404: EVENT_NOT_FOUND</div>;
 
   return (
     <div className="min-h-screen bg-black text-gray-300 pt-32 pb-20 selection:bg-green-500 selection:text-black">
       <div className="max-w-[1000px] mx-auto px-6 relative z-10">
         
         <button onClick={() => router.back()} className="flex items-center gap-2 text-[10px] font-mono text-green-500 mb-12 hover:text-white transition-colors">
-          <ArrowLeft size={14} /> RETURN_TO_SCHEDULE
+          <ArrowLeft size={14} /> BACK_TO_FEED
         </button>
 
-        <header className="mb-16">
-           <div className="flex items-center gap-2 text-green-500 font-mono text-[10px] tracking-[0.4em] uppercase mb-6">
-              <Radio size={14} className="animate-pulse" /> LIVE_ENGAGEMENT
-           </div>
-           <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none mb-8">{event.title}</h1>
-           
-           <div className="flex flex-wrap gap-8 py-6 border-y border-white/5">
-              <div className="flex items-center gap-3">
-                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500"><Calendar size={18}/></div>
-                 <div>
-                    <p className="text-[8px] font-mono text-gray-600 uppercase">Start_Date</p>
-                    <p className="text-xs font-bold text-white uppercase">{new Date(event.eventStartDate).toDateString()}</p>
-                 </div>
-              </div>
-              <div className="flex items-center gap-3">
-                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500"><MapPin size={18}/></div>
-                 <div>
-                    <p className="text-[8px] font-mono text-gray-600 uppercase">Venue</p>
-                    <p className="text-xs font-bold text-white uppercase">{event.location} ({event.venueType})</p>
-                 </div>
-              </div>
-              <div className="flex items-center gap-3">
-                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500"><Users size={18}/></div>
-                 <div>
-                    <p className="text-[8px] font-mono text-gray-600 uppercase">Capacity</p>
-                    <p className="text-xs font-bold text-white uppercase">{event.capacity} Slots</p>
-                 </div>
-              </div>
-           </div>
+        <header className="space-y-8 mb-16">
+            <div className="flex items-center gap-2 text-green-500 font-mono text-[10px] uppercase tracking-widest animate-pulse">
+                <Radio size={14} /> Live_Transmission
+            </div>
+            <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none">
+                {event.title}
+            </h1>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-white/5 font-mono text-[10px] uppercase">
+                <div><p className="text-gray-600 mb-1">Date</p><p className="text-white font-bold">{new Date(event.eventStartDate).toDateString()}</p></div>
+                <div><p className="text-gray-600 mb-1">Venue</p><p className="text-white font-bold">{event.venueType}</p></div>
+                <div><p className="text-gray-600 mb-1">Location</p><p className="text-white font-bold">{event.location}</p></div>
+                <div><p className="text-gray-600 mb-1">Access</p><p className="text-green-500 font-bold">{event.ticketPrice === 0 ? "FREE" : "PAID"}</p></div>
+            </div>
         </header>
 
         {event.coverImage && (
-           <div className="w-full aspect-video rounded-[3rem] overflow-hidden border border-white/10 mb-16">
-              <img src={event.coverImage} className="w-full h-full object-cover opacity-80" alt={event.title} />
-           </div>
+            <div className="rounded-[3rem] overflow-hidden border border-white/10 mb-16 aspect-video">
+                <img src={event.coverImage} className="w-full h-full object-cover opacity-60" alt="" />
+            </div>
         )}
 
         <div className="grid lg:grid-cols-[1fr_300px] gap-16">
-           <div className="space-y-12">
-              <section>
-                 <h3 className="text-white uppercase font-black italic tracking-widest text-lg mb-6 flex items-center gap-3">
-                   <Zap size={20} className="text-green-500" /> Event_Brief
-                 </h3>
-                 <div className="font-mono text-sm leading-relaxed text-gray-400 whitespace-pre-wrap">
-                    {event.content}
-                 </div>
-              </section>
+            <section className="prose prose-invert prose-green max-w-none border-l-2 border-green-500/20 pl-8 font-mono text-sm leading-relaxed text-gray-400 whitespace-pre-wrap">
+                <h3 className="text-white uppercase font-black italic tracking-widest text-xl mb-8">Intelligence_Briefing</h3>
+                {event.content}
+            </section>
 
-              <section>
-                 <h3 className="text-white uppercase font-black italic tracking-widest text-lg mb-6">Confirmed_Speakers</h3>
-                 <div className="grid md:grid-cols-2 gap-4">
-                    {event.speakers?.map((speaker: string) => (
-                      <div key={speaker} className="p-4 bg-zinc-950 border border-white/5 rounded-2xl flex items-center gap-3">
-                         <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center text-green-500 font-mono text-[10px]">SC</div>
-                         <p className="text-xs font-bold text-white uppercase tracking-tighter">{speaker}</p>
-                      </div>
-                    ))}
-                 </div>
-              </section>
-           </div>
-
-           <aside className="space-y-6">
-              <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem] text-center space-y-6">
-                 <div>
-                    <p className="text-[10px] font-mono text-gray-500 uppercase mb-1 text-green-500">Ticket_Price</p>
-                    <h4 className="text-3xl font-black text-white">{event.ticketPrice === 0 ? "FREE" : `${event.ticketPrice} ${event.ticketCurrency}`}</h4>
-                 </div>
-                 <a 
-                   href={event.registrationUrl} 
-                   target="_blank"
-                   className="block w-full py-4 bg-white text-black font-black text-[10px] uppercase rounded-2xl hover:bg-green-500 transition-all"
-                 >
-                   REGISTER_FOR_EVENT
-                 </a>
-              </div>
-           </aside>
+            <aside className="space-y-6">
+                <div className="sticky top-32 p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem] text-center space-y-6">
+                    <Zap size={32} className="mx-auto text-green-500" />
+                    <h3 className="text-white font-black uppercase italic tracking-widest">Register_Now</h3>
+                    <p className="text-[10px] font-mono text-gray-600 uppercase">Initialize registration protocol to join the briefing.</p>
+                    <a href={event.registrationUrl} target="_blank" className="block w-full py-4 bg-green-600 text-black font-black uppercase text-[10px] rounded-2xl hover:bg-white transition-all">Establish_Connection</a>
+                </div>
+            </aside>
         </div>
       </div>
     </div>

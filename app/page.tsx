@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
-      {/* hero section 1 */}
+      {/* hero section 1111111 */}
       <Hero/>
       {/* about section 2 */}
       <About/>

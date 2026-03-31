@@ -194,7 +194,7 @@ const Footer = () => {
           </div>
           
           <div className="text-[10px] font-mono text-gray-500 uppercase tracking-widest text-center">
-             © {currentYear} ZeroDay Test Lab | Global Tactical Ops
+             © {currentYear} ZeroDay Test | Global Tactical Ops
           </div>
         </div>
 

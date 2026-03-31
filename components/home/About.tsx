@@ -117,7 +117,7 @@ const About = () => {
                         </div>
 
                         <Link
-                            href="/hoyzerotest"
+                            href="/whyzerodaytest"
                             className="inline-flex items-center gap-2 group text-white font-bold border-b-2 border-green-500 pb-1 hover:text-green-500 transition-all text-xs tracking-widest uppercase"
                         >
                             EXPLORE OUR PROTOCOLS

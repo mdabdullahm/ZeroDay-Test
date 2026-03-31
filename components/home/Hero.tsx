@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, ShieldAlert, Zap, ChevronRight, Activity, Cpu, Database } from 'lucide-react';
+import Link from 'next/link';
 
 const Hero = () => {
   const [time, setTime] = useState("");
@@ -45,12 +46,12 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-green-600 hover:bg-green-500 text-black font-bold rounded-xl flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+            <Link href="https://zt.zerodaytest.com/auth/register" className="px-8 py-4 bg-green-600 hover:bg-green-500 text-black font-bold rounded-xl flex items-center gap-2 transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)]">
               Run Program <ChevronRight size={18} />
-            </button>
-            <button className="px-8 py-4 border border-green-500/30 hover:bg-green-500/5 text-green-500 font-bold rounded-xl transition-all">
+            </Link>
+            <Link href="https://zt.zerodaytest.com/auth/register" className="px-8 py-4 border border-green-500/30 hover:bg-green-500/5 text-green-500 font-bold rounded-xl transition-all">
               Start Hunting
-            </button>
+            </Link>
           </div>
 
           {/* --- HUD STATS SECTION --- */}

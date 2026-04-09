@@ -66,8 +66,9 @@ const Hero = () => {
                 </div>
               </div>
               <div className="font-mono text-[9px] lg:text-[10px] text-green-900 space-y-0.5">
-                <p>&gt; ADDR: 0x5F2E</p>
-                <p>&gt; MODE: OMEGA</p>
+                {/* <p>&gt; ADDR: 0x5F2E</p>
+                <p>&gt; MODE: OMEGA</p> */}
+                <p>&gt; Bug Report Received</p>
               </div>
             </div>
 
@@ -86,7 +87,7 @@ const Hero = () => {
                   className="h-full bg-green-500 shadow-[0_0_8px_#22c55e]"
                 />
               </div>
-              <p className="font-mono text-[9px] lg:text-[10px] text-green-900 uppercase tracking-tighter">[ Encrypted_Sync ]</p>
+              <p className="font-mono text-[9px] lg:text-[10px] text-green-900 uppercase tracking-tighter">[ Client Satisfaction ]</p>
             </div>
 
             {/* Stat 3: Live Pulse & Time */}
@@ -101,7 +102,7 @@ const Hero = () => {
                 </motion.div>
               </div>
               <div className="font-mono text-[9px] lg:text-[10px] text-green-700 bg-green-500/5 border border-green-500/10 px-2 py-1 rounded inline-block">
-                T-UTC: {time || "00:00:00"}
+                UTC – BD Time: {time || "00:00:00"}
               </div>
             </div>
 

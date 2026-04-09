@@ -56,7 +56,7 @@ const CaseStudies = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="text-4xl lg:text-6xl font-bold text-white mb-4"
           >
-            Recent <span className="text-green-500">Operations</span>
+            Recent <span className="text-green-500">released</span>
           </motion.h2>
           <p className="text-gray-500 max-w-xl font-light">Some of our successful penetration testing and cybersecurity investigation reports. (Some information has been withheld for security reasons)</p>
         </div>

@@ -6,33 +6,39 @@ import { Cpu, Terminal, Shield, Zap, Code2, Layers, Binary, Box } from 'lucide-r
 
 const toolCategories = [
   {
-    category: "Offensive Arsenal",
+    category: "Penetration Testing & Security Research ",
     icon: <Terminal size={20} />,
     tools: [
-      { name: "Metasploit", level: "95%" },
-      { name: "Burp Suite", level: "90%" },
-      { name: "Nmap", level: "98%" },
-      { name: "SQLmap", level: "85%" },
+      { name: "Cobalt Strike (Adversary Simulation)", level: "95%" },
+      { name: "BloodHound (Active Directory Mapping)", level: "90%" },
+      { name: "Hashcat (Password Cracking)", level: "98%" },
+      { name: "Ghidra / IDA Pro (Reverse Engineering)", level: "85%" },
+      { name: "Bettercap (Network Security Testing)", level: "85%" },
+      { name: "Nuclei (Vulnerability Scanning)", level: "85%" },
     ]
   },
   {
-    category: "Defensive Shield",
+    category: "Detection, Monitoring & Defense",
     icon: <Shield size={20} />,
     tools: [
-      { name: "Wireshark", level: "92%" },
-      { name: "Splunk", level: "80%" },
-      { name: "Snort IDS", level: "85%" },
-      { name: "Cloudflare", level: "95%" },
+      { name: "Wazuh (XDR & SIEM) ", level: "92%" },
+      { name: "Elastic Stack (ELK) (Log Analysis)", level: "80%" },
+      { name: "Suricata (Intrusion Detection/Prevention)", level: "85%" },
+      { name: "CrowdStrike Falcon (Endpoint Protection)", level: "95%" },
+      { name: "Velociraptor (Digital Forensics & Incident Response)", level: "95%" },
+      { name: "Trivy (Container Security)", level: "95%" },
     ]
   },
   {
-    category: "Dev & Automation",
+    category: "DevOps & Automation",
     icon: <Code2 size={20} />,
     tools: [
-      { name: "Python", level: "95%" },
-      { name: "Bash Script", level: "90%" },
-      { name: "TypeScript", level: "88%" },
-      { name: "React/Next.js", level: "94%" },
+      { name: "Go (Golang) (Systems Programming)", level: "95%" },
+      { name: "Docker & Kubernetes (Containerization & Orchestration)", level: "90%" },
+      { name: "Terraform (Infrastructure as Code)", level: "88%" },
+      { name: "Ansible (Configuration Management)", level: "94%" },
+      { name: "Jenkins / GitHub Actions (CI/CD Pipelines)", level: "94%" },
+      { name: "Prometheus & Grafana (Monitoring & Visualization)", level: "94%" },
     ]
   }
 ];

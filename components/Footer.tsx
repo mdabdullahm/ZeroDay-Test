@@ -34,13 +34,14 @@ const Footer = () => {
       ]
     },
     industries: [
-      { name: "Financial Services", href: "#" },
-      { name: "Healthcare", href: "#" },
-      { name: "Retail", href: "#" },
-      { name: "Automotive", href: "#" },
-      { name: "Technology", href: "#" },
-      { name: "Government", href: "#" },
-      { name: "Security", href: "#" }
+      { name: "Financial Services", href: "https://zerodaytest.com/contact" },
+      { name: "Healthcare", href: "https://zerodaytest.com/contact" },
+      { name: "Retail", href: "https://zerodaytest.com/contact" },
+      { name: "Automotive", href: "https://zerodaytest.com/contact" },
+      { name: "Technology", href: "https://zerodaytest.com/contact" },
+      { name: "Government", href: "https://zerodaytest.com/contact" },
+      { name: "Security", href: "https://zerodaytest.com/contact" },
+      { name: "Company Docs", href: "https://zerodaytest.com/docs" }
     ],
     forHackers: [
       { name: "Programs", href: "/hoyzerotest" },

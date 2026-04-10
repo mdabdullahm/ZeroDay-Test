@@ -39,11 +39,11 @@ const ServicesHero = () => {
 
             <div className="flex flex-wrap gap-5">
               {/* ২. Start Security Audit বাটন - কন্টাক্ট পেজে যাবে */}
-              <Link href="/contact" className="w-full sm:w-auto">
+              <div className="w-full sm:w-auto">
                 <Link href="https://zerodaytest.com/docs" className="w-full px-10 py-5 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:-translate-y-1 active:scale-95 text-sm uppercase">
                   Start Hunting <ChevronRight size={18} />
                 </Link>
-              </Link>
+              </div>
 
               {/* ৩. Custom Proposal বাটন - কন্টাক্ট পেজে যাবে */}
               <Link href="https://zerodaytest.com/contact" className="w-full sm:w-auto">

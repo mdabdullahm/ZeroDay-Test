@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Rocket, ShieldCheck, Zap, ChevronRight, Terminal, Globe } from 'lucide-react';
+import Link from 'next/link';
 
 const HoyCTA = () => {
   return (
@@ -48,26 +49,29 @@ const HoyCTA = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <button className="w-full sm:w-auto px-10 py-5 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:shadow-[0_0_50px_rgba(34,197,94,0.6)] hover:-translate-y-1 active:scale-95 text-sm uppercase">
+            <Link href="https://zerodaytest.com/docs" className="w-full sm:w-auto px-10 py-5 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_0_30px_rgba(34,197,94,0.4)] hover:shadow-[0_0_50px_rgba(34,197,94,0.6)] hover:-translate-y-1 active:scale-95 text-sm uppercase">
               DEPLOY_NOW <Zap size={18} />
-            </button>
+            </Link>
             
-            <button className="w-full sm:w-auto px-10 py-5 border border-green-500/30 hover:bg-green-500/5 text-green-500 font-bold rounded-2xl flex items-center justify-center gap-3 transition-all backdrop-blur-md text-sm uppercase">
+            <Link 
+              href="https://wa.me/+8801319919694" 
+              target="_blank" 
+              className="w-full sm:w-auto px-10 py-5 border border-green-500/30 hover:bg-green-500/5 text-green-500 font-bold rounded-2xl flex items-center justify-center gap-3 transition-all backdrop-blur-md text-sm uppercase">
               TALK_TO_A_RESEARCHER <ShieldCheck size={18} />
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Security Info */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 border-t border-white/5 pt-8 opacity-40">
-             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500">
+             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 SERVER_LATENCY: 12ms
              </div>
-             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500">
+             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 PROTOCOL: TLS_1.3_ENCRYPTED
              </div>
-             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-500">
+             <div className="flex items-center gap-2 text-[10px] font-mono text-gray-200">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 REGION: ASIA_GLOBAL_NODE
              </div>
@@ -75,7 +79,7 @@ const HoyCTA = () => {
         </motion.div>
 
         {/* Closing Footnote */}
-        <p className="mt-10 text-[9px] font-mono text-gray-700 uppercase tracking-[0.5em]">
+        <p className="mt-10 text-[9px] font-mono text-gray-500 uppercase tracking-[0.5em]">
            Establish Connection_ | Node Active_ | ZeroDay Test Lab v2.4.0
         </p>
 

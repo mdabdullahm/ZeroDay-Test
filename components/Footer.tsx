@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Terminal, Github, Twitter, Linkedin, Youtube, ShieldCheck, Cpu, Globe, Zap, ChevronRight } from 'lucide-react';
+import { Terminal, Twitter, Linkedin, Youtube, ShieldCheck, Cpu, Globe, Zap, ChevronRight, Facebook } from 'lucide-react';
+import { FaDiscord } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -44,10 +45,10 @@ const Footer = () => {
       { name: "Company Docs", href: "https://zerodaytest.com/docs" }
     ],
     forHackers: [
-      { name: "Programs", href: "/hoyzerotest" },
+      { name: "Programs", href: "https://zt.zerodaytest.com/dashboard/hacker/programs" },
       { name: "CrowdSourced", href: "/crowdsourced" },
-      { name: "Bug Bounty List", href: "/services" },
-      { name: "Start Hacking", href: "/academy" },
+      { name: "Bug Bounty List", href: "https://zt.zerodaytest.com/dashboard/hacker/programs" },
+      { name: "Start Hacking", href: "https://zt.zerodaytest.com/auth/login" },
       { name: "FAQs", href: "/faq" }, 
       { name: "Hacker Docs", href: "/docs" },
       { name: "Academy", href: "/academy" }, 
@@ -55,7 +56,7 @@ const Footer = () => {
     ],
     company: [
       { name: "About", href: "/#about" },
-      { name: "Trust & Security", href: "/policy" },
+      { name: "Trust & Security", href: "https://zerodaytest.com/trust-security" },
       { name: "Career", href: "/careers" },
       { name: "Blog", href: "/blog" },
       { name: "Events", href: "/events" },
@@ -163,10 +164,11 @@ const Footer = () => {
                <h4 className="text-white font-black uppercase tracking-widest text-sm">Follow Us</h4>
                <div className="h-[2px] w-full bg-gradient-to-r from-green-500 to-transparent"></div>
                <div className="flex gap-4">
-                  <Link href="#" className="text-gray-400 hover:text-white transition-all"><Linkedin size={22} /></Link>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-all"><Twitter size={22} /></Link>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-all"><Youtube size={22} /></Link>
-                  <Link href="#" className="text-gray-400 hover:text-white transition-all"><Github size={22} /></Link>
+                  <Link href="https://www.linkedin.com/company/zeroday-test" className="text-gray-400 hover:text-white transition-all"><Linkedin size={22} /></Link>
+                  <Link href="https://www.facebook.com/share/1F2He1nY9Q/" className="text-gray-400 hover:text-white transition-all"><Facebook size={22} /></Link>
+                  <Link href="https://x.com/Zer0day_t3st" className="text-gray-400 hover:text-white transition-all"><Twitter size={22} /></Link>
+                  <Link href="https://www.youtube.com/@HackerBhao" className="text-gray-400 hover:text-white transition-all"><Youtube size={22} /></Link>
+                  <Link href="https://discord.gg/F88eZM9bf" className="text-gray-400 hover:text-white transition-all"><FaDiscord size={22} /></Link>
                </div>
             </div>
 

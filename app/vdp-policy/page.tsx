@@ -2124,29 +2124,6 @@ export default function VDPPolicyPage() {
 
                                     {/* Official Approval & Signature (ছবির হুবহু স্টাইল) */}
                                     <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-end gap-12 relative">
-                                        <div className="space-y-6">
-
-                                            <div className="pt-4 flex justify-center">
-                                                <div className="relative h-52 w-auto rounded-md">
-                                                    {/* Rotating Border */}
-                                                    <div className="absolute inset-0 rounded-md p-[3px] 
-                                                        bg-[conic-gradient(#ff0000,#00ff88,#0066ff,#ff0000)] 
-                                                         animate-spin-slow">
-
-                                                    </div>
-
-                                                    {/* Image */}
-                                                    <div className="relative bg-white rounded-md p-[3px]">
-                                                        <img
-                                                            src="/client-nda.jpg"
-                                                            alt="Signature"
-                                                            className="h-52 rounded-md"
-                                                        />
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                         {/* Final Acceptance Badge */}
                                         <div className="bg-green-600 p-10 rounded-[3.5rem] text-black max-w-sm shadow-[0_0_60px_rgba(34,197,94,0.3)] border border-green-400/50">
                                             <div className="flex items-center gap-3 mb-4">

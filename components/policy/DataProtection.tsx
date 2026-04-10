@@ -135,14 +135,14 @@ const DataProtection = () => {
            <div className="flex items-center gap-4">
               <Zap size={32} className="text-green-500" />
               <p className="text-sm font-mono text-gray-400">
-                Our security protocols <span className="text-white">ISO/IEC 27001</span> and <span className="text-white">SOC 2 Type II</span> Designed according to standards.
+                Our security protocols <span className="text-white">ISO 27001</span> Designed according to standards <span className="text-white"> Here is the General </span> Conditions of Use.
               </p>
            </div>
            <button 
       onClick={() => setIsAuditOpen(true)}
       className="px-6 py-2 bg-green-600 hover:bg-green-500 text-black font-black rounded-lg text-xs transition-all uppercase shadow-lg active:scale-95"
     >
-      Download Security Audit
+      Download
     </button>
 
     {/* মডালটি এখানে কল করুন */}

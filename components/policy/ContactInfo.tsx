@@ -5,20 +5,20 @@ import { Mail, Phone, MapPin, Clock, MessageSquare, Terminal, ShieldCheck } from
 const contactNodes = [
   {
     title: "Secure Email",
-    value: "pentest@bytecapsuleit.com",
+    value: "mail@bytecapsuleit.com",
     sub: "PGP Key: 0x882A...F12",
     icon: <Mail size={24} />
   },
   {
     title: "Encrypted Line",
-    value: "+(880) 1576910835",
+    value: "+(880) 1319919694",
     sub: "Signal / Session / Telegram",
     icon: <Phone size={24} />
   },
   {
     title: "Base of Ops",
-    value: "Virtual Node 0x7",
-    sub: "Silicon Valley, CA, USA",
+    value: "15 Indira Road (Level 4)",
+    sub: "Farmgate, Dhaka - 1215 Bangladesh",
     icon: <MapPin size={24} />
   }
 ];

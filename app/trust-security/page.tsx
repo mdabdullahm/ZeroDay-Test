@@ -322,10 +322,8 @@ export default function TrustSecurityPage() {
                                 {/* --- SIGNATURE SECTION (Page 3 Bottom) --- */}
                                 <div className="mt-20 pt-12 border-t border-white/10">
                                     <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-
-                                        {/* নীল রঙের সেই ডেকোরেশন স্ট্যাম্প */}
                                         {/* --- OUR COMMITMENT (Page 3 Bottom) --- */}
-                                        <div className="mt-24 p-12 bg-green-600 rounded-[3rem] text-black shadow-[0_0_50px_rgba(34,197,94,0.3)] relative overflow-hidden">
+                                        <div className="mt-24 p-12 bg-green-600 rounded-[2rem] text-black shadow-[0_0_50px_rgba(34,197,94,0.3)] relative overflow-hidden">
                                             <div className="relative z-10 text-center space-y-6">
                                                 <h3 className="text-3xl md:text-5xl font-black uppercase tracking-tighter">Our Commitment</h3>
                                                 <p className="text-sm md:text-base font-bold max-w-2xl mx-auto leading-relaxed italic">"Byte Capsule IT believes: Security and compliance are fundamental responsibilities."</p>
@@ -333,7 +331,7 @@ export default function TrustSecurityPage() {
 
                                                 <div className="pt-8 border-t border-black/10 flex flex-col items-center">
                                                     <p className="text-[10px] font-black uppercase tracking-widest mb-4">Have questions about our security and legal compliance?</p>
-                                                    <a href="mailto:pentest@bytecapsuleit.com" className="flex items-center gap-3 px-10 py-4 bg-black text-white font-black rounded-2xl text-xs tracking-widest hover:bg-zinc-900 transition-all uppercase">
+                                                    <a href="mailto:mail@bytecapsuleit.com" className="flex items-center gap-3 px-10 py-4 bg-black text-white font-black rounded-2xl text-xs tracking-widest hover:bg-zinc-900 transition-all uppercase">
                                                         <Mail size={18} /> Contact Security Team
                                                     </a>
                                                 </div>

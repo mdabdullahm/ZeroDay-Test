@@ -96,7 +96,7 @@ const UserResponsibilities = () => {
            <div className="flex items-start gap-4">
               <Terminal size={24} className="text-yellow-600 mt-1" />
               <div>
-                 <h4 className="text-yellow-500 font-bold uppercase text-sm mb-2 tracking-widest">Breach of Protocol</h4>
+                 <h4 className="text-yellow-500 font-bold uppercase text-sm mb-2 tracking-widest">Compliance Warning</h4>
                  <p className="text-gray-500 text-xs leading-relaxed">
                     Violating any of the above rules may result in your account being permanently banned without notice. ZeroDay Test reserves the right to take legal action in case of serious violations.
                  </p>

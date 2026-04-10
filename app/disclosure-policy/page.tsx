@@ -275,30 +275,6 @@ export default function DisclosurePolicyPage() {
                                 {/* --- ১০. একসেপ্টেন্স এবং সিগনেচার সেকশন --- */}
                                 <div id="acceptance" className="mt-20 pt-16 border-t border-white/10 relative">
                                     <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-                                        <div className="space-y-6">
-
-                                            <div className="pt-4 flex justify-center">
-                                                <div className="relative h-52 w-auto rounded-md">
-
-                                                    {/* Rotating Border */}
-                                                    <div className="absolute inset-0 rounded-md p-[3px] 
-                                                        bg-[conic-gradient(#ff0000,#00ff88,#0066ff,#ff0000)] 
-                                                         animate-spin-slow">
-
-                                                    </div>
-
-                                                    {/* Image */}
-                                                    <div className="relative bg-white rounded-md p-[3px]">
-                                                        <img
-                                                            src="/client-nda.jpg"
-                                                            alt="Signature"
-                                                            className="h-52 rounded-md"
-                                                        />
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div className="bg-green-600 p-10 rounded-[1rem] text-black max-w-sm shadow-[0_0_60px_rgba(34,197,94,0.3)]">
                                             <div className="flex items-center gap-3 mb-4">
                                                 <FileSignature size={24} />

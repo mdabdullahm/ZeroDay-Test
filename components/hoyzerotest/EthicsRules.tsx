@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Scale, ShieldAlert, FileWarning, Users, CheckSquare, FileSignature, Zap } from 'lucide-react';
+import Link from 'next/link';
 
 const rules = [
   {
@@ -110,9 +111,9 @@ const EthicsRules = () => {
                 Are you committed to following these protocols?
               </p>
            </div>
-           <button className="px-8 py-3 bg-green-600 hover:bg-green-500 text-black font-black rounded-xl text-xs transition-all uppercase shadow-[0_0_20px_rgba(34,197,94,0.3)]">
+           <Link href="https://zerodaytest.com/policy" className="px-8 py-3 bg-green-600 hover:bg-green-500 text-black font-black rounded-xl text-xs transition-all uppercase shadow-[0_0_20px_rgba(34,197,94,0.3)]">
              I_AGREE_TO_PROTOCOLS
-           </button>
+           </Link>
         </motion.div>
 
       </div>

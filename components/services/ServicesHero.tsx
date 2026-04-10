@@ -40,13 +40,13 @@ const ServicesHero = () => {
             <div className="flex flex-wrap gap-5">
               {/* ২. Start Security Audit বাটন - কন্টাক্ট পেজে যাবে */}
               <Link href="/contact" className="w-full sm:w-auto">
-                <button className="w-full px-10 py-5 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:-translate-y-1 active:scale-95 text-sm uppercase">
-                  START_SECURITY_AUDIT <ChevronRight size={18} />
-                </button>
+                <Link href="https://zerodaytest.com/docs" className="w-full px-10 py-5 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl flex items-center justify-center gap-3 transition-all shadow-[0_0_25px_rgba(34,197,94,0.4)] hover:-translate-y-1 active:scale-95 text-sm uppercase">
+                  Start Hunting <ChevronRight size={18} />
+                </Link>
               </Link>
 
               {/* ৩. Custom Proposal বাটন - কন্টাক্ট পেজে যাবে */}
-              <Link href="/contact" className="w-full sm:w-auto">
+              <Link href="https://zerodaytest.com/contact" className="w-full sm:w-auto">
                 <button className="w-full px-10 py-5 border border-white/10 hover:border-green-500/30 hover:bg-green-500/5 text-white font-bold rounded-2xl flex items-center justify-center gap-3 transition-all backdrop-blur-md text-sm uppercase">
                   CUSTOM_PROPOSAL <Target size={18} className="text-green-500" />
                 </button>
@@ -133,7 +133,7 @@ const ServicesHero = () => {
 
             {/* Floating Detail Badge */}
             <motion.div 
-              animate={{ y: [0, -15, 0] }}
+              animate={{ y: [0, 25, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
               className="absolute -bottom-8 -left-8 bg-zinc-900 border border-white/10 p-5 rounded-2xl shadow-2xl hidden md:block"
             >

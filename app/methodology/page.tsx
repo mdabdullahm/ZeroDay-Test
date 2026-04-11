@@ -37,7 +37,7 @@ export default function MethodologyPage() {
            style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-20 relative z-10">
+      <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
         
         {/* Back Button */}
         <Link href="/" className="inline-flex items-center gap-2 text-[10px] font-mono text-green-500 mb-12 hover:text-white transition-colors group uppercase tracking-widest">

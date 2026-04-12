@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, ShieldCheck, Zap, ArrowRight, Terminal, Globe, Lock } from 'lucide-react';
+import Link from 'next/link';
 
 const ContactCTA = () => {
     return (
@@ -51,18 +52,22 @@ const ContactCTA = () => {
                         {/* Tactical Buttons with Blob Style Logic */}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                             {/* Primary Action Button */}
-                            <button className="group relative px-12 py-6 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl transition-all shadow-[0_0_40px_rgba(34,197,94,0.4)] hover:shadow-[0_0_60px_rgba(34,197,94,0.6)] hover:-translate-y-2 active:scale-95 text-base uppercase tracking-widest overflow-hidden">
+                            <Link href="https://zerodaytest.com/docs" className="group relative px-12 py-6 bg-green-600 hover:bg-green-500 text-black font-black rounded-2xl transition-all shadow-[0_0_40px_rgba(34,197,94,0.4)] hover:shadow-[0_0_60px_rgba(34,197,94,0.6)] hover:-translate-y-2 active:scale-95 text-base uppercase tracking-widest overflow-hidden">
                                 <div className="relative z-10 flex items-center justify-center gap-3">
                                     INITIATE_DEPLOYMENT <Rocket size={20} className="fill-current group-hover:animate-bounce" />
                                 </div>
                                 {/* Liquid fill effect mockup */}
                                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full scale-[2]"></div>
-                            </button>
+                            </Link>
 
                             {/* Secondary Action Button */}
-                            <button className="w-full sm:w-auto px-12 py-6 border-2 border-white/10 hover:border-green-500/50 hover:bg-green-500/5 text-white font-black rounded-2xl transition-all backdrop-blur-md text-base uppercase tracking-widest flex items-center justify-center gap-3 group">
-                                LIVE_CHAT_NODE <Globe size={20} className="text-green-900 group-hover:text-green-500 transition-colors" />
-                            </button>
+                            <Link 
+                               href="https://wa.me/8801319919694" 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                                className="w-full sm:w-auto px-12 py-6 border-2 border-white/10 hover:border-green-500/50 hover:bg-green-500/5 text-white font-black rounded-2xl transition-all backdrop-blur-md text-base uppercase tracking-widest flex items-center justify-center gap-3 group cursor-pointer">LIVE_CHAT_NODE 
+                                <Globe size={20} className="text-green-900 group-hover:text-green-500 transition-colors" />
+                            </Link>
                         </div>
 
                         {/* Operational Meta-data  */}

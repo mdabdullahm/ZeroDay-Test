@@ -6,9 +6,9 @@ const FAQHero = () => {
   return (
     <section className="relative pt-32 pb-16 overflow-hidden bg-black text-white">
       {/* Background Matrix Grid */}
-      <div className="absolute inset-0 z-0 opacity-15" 
+      {/* <div className="absolute inset-0 z-0 opacity-15" 
            style={{ backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-      </div>
+      </div> */}
 
       <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10 text-center">
         <motion.div 
@@ -29,7 +29,7 @@ const FAQHero = () => {
         </p>
 
         {/* Mock Search Bar - Hacker Style */}
-        <div className="max-w-xl mx-auto relative group">
+        {/* <div className="max-w-xl mx-auto relative group">
            <div className="absolute inset-0 bg-green-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
            <div className="relative flex items-center bg-zinc-900/50 border border-white/5 p-1 rounded-2xl backdrop-blur-xl group-hover:border-green-500/30 transition-all">
               <div className="pl-4 text-green-700">
@@ -44,7 +44,7 @@ const FAQHero = () => {
                  Execute
               </button>
            </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

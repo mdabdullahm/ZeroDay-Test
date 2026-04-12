@@ -76,7 +76,7 @@ export default function MethodologyPage() {
 
             <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
 
-                <Link href="/" className="inline-flex items-center gap-2 text-[10px] font-mono text-green-500 mb-12 hover:text-white transition-all group uppercase tracking-widest">
+                <Link href="/services" className="inline-flex items-center gap-2 text-[10px] font-mono text-green-500 mb-12 hover:text-white transition-all group uppercase tracking-widest">
                     <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return_To_Base
                 </Link>
 

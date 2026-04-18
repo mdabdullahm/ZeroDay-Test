@@ -2613,11 +2613,11 @@ export default function PrivacyPolicyPage() {
                               <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover/warning:opacity-100 transition-opacity blur-2xl"></div>
 
                               <div className="relative z-10 space-y-5">
-                                <div className="flex items-center gap-3 text-red-500 mb-4">
-                                  <div className="flex-shrink-0">
+                                <div className="flex items-start md:items-center gap-3 text-red-500">
+                                  <div className="shrink-0 -mt-1 md:mt-0">
                                     <ShieldAlert size={20} className="animate-pulse" />
                                   </div>
-                                  <h6 className="font-black text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-widest leading-none">
+                                  <h6 className="font-black text-[10px] md:text-xs uppercase tracking-wider md:tracking-widest leading-tight">
                                     CRITICAL_USAGE_RESTRICTION
                                   </h6>
                                 </div>

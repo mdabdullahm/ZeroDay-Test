@@ -104,7 +104,9 @@ import {
   Monitor,
   Toolbox,
   RefreshCw,
-  XCircle
+  XCircle,
+  DollarSign,
+  Award
 } from 'lucide-react';
 
 const sections = [
@@ -2128,33 +2130,581 @@ export default function PrivacyPolicyPage() {
                   </div>
                 </section>
 
-                {/* 4. Financial / Rewards */}
-                <section id="usage" className="scroll-mt-32">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="p-3 bg-green-500/10 rounded-2xl text-green-500 border border-green-500/20">
-                      <Cpu size={20} />
-                    </div>
-                    <h2 className="text-2xl font-black text-white uppercase tracking-tighter italic">5. Financial Conditions</h2>
+                {/* 5. FINANCIAL CONDITIONS */}
+                <section id="usage" className="scroll-mt-32 relative">
+                  {/* Section Watermark */}
+                  <div className="absolute top-0 right-0 opacity-[0.03] pointer-events-none select-none font-mono text-[100px] font-black leading-none -rotate-12 translate-x-20">
+                    CONFIDENTIAL
                   </div>
-                  <div className="space-y-8 ml-6 pl-6 border-l border-green-500/20">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="p-8 bg-zinc-900 rounded-[2.5rem] border border-white/5">
-                        <h4 className="text-white font-bold text-sm uppercase mb-4 italic">5.3 Rewards Policy</h4>
-                        <p className="text-gray-400 text-sm mb-6">Rewards are issued in BDT (Bangladeshi Taka). Any currency conversion follows the prevailing <span className="text-green-500">Bangladesh Bank</span> exchange rate.</p>
-                        <div className="p-4 bg-black rounded-2xl border border-white/5 font-mono text-[10px] text-gray-500 uppercase">
-                          Uplink Fee: Included <br /> Taxes: Deducted at Source (if applicable)
+
+                  <div className="flex items-center gap-4 mb-12 relative z-10">
+                    <div className="p-3 bg-green-500/10 rounded-2xl text-green-500 border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                      <Cpu size={24} />
+                    </div>
+                    <div>
+                      <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic leading-none">
+                        5. Financial Conditions
+                      </h2>
+                      <p className="text-green-500/60 font-mono text-[9px] uppercase tracking-[0.2em] mt-2 italic">
+                        Applicable only to Security Researchers participating in Bug Bounty Programs
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="ml-6 space-y-16 pl-6 border-l border-green-500/20 relative z-10">
+
+                    {/* 5.1 Invoicing Mandate */}
+                    <div className="space-y-6 pt-10 border-t border-white/5 mt-10">
+                      <div className="space-y-4">
+                        <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                          <FileText size={16} className="text-green-500" />
+                          5.1 Invoicing Mandate Protocol
+                        </h4>
+
+                        <div className="p-8 bg-zinc-950/60 border border-white/5 rounded-[2.5rem] relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
+                          {/* Background Watermark */}
+                          <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <FileSignature size={80} className="text-green-500" />
+                          </div>
+
+                          <div className="relative z-10 space-y-6">
+                            {/* Core Authorization Clause */}
+                            <div className="p-6 bg-white/5 border border-white/10 rounded-3xl relative overflow-hidden">
+                              <p className="text-[13px] text-gray-300 font-mono uppercase leading-relaxed">
+                                To allow the Company to <span className="text-white font-bold italic underline decoration-green-500/30">invoice in their name and on their behalf</span> the Rewards awarded to them, Security Researchers <span className="text-white font-black">expressly and unconditionally agree</span> to the terms of the Invoicing Mandate <span className="text-green-500 font-bold">(Appendix 2)</span>.
+                              </p>
+                            </div>
+
+                            {/* Administrative Requirement Node */}
+                            <div className="space-y-4">
+                              <h5 className="text-green-500 font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+                                <Terminal size={14} /> Account_Activation_Requirement
+                              </h5>
+                              <div className="p-6 bg-black/40 rounded-3xl border border-white/5">
+                                <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed italic">
+                                  "It is <span className="text-white">expressly agreed</span> that the Invoicing Mandate must be <span className="text-white font-bold underline decoration-white/20">duly completed and accepted</span> by the Security Researchers in their personal account."
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Critical Failure Consequence (Red Alert Box) */}
+                            <div className="p-6 bg-red-500/5 border border-red-500/20 rounded-[2rem] relative overflow-hidden group/alert">
+                              <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover/alert:opacity-100 transition-opacity blur-2xl"></div>
+
+                              <div className="flex items-start gap-4 relative z-10">
+                                <div className="mt-1 text-red-500 animate-pulse">
+                                  <AlertTriangle size={20} />
+                                </div>
+                                <div className="space-y-2">
+                                  <h5 className="text-red-500 font-black text-[11px] uppercase tracking-widest">CRITICAL_PAYMENT_NOTICE</h5>
+                                  <p className="text-[11px] text-gray-500 font-mono uppercase leading-relaxed">
+                                    Failing this, any operation initiated by the Security Researchers will <span className="text-red-400 font-black underline decoration-red-500/40 italic">not give rise to payment</span>. Mandatory compliance is required for reward settlement.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          {/* Decorative Matrix Bit Stream */}
+                          <div className="absolute bottom-4 left-8 right-8 h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
                         </div>
                       </div>
-                      <div className="p-8 bg-zinc-900 rounded-[2.5rem] border border-white/5">
-                        <h4 className="text-white font-bold text-sm uppercase mb-4 italic text-red-500 flex items-center gap-2"><Lock size={14} /> 5.4 Tax Compliance</h4>
-                        <p className="text-gray-500 text-xs font-mono uppercase leading-relaxed tracking-widest">
-                          RESEARCHERS ARE RESPONSIBLE FOR OBTAINING TIN FROM NBR AND FILING INCOME TAX RETURNS AS PER THE INCOME TAX ORDINANCE, 1984.
-                        </p>
+                    </div>
+
+                    {/* 5.2 Know Your Customer (KYC) checks */}
+                    <div className="space-y-6 pt-10 border-t border-white/5 mt-10">
+                      <div className="space-y-4">
+                        <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                          <UserCheck size={16} className="text-green-500" />
+                          5.2 Know Your Customer (KYC) Checks
+                        </h4>
+
+                        <div className="p-8 bg-zinc-950/60 border border-white/5 rounded-[1.5rem] relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
+                          {/* Background Watermark */}
+                          <div className="absolute -bottom-4 -right-4 opacity-[0.02] pointer-events-none">
+                            <ShieldCheck size={180} className="text-green-500" />
+                          </div>
+
+                          <div className="relative z-10 space-y-8">
+                            {/* Mandatory Requirement Declaration */}
+                            <div className="space-y-4">
+                              <p className="text-[13px] text-gray-300 font-mono uppercase leading-relaxed">
+                                KYC checks on the Security Researcher are a <span className="text-white font-black italic underline decoration-green-500/30">mandatory requirement</span> and performed by the Company or its <span className="text-white font-bold">PSP</span> for complying with:
+                              </p>
+
+                              {/* Regulatory Grid */}
+                              <div className="grid md:grid-cols-2 gap-4 pt-2">
+                                {[
+                                  "The Money Laundering Prevention Act, 2012",
+                                  "The Anti Terrorism (Amendment) Act, 2013",
+                                  "Bangladesh Bank KYC guidelines",
+                                  "Bangladesh Financial Intelligence Unit (BFIU) requirements"
+                                ].map((item, i) => (
+                                  <div key={i} className="flex items-center gap-3 p-4 bg-black/40 border border-white/5 rounded-2xl group/item hover:border-green-500/30 transition-all">
+                                    <div className="w-1.5 h-1.5 bg-green-900 group-hover/item:bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.2)] transition-all"></div>
+                                    <span className="text-[10px] text-gray-500 font-mono uppercase font-bold group-hover/item:text-gray-300 transition-colors">
+                                      {item}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Verification Identity Protocol */}
+                            <div className="pt-6 border-t border-white/5">
+                              <div className="p-6 bg-green-500/5 border border-green-500/10 rounded-[2rem] relative overflow-hidden">
+                                <div className="flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+                                  <div className="space-y-2">
+                                    <h5 className="text-green-500 font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+                                      <Zap size={14} /> Verification_Identity_Protocol
+                                    </h5>
+                                    <p className="text-[12px] text-gray-400 font-mono uppercase leading-relaxed max-w-xl">
+                                      Once the KYC process is successfully completed, Security Researchers will be identified as <span className="text-white font-black italic underline decoration-white/20">"KYC Verified"</span> on the Platform.
+                                    </p>
+                                  </div>
+
+                                  {/* Visual Badge Status */}
+                                  <div className="px-6 py-3 bg-black border border-green-900/40 rounded-xl flex items-center gap-3">
+                                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
+                                    <span className="text-[10px] font-mono text-green-500 font-black uppercase tracking-widest">
+                                      Status: KYC_Verified_Tag
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+
+                    {/* 5.3 Rewards & 5.4 Tax Compliance Grid */}
+                    <div className="grid lg:grid-cols-2 gap-8">
+                      {/* 5.3 Rewards */}
+                      {/* 5.3 Rewards */}
+                      <div className="space-y-6 pt-10 border-t border-white/5 mt-10">
+                        <div className="space-y-4">
+                          <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                            <Trophy size={16} className="text-green-500" />
+                            5.3 Rewards Settlement Protocol
+                          </h4>
+
+                          <div className="p-8 bg-zinc-950/60 border border-white/5 rounded-[1.5rem] relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
+                            {/* Background Icon Watermark */}
+                            <div className="absolute -top-4 -right-4 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+                              <Landmark size={150} />
+                            </div>
+
+                            <div className="relative z-10 space-y-8">
+
+                              {/* Core Provision Card */}
+                              <div className="p-6 bg-white/5 border border-white/10 rounded-3xl relative">
+                                <div className="flex gap-4 items-start">
+                                  <div className="p-2 bg-green-500/10 rounded-lg text-green-500 mt-1">
+                                    <CheckCircle2 size={16} />
+                                  </div>
+                                  <p className="text-[13px] text-gray-300 font-mono uppercase leading-relaxed italic">
+                                    "Upon submitting a <span className="text-white font-bold underline decoration-green-500/30">valid Vulnerability Report</span> and subject to the Security Researchers' compliance with their obligations outlined in the relevant Bug Bounty Program, the Customer User will, at its <span className="text-white font-black">sole discretion</span>, determine and issue Rewards which will be paid to the Security Researchers using their Wallet."
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* Currency & Tax Grid */}
+                              <div className="grid md:grid-cols-2 gap-4">
+                                {/* Currency and Taxes */}
+                                <div className="p-5 bg-black/40 border border-white/5 rounded-2xl group/item hover:border-green-500/30 transition-all">
+                                  <h5 className="text-green-500 font-bold text-[10px] uppercase mb-3 tracking-widest">BDT_Settlement_Node</h5>
+                                  <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                                    The Rewards are expressed in <span className="text-white font-black">BDT (Bangladeshi Taka)</span>, including <span className="text-white italic">all applicable taxes</span>.
+                                  </p>
+                                </div>
+
+                                {/* Conversion and Charges */}
+                                <div className="p-5 bg-black/40 border border-white/5 rounded-2xl group/item hover:border-green-500/30 transition-all">
+                                  <h5 className="text-green-500 font-bold text-[10px] uppercase mb-3 tracking-widest">Conversion_Protocol</h5>
+                                  <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                                    Any currency conversion charges shall be <span className="text-red-400 font-black">borne by the Security Researchers</span> according to Bangladesh Bank exchange rates.
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* Tactical Note: Authority Reference */}
+                              <div className="p-4 bg-green-500/5 border-l-2 border-green-600 rounded-r-xl">
+                                <div className="flex items-center gap-3">
+                                  <Info size={14} className="text-green-900" />
+                                  <p className="text-[9px] text-gray-500 font-mono uppercase tracking-widest leading-relaxed">
+                                    Legal Ref: Settlement is strictly governed by Bangladesh Bank foreign exchange guidelines and internal triage verification.
+                                  </p>
+                                </div>
+                              </div>
+
+                            </div>
+
+                            {/* Bottom Visual Terminal Stream */}
+                            <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 5.4 Tax Compliance */}
+                      {/* 5.4 Tax Compliance */}
+                      <div className="space-y-6 pt-10 border-t border-white/5 mt-10">
+                        <div className="space-y-4">
+                          <h4 className="text-red-500 font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                            <ShieldAlert size={16} />
+                            5.4 Tax Compliance Matrix
+                          </h4>
+
+                          <div className="p-8 bg-red-600/5 border border-red-500/20 rounded-[3rem] relative overflow-hidden group transition-all duration-500 hover:border-red-500/40">
+                            {/* Background Icon Watermark */}
+                            <div className="absolute top-0 right-0 p-8 opacity-[0.05] -rotate-12 group-hover:opacity-[0.08] transition-opacity">
+                              <Scale size={150} className="text-red-500" />
+                            </div>
+
+                            <div className="relative z-10 space-y-8">
+                              {/* Intro Directive */}
+                              <p className="text-[13px] text-gray-300 font-mono uppercase leading-relaxed font-bold">
+                                Security Researchers are <span className="text-red-500 underline decoration-red-500/30 underline-offset-4">solely responsible</span> for the following taxation and regulatory protocols:
+                              </p>
+
+                              {/* Requirements Grid */}
+                              <div className="grid md:grid-cols-1 gap-4">
+                                {[
+                                  {
+                                    title: "Tax Identification Number (TIN)",
+                                    desc: "Obtaining Tax Identification Number (TIN) from the National Board of Revenue (NBR).",
+                                    icon: <Fingerprint size={14} />
+                                  },
+                                  {
+                                    title: "Income Tax Returns",
+                                    desc: "Filing income tax returns as per the Income Tax Ordinance, 1984.",
+                                    icon: <FileText size={14} />
+                                  },
+                                  {
+                                    title: "Reward Taxation",
+                                    desc: "Paying all applicable taxes on rewards received through the platform.",
+                                    icon: <DollarSign size={14} />
+                                  },
+                                  {
+                                    title: "VAT & Supplementary Duty",
+                                    desc: "Complying with Value Added Tax and Supplementary Duty Act, 2012 if applicable.",
+                                    icon: <Gavel size={14} />
+                                  }
+                                ].map((item, i) => (
+                                  <div key={i} className="flex items-start gap-4 p-5 bg-black/60 rounded-2xl border border-white/5 group/item hover:border-red-500/30 transition-all">
+                                    <div className="mt-1 text-red-500 opacity-50 group-hover/item:opacity-100 transition-opacity">
+                                      {item.icon}
+                                    </div>
+                                    <div className="space-y-1">
+                                      <h6 className="text-white font-black text-[10px] uppercase tracking-widest">{item.title}</h6>
+                                      <p className="text-[11px] text-gray-500 font-mono uppercase leading-relaxed italic">
+                                        {item.desc}
+                                      </p>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              {/* Critical Legal Disclaimer Box */}
+                              <div className="p-4 bg-red-900/10 border-l-2 border-red-600 rounded-r-xl">
+                                <div className="flex items-center gap-3">
+                                  <AlertCircle size={14} className="text-red-500" />
+                                  <p className="text-[9px] text-red-400 font-mono uppercase tracking-tighter leading-relaxed">
+                                    <span className="font-black mr-1">System_Disclaimer:</span>
+                                    The platform acts as a zero-liability intermediary regarding individual tax filings. Failure to align with NBR directives may result in legal consequences under Bangladesh law.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Bottom Visual Bit Stream */}
+                            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 5.5 Security Researchers' Status */}
+                    {/* 5.5 Security Researchers' Status */}
+                    <div className="space-y-6 pt-10 border-t border-white/5 mt-10">
+                      <div className="space-y-4">
+                        <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2">
+                          <Fingerprint size={16} className="text-green-500" />
+                          5.5 Security Researchers' Status & Affiliation
+                        </h4>
+
+                        <div className="p-8 bg-zinc-950/40 border border-white/5 rounded-[2.5rem] relative overflow-hidden group hover:border-green-500/10 transition-all duration-500">
+                          {/* Background Icon Watermark */}
+                          <div className="absolute -top-10 -right-10 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+                            <Users size={200} className="text-green-500" />
+                          </div>
+
+                          <div className="relative z-10 space-y-8">
+                            {/* Legal Affiliation Awareness */}
+                            <div className="space-y-4">
+                              <p className="text-[13px] text-gray-300 font-mono uppercase leading-relaxed tracking-tight">
+                                Security Researchers are informed that their activity on the Platform is likely to be subject to <span className="text-white font-bold italic underline decoration-green-500/30">affiliation to a specific legal status</span> under Bangladesh law.
+                              </p>
+                              <div className="p-4 bg-black/40 rounded-2xl border border-white/5 italic">
+                                <p className="text-[11px] text-gray-500 font-mono uppercase leading-relaxed">
+                                  &gt; Researchers shall make the <span className="text-white">necessary enquiries</span> and carry out the <span className="text-white">required formalities</span> to acquire the legal status relevant to their situation.
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Sole Responsibility Clause */}
+                            <div className="p-6 bg-green-500/5 border-l-2 border-green-600 rounded-r-3xl">
+                              <p className="text-[12px] text-gray-300 font-mono uppercase leading-relaxed italic">
+                                "Security Researchers are made aware that the income derived is subject to various <span className="text-white">legal, social, accounting and tax requirements</span>. Researchers acknowledge it is their <span className="text-green-500 font-black underline decoration-white/20">sole responsibility</span> to comply with these parameters."
+                              </p>
+                            </div>
+
+                            {/* Requirements Grid (Mandatory Actions) */}
+                            <div className="space-y-4">
+                              <h5 className="text-green-900 font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+                                <Terminal size={12} /> Mandatory_Compliance_Checklist
+                              </h5>
+
+                              <div className="grid sm:grid-cols-2 gap-4">
+                                {/* 1. NBR Declaration */}
+                                <div className="p-5 bg-black/60 rounded-2xl border border-white/5 group/item hover:border-green-500/30 transition-all">
+                                  <span className="text-[9px] text-green-700 uppercase font-black block mb-2 tracking-widest">Protocol_01: NBR</span>
+                                  <h6 className="text-white font-bold text-[11px] uppercase mb-1">NBR Declarations</h6>
+                                  <p className="text-[10px] text-gray-500 font-mono uppercase leading-relaxed">Make all declarations required by the National Board of Revenue (NBR).</p>
+                                </div>
+
+                                {/* 2. Income Tax Ordinance */}
+                                <div className="p-5 bg-black/60 rounded-2xl border border-white/5 group/item hover:border-green-500/30 transition-all">
+                                  <span className="text-[9px] text-green-700 uppercase font-black block mb-2 tracking-widest">Protocol_02: TAX_LAW</span>
+                                  <h6 className="text-white font-bold text-[11px] uppercase mb-1">Income Tax Compliance</h6>
+                                  <p className="text-[10px] text-gray-500 font-mono uppercase leading-relaxed">Comply with the provisions of the <span className="text-green-500 italic">Income Tax Ordinance, 1984</span>.</p>
+                                </div>
+
+                                {/* 3. Record Keeping */}
+                                <div className="p-5 bg-black/60 rounded-2xl border border-white/5 group/item hover:border-green-500/30 transition-all">
+                                  <span className="text-[9px] text-green-700 uppercase font-black block mb-2 tracking-widest">Protocol_03: ACCOUNTING</span>
+                                  <h6 className="text-white font-bold text-[11px] uppercase mb-1">Book-keeping</h6>
+                                  <p className="text-[10px] text-gray-500 font-mono uppercase leading-relaxed">Maintain proper books of accounts if required under applicable laws.</p>
+                                </div>
+
+                                {/* 4. VAT Registration */}
+                                <div className="p-5 bg-black/60 rounded-2xl border border-white/5 group/item hover:border-green-500/30 transition-all">
+                                  <span className="text-[9px] text-green-700 uppercase font-black block mb-2 tracking-widest">Protocol_04: VAT</span>
+                                  <h6 className="text-white font-bold text-[11px] uppercase mb-1">VAT Registration</h6>
+                                  <p className="text-[10px] text-gray-500 font-mono uppercase leading-relaxed">Register for VAT if turnover exceeds the threshold prescribed under VAT laws.</p>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 5.6 Company's Obligations */}
+                    <div className="p-8 bg-white/5 border border-white/10 rounded-[1.5rem] relative">
+                      <div className="flex flex-col md:flex-row justify-between gap-8 items-start">
+                        <div className="space-y-6 flex-1">
+                          <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2 italic">
+                            <ShieldCheck size={20} className="text-green-500" /> 5.6 Company's obligations towards Security Researchers
+                          </h4>
+                          <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                            The Company can <span className="text-red-500 font-bold underline decoration-red-500/20">under no circumstances</span> be be involved in any of the above steps and its
+                            liability can, under no circumstances and for any reason whatsoever, be sought in relation to
+                            any of these legal, social, accounting and tax obligations.
+                          </p>
+                          <p className='text-sm'>
+                            <span className='block md:inline'>The Company's obligations</span>
+                            <span className='block md:inline'> are strictly limited to :</span>
+                          </p>
+                          <div className="grid md:grid-cols-1 gap-2 pt-2">
+                            {[
+                              "Informing Security Researchers of the existence of such requirements which are to be carried out by the Security Researchers, at their own expense",
+                              "Providing them with a document summarizing all transactions made on the Platform",
+                              "Withholding tax as required under Bangladesh law (if applicable)"
+                            ].map((txt, idx) => (
+                              <div key={idx} className="flex items-center gap-3 p-3 bg-black/60 rounded-xl border border-white/5">
+                                <div className="text-green-500 text-[10px] font-mono">0{idx + 1}</div>
+                                <p className="text-[10px] text-gray-500 font-mono uppercase tracking-tight italic">{txt}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        {/* Summary Sticker */}
+                        <div className="p-8 bg-green-500/10 border border-green-500/20 rounded-[1.5rem] text-center backdrop-blur-xl shrink-0 self-center">
+                          <History size={32} className="mx-auto text-green-500 mb-4" />
+                          <p className="text-[10px] font-mono text-gray-500 uppercase leading-relaxed font-bold italic">
+                            "Documenting Financial <br /> Transparency Since 2026"
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </section>
 
+                {/* 6. INTELLECTUAL PROPERTY */}
+                <section id="transfer" className="scroll-mt-32">
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="p-3 bg-green-500/10 rounded-2xl text-green-500 border border-green-500/20 shadow-[0_0_20px_rgba(34,197,94,0.1)]">
+                      <Lock size={24} />
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter italic">
+                      6. Intellectual Property
+                    </h2>
+                  </div>
+
+                  <div className="ml-0 md:ml-6 space-y-10 pl-0 md:pl-6 border-l-0 md:border-l border-green-500/20">
+
+                    {/* 6.1 Platform IPRs */}
+                    {/* 6.1 The Platform IPRs */}
+                    <div className="space-y-8">
+                      <div className="space-y-6">
+                        <h4 className="text-white font-black text-sm uppercase tracking-widest flex items-center gap-2 px-4 md:px-0">
+                          <Cpu size={16} className="text-green-500" />
+                          6.1 The Platform IPRs
+                        </h4>
+
+                        <div className="p-6 md:p-10 bg-zinc-950/60 border border-white/5 rounded-[2rem] md:rounded-[3rem] relative overflow-hidden group hover:border-green-500/20 transition-all duration-500">
+                          {/* Background Watermark */}
+                          <div className="absolute -top-10 -right-10 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity">
+                            <Lock size={200} className="text-green-500" />
+                          </div>
+
+                          <div className="relative z-10 space-y-8">
+
+                            {/* Core Retention Clause */}
+                            <div className="p-6 bg-white/5 border border-white/10 rounded-3xl relative">
+                              <p className="text-[13px] md:text-[14px] text-gray-300 font-mono uppercase leading-relaxed italic">
+                                "The Company does and will retain <span className="text-white font-black underline decoration-green-500/50 underline-offset-4">all proprietary and Intellectual Property Rights (IPRs)</span>, title, and interest in and to the Platform and the Materials."
+                              </p>
+                            </div>
+
+                            {/* Definition of "Material" Node */}
+                            <div className="space-y-4">
+                              <h5 className="text-green-500 font-black text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
+                                <Terminal size={12} /> Definition_Protocol: "Material"
+                              </h5>
+                              <div className="p-6 bg-black/40 rounded-[2rem] border border-white/5 space-y-4">
+                                <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                                  For the purpose of this Article, <span className="text-white font-bold">"Material"</span> includes any materials made available to the User by the Company, including but not limited to:
+                                </p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                                  {[
+                                    "Accessible Information & Text",
+                                    "Photos, Images & Sounds",
+                                    "Data & Databases",
+                                    "Standard Templates of Programs",
+                                    "Templates of Vulnerability Reports",
+                                    "Underlying Software & Technology"
+                                  ].map((item, i) => (
+                                    <div key={i} className="flex items-center gap-2 p-2 bg-white/5 rounded-lg border border-white/5">
+                                      <div className="w-1 h-1 bg-green-900 rounded-full"></div>
+                                      <span className="text-[9px] text-gray-500 font-mono uppercase">{item}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Restrictive Usage Clause (The serious warning part) */}
+                            <div className="p-8 bg-red-500/5 border border-red-500/20 rounded-[1.5rem] relative overflow-hidden group/warning">
+                              <div className="absolute inset-0 bg-red-500/5 opacity-0 group-hover/warning:opacity-100 transition-opacity blur-2xl"></div>
+
+                              <div className="relative z-10 space-y-5">
+                                <div className="flex items-center gap-3 text-red-500 mb-4">
+                                  <div className="flex-shrink-0">
+                                    <ShieldAlert size={20} className="animate-pulse" />
+                                  </div>
+                                  <h6 className="font-black text-[10px] sm:text-xs uppercase tracking-[0.1em] sm:tracking-widest leading-none">
+                                    CRITICAL_USAGE_RESTRICTION
+                                  </h6>
+                                </div>
+
+                                <p className="text-[12px] text-gray-300 font-mono uppercase leading-relaxed">
+                                  The User may <span className="text-red-400 font-black">not under any circumstances</span> (except under the limited exception of VDP) store, reproduce, represent, modify, transmit, publish, adapt on any medium whatsoever, by any means whatsoever, or use in any way whatsoever, the elements of the Platform and/or the Materials.
+                                </p>
+
+                                <div className="p-4 bg-black/60 rounded-xl border-l-2 border-red-600 shadow-xl">
+                                  <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed italic">
+                                    <span className="text-white font-black mr-2">&gt; REQUIREMENT:</span>
+                                    Prior written permission of the Company is <span className="text-white underline underline-offset-2">mandatory</span> for any unauthorized use.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+
+                          {/* Bottom Status Stream */}
+                          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/20 to-transparent"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 6.2 Trademarks & 6.4 Platform Data */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      {/* 6.2 Trademarks */}
+                      <div className="p-6 md:p-8 bg-zinc-900/50 border border-white/5 rounded-[2.5rem] space-y-4 relative overflow-hidden group">
+                        <div className="absolute -top-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
+                          <Award size={120} />
+                        </div>
+                        <h4 className="text-white font-black text-xs uppercase tracking-widest flex items-center gap-2">
+                          <Fingerprint size={14} className="text-green-500" /> 6.2 Trademarks
+                        </h4>
+                        <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                          Each party remains the owner of its <span className="text-white font-bold">distinctive signs</span> (trademarks, corporate names, trade names). Reproduction or imitation belonging to the Company is <span className="text-red-500 underline">strictly prohibited</span> without written consent.
+                        </p>
+                      </div>
+
+                      {/* 6.4 Platform Data */}
+                      <div className="p-6 md:p-8 bg-zinc-900/50 border border-white/5 rounded-[2.5rem] space-y-4 relative overflow-hidden group">
+                        <div className="absolute -top-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
+                          <Database size={120} />
+                        </div>
+                        <h4 className="text-white font-black text-xs uppercase tracking-widest flex items-center gap-2">
+                          <ShieldCheck size={14} className="text-green-500" /> 6.4 Platform Data
+                        </h4>
+                        <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
+                          The Company retains <span className="text-white font-bold">exclusive ownership</span> of interactions, stats, and metadata generated within the Platform. Users agree not to extract, use, or replicate part of this data without consent.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* 6.3 Copyright Protection Laws (The Legal Base) */}
+                    <div className="p-8 bg-green-500/5 border border-green-500/20 rounded-[2.5rem] md:rounded-[3rem] relative overflow-hidden">
+                      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-3">
+                            <Gavel size={18} className="text-green-500" />
+                            <h4 className="text-white font-black text-sm uppercase tracking-[0.2em]">6.3 Legal Framework</h4>
+                          </div>
+                          <p className="text-[11px] text-gray-500 font-mono uppercase leading-relaxed max-w-xl">
+                            All Intellectual Property rights are protected under the following jurisdictions of Bangladesh:
+                          </p>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {[
+                              "The Copyright Act, 2000 (as amended)",
+                              "The Patent Design and Trademark Act, 2022",
+                              "International Signed Conventions"
+                            ].map((law, i) => (
+                              <li key={i} className="flex items-center gap-2 text-[10px] text-green-700 font-mono uppercase font-bold italic">
+                                <div className="w-1 h-1 bg-green-500 rounded-full shadow-[0_0_5px_#22c55e]"></div> {law}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="hidden md:block">
+                          <div className="p-6 bg-black border border-green-900/30 rounded-full">
+                            <span className="text-[12px] font-black text-green-500 rotate-12 block uppercase">IPR_PROTECT</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </section>
               </div>
 
               {/* --- 14. CONTACT INFORMATION (Final Footer) --- */}

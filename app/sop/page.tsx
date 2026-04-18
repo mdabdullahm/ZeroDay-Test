@@ -20,9 +20,9 @@ import {
     Building,
     Handshake,
     Cpu,
-    Menu, 
-    X,    
-    ArrowLeft, 
+    Menu,
+    X,
+    ArrowLeft,
     ChevronRight
 } from 'lucide-react';
 
@@ -42,7 +42,7 @@ const sopSections = [
 export default function SOPPage() {
     const handlePrint = () => window.print();
     const router = useRouter();
-    const [isMenuOpen, setIsMenuOpen] = useState(false); 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const Trophy = ({ size, className }: { size: number, className?: string }) => <Zap size={size} className={className} />;
     const Clock = ({ size, className }: { size: number, className?: string }) => <History size={size} className={className} />;
@@ -658,9 +658,24 @@ export default function SOPPage() {
                                                     ZeroDay Test charges <span className="text-white font-bold">15%</span> of every bounty paid by the client.
                                                 </p>
                                                 <div className="p-4 bg-black/40 rounded-xl border border-white/5 inline-block">
-                                                    <p className="text-[11px] font-mono text-gray-500 uppercase">
-                                                        <span className="text-green-500">Example:</span> BDT 50,000 (High Bug) ➔ <span className="text-red-500">BDT 7,500</span> (ZDT Fee) + <span className="text-green-500">BDT 42,500</span> (Hunter Pay)
-                                                    </p>
+                                                    <div className="p-4 bg-black/40 border border-white/5 rounded-2xl">
+                                                        <p className="text-[10px] md:text-[11px] font-mono text-gray-500 uppercase leading-relaxed">
+                                                            {/* উপরের অংশ: হান্টারের বাউন্টি */}
+                                                            <span className="text-green-500 font-black">EXAMPLE:</span>
+                                                            <span className="text-gray-300 ml-1">A Hunter Received a Bounty BDT 50,000 (High Severity)</span>
+
+                                                            <span className="mx-2 text-gray-700 hidden md:inline">|</span>
+                                                            <span className="text-red-500 mx-1">➔</span>
+
+                                                            {/* নিচের অংশ: ক্লায়েন্টের পেমেন্ট এবং ডিস্ট্রিবিউশন */}
+                                                            <span className="text-white">Total <span className="font-black">57,500 BDT</span> will be paid by the Client</span>
+
+                                                            <span className="block mt-2 pl-4 border-l-2 border-green-500/20 text-[9px] md:text-[10px]">
+                                                                where <span className="text-red-400">BDT 7,500</span> will be charged (<span className="italic">ZDT Fee</span>) +
+                                                                <span className="text-green-400 font-black ml-1">BDT 50,000</span> (Hunter will receive)
+                                                            </span>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

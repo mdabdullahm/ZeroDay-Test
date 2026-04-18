@@ -106,7 +106,8 @@ import {
   RefreshCw,
   XCircle,
   DollarSign,
-  Award
+  Award,
+  FileBadge
 } from 'lucide-react';
 
 const sections = [
@@ -2652,12 +2653,107 @@ export default function PrivacyPolicyPage() {
                           <Award size={120} />
                         </div>
                         <h4 className="text-white font-black text-xs uppercase tracking-widest flex items-center gap-2">
-                          <Fingerprint size={14} className="text-green-500" /> 6.2 Trademarks
+                          <Fingerprint size={14} className="text-green-500" /> 6.2 Trademark and Distinctive Signs
                         </h4>
                         <p className="text-[11px] text-gray-400 font-mono uppercase leading-relaxed">
-                          Each party remains the owner of its <span className="text-white font-bold">distinctive signs</span> (trademarks, corporate names, trade names). Reproduction or imitation belonging to the Company is <span className="text-red-500 underline">strictly prohibited</span> without written consent.
+                          Each party is and will remain the owner, as far as it is concerned, of its distinctive signs,
+                          namely trademarks, corporate and other names, trade names, brand names and domain names.
+                          Reproduction, imitation, or affixing, in whole or in part, of trademarks or designs or models
+                          belonging to the Company is strictly prohibited without its prior written consent. The User
+                          shall respect all mentions relating to the Intellectual Property Rights appearing on the
+                          Platform and/or the Materials and shall not alter, delete, modify, or otherwise infringe upon
+                          them.
                         </p>
                       </div>
+
+                      {/* 6.3 Copyright Protection Node - Fully Responsive Fix */}
+                      <div className="space-y-8 pt-10 border-t border-white/5 mt-10 md:mt-12">
+  <div className="space-y-6">
+    {/* Section Header - মোবাইলে সেন্টারে থাকবে */}
+    <div className="flex flex-col md:flex-row items-center md:items-center gap-4 px-4 md:px-0 text-center md:text-left">
+      <div className="p-2.5 bg-green-500/10 rounded-xl border border-green-500/20 shadow-[0_0_15px_rgba(34,197,94,0.1)]">
+        <Gavel size={20} className="text-green-500" />
+      </div>
+      <h4 className="text-white font-black text-sm md:text-lg uppercase tracking-[0.15em] md:tracking-[0.2em] italic leading-tight">
+        6.3 Copyright Protection <span className="hidden md:inline">&</span> <br className="md:hidden" /> Jurisdictions
+      </h4>
+    </div>
+
+    {/* Main Content Container */}
+    <div className="w-full bg-zinc-950/60 border border-white/5 rounded-[1.5rem] md:rounded-[3rem] p-5 sm:p-8 md:p-12 relative overflow-hidden group hover:border-green-500/20 transition-all duration-500 shadow-2xl">
+      
+      {/* Background Matrix Effect (Subtle) - মোবাইলে কমানো হয়েছে */}
+      <div className="absolute inset-0 opacity-[0.02] md:opacity-[0.04] pointer-events-none font-mono text-[8px] md:text-[10px] p-4 md:p-6 break-all leading-tight select-none">
+        {Array(8).fill("LEGAL_JURISDICTION_PROTECTED_BY_BYTE_CAPSULE_").join(" ")}
+      </div>
+
+      <div className="relative z-10 space-y-8 md:space-y-10">
+        {/* Intro Text */}
+        <p className="text-gray-400 font-mono text-[10px] sm:text-[11px] md:text-[13px] uppercase leading-relaxed tracking-wide max-w-3xl text-center md:text-left mx-auto md:mx-0">
+          All intellectual property rights associated with the Platform are 
+          <span className="text-white font-black underline decoration-green-500/40 underline-offset-4 ml-1">
+            strictly protected
+          </span> under the legislative frameworks of Bangladesh:
+        </p>
+
+        {/* Laws Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {[
+            {
+              title: "The Copyright Act, 2000",
+              desc: "As amended and updated periodically to ensure digital content safety.",
+              icon: <FileSignature size={20} />
+            },
+            {
+              title: "Patent & Trademarks Act, 2022",
+              desc: "Governing the Patent, Design and Trademark Act jurisdiction.",
+              icon: <FileBadge size={20} />
+            },
+            {
+              title: "International Conventions",
+              desc: "Global treaties and intellectual property protocols where Bangladesh is a signatory.",
+              icon: <Globe size={20} />
+            }
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col h-full p-5 md:p-6 bg-black/40 border border-white/10 rounded-[1.5rem] md:rounded-[2rem] group/item hover:border-green-500/40 hover:bg-black/60 transition-all duration-300">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="shrink-0 p-3 bg-green-500/5 rounded-2xl text-green-600 group-hover/item:text-green-400 group-hover/item:bg-green-500/10 transition-all">
+                  {item.icon}
+                </div>
+                <h6 className="text-white font-black text-[10px] md:text-[12px] uppercase tracking-tight leading-tight">
+                  {item.title}
+                </h6>
+              </div>
+              <p className="text-[9px] md:text-[10px] text-gray-500 font-mono uppercase leading-relaxed italic mt-auto border-t border-white/5 pt-4">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Tactical Footer Badge */}
+        <div className="pt-6 md:pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div className="flex items-center gap-3 px-4 py-2 bg-green-500/5 border border-green-500/20 rounded-full w-full sm:w-auto justify-center">
+            <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
+            <span className="text-[9px] md:text-[10px] font-mono text-green-500 font-black uppercase tracking-widest">
+              Legal_Enforcement: Active
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2 text-[9px] font-mono text-gray-600 uppercase tracking-tighter">
+            <ShieldCheck size={12} className="text-green-900/50" />
+            Jurisdiction: PR of Bangladesh
+          </div>
+        </div>
+      </div>
+
+      {/* Background Watermark - মোবাইলে ছোট করা হয়েছে */}
+      <div className="absolute -bottom-10 -right-10 md:-bottom-8 md:-right-8 opacity-[0.02] pointer-events-none group-hover:opacity-[0.05] transition-opacity duration-1000">
+        <Scale size={180} className="md:w-[240px] md:h-[240px]" />
+      </div>
+    </div>
+  </div>
+</div>
 
                       {/* 6.4 Platform Data */}
                       <div className="p-6 md:p-8 bg-zinc-900/50 border border-white/5 rounded-[2.5rem] space-y-4 relative overflow-hidden group">

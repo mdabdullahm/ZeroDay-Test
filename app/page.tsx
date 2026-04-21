@@ -1,7 +1,7 @@
 import About from "@/components/home/About";
 import Achievements from "@/components/home/Achievements";
 import CaseStudies from "@/components/home/CaseStudies";
-import Contact from "@/components/home/Contact";
+// import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
 import Services from "@/components/home/Services";
 import Testimonials from "@/components/home/Testimonials";
@@ -26,7 +26,7 @@ export default function Home() {
       {/* ntercepted Feedbac section 7 */}
       <Testimonials/>
       {/*  Contact section 8 */}
-      <Contact/>
+      {/* <Contact/> */}
     </main>
   );
 }

@@ -45,7 +45,7 @@ const ContactHero = () => {
                   </div>
                   <div>
                      <p className="text-[10px] font-mono text-gray-600 uppercase">Secure Relay</p>
-                     <p className="text-white font-bold text-sm">secure@zerodaytest.com</p>
+                     <p className="text-white font-bold text-sm">pentest@bytecapsuleit.com</p>
                   </div>
                </div>
                <div className="flex items-center gap-4">

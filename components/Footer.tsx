@@ -43,7 +43,7 @@ const Footer = () => {
       { name: "Technology", href: "https://zerodaytest.com/contact" },
       { name: "Government", href: "https://zerodaytest.com/contact" },
       { name: "Security", href: "https://zerodaytest.com/contact" },
-      { name: "Company Docs", href: "https://zerodaytest.com/docs" }
+      { name: "Company Docs", href: "/docs" }
     ],
     forHackers: [
       { name: "Programs", href: "https://zt.zerodaytest.com/dashboard/hacker/programs" },

@@ -275,7 +275,7 @@ const TestingScope = () => {
            >
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_#22c55e]"></div>
               <p className="text-[9px] md:text-[10px] font-mono text-gray-500 uppercase tracking-[0.3em]">
-                All operations are <span className="text-green-700">ISO 27001</span> and <span className="text-green-700">SOC 2</span> Compliant
+                All operations are <span className="text-green-700">ISO 27001</span> Compliant
               </p>
            </motion.div>
         </div>

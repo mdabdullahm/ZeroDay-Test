@@ -126,7 +126,7 @@ const WhatIsHoy = () => {
             </div>
 
             <div className="mt-10 p-4 border-l-2 border-green-500/30 bg-white/5 font-mono text-[11px] text-gray-400">
-               &gt; HoyZeroTest utilizes decentralized computing to analyze exploits across distributed networks.
+               &gt; ZeroTest utilizes decentralized computing to analyze exploits across distributed networks.
             </div>
           </motion.div>
 

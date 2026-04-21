@@ -7,7 +7,7 @@ import { ShieldCheck, Bug, AlertCircle, Gift, ChevronRight } from 'lucide-react'
 
 const ResponsibleDisclosure = () => {
   return (
-    <section className="relative py-16 bg-black overflow-hidden border-t border-white/5">
+    <section id="disclosure-section" className="relative py-16 bg-black overflow-hidden border-t border-white/5">
       <div className="max-w-full mx-auto px-6 lg:px-20 relative z-10">
         
         {/* Header */}

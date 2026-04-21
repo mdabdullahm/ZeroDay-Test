@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 export default function HackerDocsPage() {
 
-  // কার্ডের ডাটা
+  // card data
   const docCards = [
     {
       title: "Customer Doc",
@@ -17,7 +17,7 @@ export default function HackerDocsPage() {
       icon: <Building2 className="text-green-500" size={32} />,
       status: "SECURE",
       color: "from-blue-500/10",
-      link: "/customerdoc" // তোমার লিংক এখানে দাও
+      link: "/customerdoc"
     },
     {
       title: "User Doc",
@@ -25,7 +25,7 @@ export default function HackerDocsPage() {
       icon: <Users className="text-green-500" size={32} />,
       status: "ENCRYPTED",
       color: "from-green-500/10",
-      link: "https://drive.google.com/file/d/1G-xm6qydX4naengUq25EAsG8fwfuUI7N/preview" // তোমার লিংক এখানে দাও
+      link: "https://drive.google.com/file/d/1G-xm6qydX4naengUq25EAsG8fwfuUI7N/preview" 
     },
     {
       title: "SOP Protocol",
@@ -33,7 +33,7 @@ export default function HackerDocsPage() {
       icon: <Activity className="text-green-500" size={32} />,
       status: "ACTIVE",
       color: "from-red-500/10",
-      link: "/sop" // আগের করা সেই মেথডোলজি পেজ
+      link: "/sop"
     }
   ];
 

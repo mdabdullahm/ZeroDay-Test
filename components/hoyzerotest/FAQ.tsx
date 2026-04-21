@@ -6,7 +6,7 @@ import { HelpCircle, ChevronDown, Terminal, Zap, ShieldQuestion } from 'lucide-r
 
 const faqs = [
   {
-    question: "Is HoyZeroTest really free?",
+    question: "Is WhyZeroTest really free?",
     answer: "Some of our basic scanning and academy modules are open to everyone. However, advanced enterprise audits and custom exploit labs require a premium subscription."
   },
   {

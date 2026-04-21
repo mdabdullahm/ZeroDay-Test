@@ -89,8 +89,9 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
           <div className="flex flex-col items-center gap-2">
+            {/* qrcode */}
             <div className="p-3 bg-white rounded-xl">
-              <QrCode size={70} className="text-black" />
+              <img src="/qrcode.png" alt="" className='w-32 h-32' />
             </div>
             <button onClick={handlePrint} className="flex items-center gap-2 text-[10px] font-mono text-green-500 hover:text-white transition-colors uppercase tracking-widest">
               <Printer size={12} /> Print_Protocol

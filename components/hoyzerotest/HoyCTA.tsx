@@ -80,7 +80,7 @@ const HoyCTA = () => {
 
         {/* Closing Footnote */}
         <p className="mt-10 text-[9px] font-mono text-gray-500 uppercase tracking-[0.5em]">
-           Establish Connection_ | Node Active_ | ZeroDay Test Lab v2.4.0
+           Establish Connection_ | Node Active_ | ZeroDay Test Lab v1.0.0
         </p>
 
       </div>

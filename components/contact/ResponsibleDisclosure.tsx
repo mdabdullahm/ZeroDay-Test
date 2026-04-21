@@ -1,6 +1,7 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Bug, ShieldCheck, Award, Key, Terminal, AlertCircle, FileLock } from 'lucide-react';
+import Link from 'next/link';
 
 const disclosurePoints = [
   {
@@ -110,9 +111,9 @@ const ResponsibleDisclosure = () => {
                        {[1,2,3,4].map(i => <div key={i} className="w-4 h-1 bg-green-900 rounded-full"></div>)}
                     </div>
                  </div>
-                 <button className="mt-8 w-full lg:w-auto px-10 py-4 bg-white/5 hover:bg-green-600 border border-white/10 hover:border-green-600 text-white hover:text-black font-black rounded-xl text-xs transition-all uppercase tracking-widest flex items-center justify-center gap-2">
+                 <Link href="/policy#disclosure-section" className="mt-8 w-full lg:w-auto px-10 py-4 bg-white/5 hover:bg-green-600 border border-white/10 hover:border-green-600 text-white hover:text-black font-black rounded-xl text-xs transition-all uppercase tracking-widest flex items-center justify-center gap-2">
                     <Terminal size={16} /> READ_FULL_DISCLOSURE_POLICY
-                 </button>
+                 </Link>
               </div>
            </div>
         </div>

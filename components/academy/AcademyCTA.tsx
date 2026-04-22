@@ -74,7 +74,7 @@ const AcademyCTA = () => {
 
         {/* Closing Security Tagline */}
         <p className="mt-10 text-[9px] font-mono text-white uppercase tracking-[0.5em]">
-           Establish Link_ | Encrypting Session_ | ZeroDay Academy v2.4
+           Establish Link_ | Encrypting Session_ | ZeroDay Academy v1.0
         </p>
 
       </div>

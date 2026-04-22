@@ -132,7 +132,7 @@ const DataProtection = () => {
           whileInView={{ opacity: 1 }}
           className="mt-20 p-8 border border-green-500/10 bg-green-500/5 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
-           <div className="flex items-center gap-4">
+           <div id="security-policy-section" className="flex items-center gap-4">
               <Zap size={32} className="text-green-500" />
               <p className="text-sm font-mono text-gray-400">
                 Our security protocols <span className="text-white">ISO 27001</span> Designed according to standards <span className="text-white"> Here is the General </span> Conditions of Use.

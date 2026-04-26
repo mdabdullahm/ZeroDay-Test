@@ -179,7 +179,7 @@ const CaseStudies = () => {
   const [loading, setLoading] = useState(true);
 
   // ২. আপনার মেইন ডোমেইন এখানে দিন
-  const BASE_URL = "https://www.zerodaytest.com"; 
+  const BASE_URL = "https://zt.zerodaytest.com"; 
 
   // ৩. ডাটা ফেচ করার ফাংশন
   useEffect(() => {

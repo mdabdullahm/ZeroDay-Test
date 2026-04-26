@@ -72,7 +72,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https:; " +
       "font-src 'self' https: data:; " +
       // connect-src যোগ করা হয়েছে যাতে ড্রাইভের ভেতরে ফাইল সার্চ বা লোড করা যায়
-      "connect-src 'self' https://*.google.com;",
+     "connect-src 'self' https://*.google.com https://zt.zerodaytest.com;",
   },
   {
     key: "X-Frame-Options",

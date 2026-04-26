@@ -165,7 +165,7 @@ const SampleFindings = () => {
   const [loading, setLoading] = useState(true);
 
   // ২. আপনার ডোমেইন
-  const BASE_URL = "https://www.zerodaytest.com";
+  const BASE_URL = "https://zt.zerodaytest.com";
 
   // ৩. ডাটা নিয়ে আসার লজিক
   useEffect(() => {

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 // import CustomCursor from "@/components/layout/CustomCursor";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 // security layer for right click and keyboard shortcut prevention
-// import SecurityLayer from "@/components/SecurityLayer"; 
+import SecurityLayer from "@/components/SecurityLayer"; 
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${poppins.variable} ${jetbrainsMono.variable}`}>
       <body className=" font-poppins antialiased">
-        {/* <SecurityLayer/> */}
+        <SecurityLayer/>
         {/* <CustomCursor /> */}
         <Navbar />
         <main>{children}</main>

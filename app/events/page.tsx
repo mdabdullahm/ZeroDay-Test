@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const BASE_URL = "https://zt.zerodaytest.com"; 
+const BASE_URL = ""; 
 
 export default function EventsListPage() {
   const [events, setEvents] = useState<any[]>([]);

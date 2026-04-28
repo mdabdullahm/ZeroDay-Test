@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { ArrowLeft, Calendar, MapPin, Users, Zap, Loader2, Radio, Clock } from 'lucide-react';
 
-const BASE_URL = "https://zt.zerodaytest.com";
+const BASE_URL = "";
 
 export default function EventDetailPage() {
   const { slug } = useParams();

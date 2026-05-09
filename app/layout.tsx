@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 // security layer for right click and keyboard shortcut prevention
 import SecurityLayer from "@/components/SecurityLayer"; 
+import CookieBanner from "@/components/CookieBanner";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         {/* <CustomCursor /> */}
         <Navbar />
         <main>{children}</main>
+        <CookieBanner/>
         <ScrollToTop />
         <Footer/>
       </body>

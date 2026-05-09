@@ -478,15 +478,11 @@ const Leaderboard = () => {
                           <img src={getFlagURL(leader.country)} alt="" className="w-6 h-4 object-cover rounded-sm shadow-sm" />
                           <span className="hidden sm:block text-[9px] font-mono text-gray-500 uppercase tracking-widest">{getCountryName(leader.country)}</span>
                         </div>
-                        <div className="flex flex-col items-end justify-center min-w-[60px] md:min-w-[80px]">
-                          <div className="flex items-baseline gap-1">
-                            <span className="text-green-500 font-black text-xl md:text-2xl tabular-nums tracking-tighter leading-none">
-                              {leader.points}
-                            </span>
-                            <span className="text-[10px] md:text-xs text-green-700 font-bold uppercase leading-none">
-                              pts
-                            </span>
-                          </div>
+                        {/* pts */}
+
+                        <div className="text-right min-w-[80px]">
+                          <span className="text-green-500 font-black text-lg md:text-xl tabular-nums tracking-tighter">{leader.points}</span>
+                          <span className="text-[8px] text-green-900 font-black ml-1 uppercase">pts</span>
                         </div>
                       </div>
                     </div>
